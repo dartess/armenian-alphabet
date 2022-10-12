@@ -1,0 +1,12 @@
+.root {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.letter {
+
+}
