@@ -1,5 +1,6 @@
 {
   "name": "armenian-alphabet",
+  "homepage": "https://dartess.github.io/armenian-alphabet/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
