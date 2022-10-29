@@ -14,11 +14,6 @@ type Props = {
 export const CompareTask = ({ taskKey, onNextTask }: Props) => {
   const [userAnswerId, setUserAnswerId] = useState<null | string>(null)
 
-  useEffect(
-    () => setUserAnswerId(null),
-    [taskKey]
-  );
-
   const { questionLetter, answerLetters, unitFrom, unitTo } = useMemo(
     () => getCompareTaskQuestion(taskKey),
     [taskKey]
@@ -67,7 +62,10 @@ export const CompareTask = ({ taskKey, onNextTask }: Props) => {
         </div>
         <div className={styles.actions}>
             <Button
-                onClick={onNextTask}
+                onClick={() => {
+                  setUserAnswerId(null);
+                  onNextTask();
+                }}
                 type="button"
                 variant="outlined"
             >
