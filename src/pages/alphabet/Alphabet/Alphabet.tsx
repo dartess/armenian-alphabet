@@ -1,7 +1,7 @@
-import { alphabet } from '../../alphabet';
-import { Letter } from "../Letter/Letter";
-import { LetterView } from "../LetterView/LetterView";
-import { LetterType, TotalProgress } from "../../model";
+import { alphabet } from '@/constants/alphabet';
+import { Letter } from "@/components/Letter/Letter";
+import { LetterView } from "@/components/LetterView/LetterView";
+import { LetterType, TotalProgress } from "@/types/model";
 
 import styles from './Alphabet.module.css';
 import { useEffect, useState } from "react";

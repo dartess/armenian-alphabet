@@ -1,7 +1,7 @@
 import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { LetterType, LetterState } from "../../model";
+import { LetterType, LetterState } from "@/types/model";
 
 import styles from './LetterView.module.css'
 import { Letter } from "../Letter/Letter";

@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import { Alphabet } from "./components/Alphabet/Alphabet";
+import { Layout } from "@/components/Layout/Layout";
 
 function App() {
   return (
-      <Alphabet />
+      <Layout />
   );
 }
 

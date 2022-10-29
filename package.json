@@ -23,9 +23,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "PORT=3006 react-scripts start",
-    "build": "react-scripts build && mv build docs",
-    "test": "react-scripts test",
+    "start": "PORT=3006 react-app-rewired start",
+    "build": "react-app-rewired build && mv build docs",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/css-modules": "^1.0.2",
+    "react-app-rewire-alias": "^1.1.7",
+    "react-app-rewired": "^2.2.1"
   }
 }

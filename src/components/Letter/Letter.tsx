@@ -1,4 +1,4 @@
-import { LetterState, LetterType } from "../../model";
+import { LetterState, LetterType } from "@/types/model";
 import styles from './Letter.module.css';
 import cn from 'classnames';
 import { Fragment } from "react";
