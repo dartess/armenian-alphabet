@@ -1,30 +1,32 @@
-import { useLocation } from "wouter";
+import { useState } from "react";
+
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import QuizIcon from '@mui/icons-material/Quiz';
 
 import styles from './Layout.module.css'
 import { IconAyb } from "./view/IconAyb";
+import { PageValue } from "@/types/model";
 import { Router } from "@/components/Router/Router";
 import { Paper } from "@mui/material";
 
 export const Layout = () => {
-  const [location, setLocation] = useLocation();
+  const [page, setPage] = useState<PageValue>('alphabet');
 
   return <div className={styles.root}>
     <main className={styles.main}>
-      <Router />
+      <Router page={page}/>
     </main>
     <div className={styles.footer}>
       <Paper elevation={3}>
         <BottomNavigation
-          value={location}
+          value={page}
           onChange={(event, newValue) => {
-            setLocation(newValue);
+            setPage(newValue);
           }}
         >
-          <BottomNavigationAction label="Алфавит" icon={<IconAyb/>} value='/alphabet'/>
-          <BottomNavigationAction label="Практика" icon={<QuizIcon/>} value='/practice'/>
+          <BottomNavigationAction label="Алфавит" icon={<IconAyb/>} value='alphabet'/>
+          <BottomNavigationAction label="Практика" icon={<QuizIcon/>} value='practice'/>
         </BottomNavigation>
       </Paper>
     </div>
