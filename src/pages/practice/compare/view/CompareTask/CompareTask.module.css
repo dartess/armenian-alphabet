@@ -25,6 +25,10 @@
     grid-column: 1 / 3;
 }
 
+.answerUnit {
+    text-transform: none;
+}
+
 .results {
     grid-area: results;
     display: grid;

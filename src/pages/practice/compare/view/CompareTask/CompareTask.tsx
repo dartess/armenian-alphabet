@@ -52,7 +52,9 @@ export const CompareTask = ({ taskKey, onNextTask }: Props) => {
             }}
             type="button"
             variant="contained"
+            size="large"
             color={color}
+            className={styles.answerUnit}
           >
             {printTaskCompareUnit(answerLetterItem, unitTo)}
           </Button>

@@ -14,8 +14,14 @@ code {
 
 html {
   box-sizing: border-box;
+  height: -webkit-fill-available;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
