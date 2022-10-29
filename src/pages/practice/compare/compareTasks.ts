@@ -2,6 +2,7 @@ import { LetterType } from "@/types/model";
 import { toArray } from "@/utils/toArray";
 import { alphabet } from "@/constants/alphabet";
 import { getRandomItem } from "@/utils/getRandomItem";
+import { shuffleOnPlaceArray } from "@/utils/shuffleOnPlaceArray";
 
 type TaskCompareUnit = 'meta' | 'lowercase' | 'uppercase';
 
@@ -65,6 +66,7 @@ export function getCompareTaskQuestion(taskKey: TaskCompareKey) {
   for (let i = 1; i <= ANSWERS_COUNT - 1; i++) {
     answerLetters.push(getRandomItem(alphabet, { exclude: answerLetters }));
   }
+  shuffleOnPlaceArray(answerLetters);
 
   const { from: unitFrom, to: unitTo } = taskCompareTypes[taskKey]!; // TODO remove !
 
