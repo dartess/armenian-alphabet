@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/armenian-alphabet/static/css/main.9eaa963e.css",
-    "main.js": "/armenian-alphabet/static/js/main.af78ea5f.js",
+    "main.js": "/armenian-alphabet/static/js/main.95936318.js",
     "index.html": "/armenian-alphabet/index.html",
     "main.9eaa963e.css.map": "/armenian-alphabet/static/css/main.9eaa963e.css.map",
-    "main.af78ea5f.js.map": "/armenian-alphabet/static/js/main.af78ea5f.js.map"
+    "main.95936318.js.map": "/armenian-alphabet/static/js/main.95936318.js.map"
   },
   "entrypoints": [
     "static/css/main.9eaa963e.css",
-    "static/js/main.af78ea5f.js"
+    "static/js/main.95936318.js"
   ]
 }
