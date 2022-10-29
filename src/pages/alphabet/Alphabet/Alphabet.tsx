@@ -22,20 +22,18 @@ export function Alphabet() {
     localStorage.setItem('progress', JSON.stringify(totalProgress));
   }, [totalProgress])
 
-  return <div>
-    <ol className={styles.root}>
-      {alphabet.map((letter) => {
-        return <li
-          key={letter.uppercase}
-          className={styles.letter}
-          onClick={() => {
-            setLastOpenedLetter(letter);
-            setIsOpenLetterView(true);
-          }}
-        >
-          <Letter {...letter} state={totalProgress[letter.uppercase]}/>
-        </li>
-      })}
+  return <>
+    <ol className={styles.list}>
+      {alphabet.map((letter) => <li
+        key={letter.uppercase}
+        className={styles.letter}
+        onClick={() => {
+          setLastOpenedLetter(letter);
+          setIsOpenLetterView(true);
+        }}
+      >
+        <Letter {...letter} state={totalProgress[letter.uppercase]}/>
+      </li>)}
     </ol>
     {lastOpenedLetter && <LetterView
         isOpenLetterView={isOpenLetterView}
@@ -49,5 +47,5 @@ export function Alphabet() {
         }}
         state={totalProgress[lastOpenedLetter.uppercase]}
     />}
-  </div>
+  </>
 }

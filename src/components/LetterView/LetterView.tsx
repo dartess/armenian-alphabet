@@ -14,13 +14,19 @@ type Props = {
   state: LetterState;
 }
 
+const statusTexts: Record<LetterState, string> = {
+  new: 'новая буква',
+  progress: 'изучаю',
+  done: 'выучил!'
+}
+
 export function LetterView({ isOpenLetterView, openedLetter, onClose, state, onStateChange }: Props) {
   if (!openedLetter) {
     return null;
   }
   return <Dialog open={isOpenLetterView} onClose={onClose}>
     <div className={styles.root}>
-      <h4>{openedLetter.name}</h4>
+      <h4 className={styles.name}>{openedLetter.name}</h4>
       <div className={styles.basicLetter}>
         <Letter {...openedLetter} />
       </div>
@@ -51,6 +57,9 @@ export function LetterView({ isOpenLetterView, openedLetter, onClose, state, onS
             </span>
           </Button>
         </ButtonGroup>
+      </div>
+      <div className={styles.stateText}>
+        {statusTexts[state]}
       </div>
     </div>
   </Dialog>

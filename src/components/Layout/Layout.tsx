@@ -8,24 +8,27 @@ import styles from './Layout.module.css'
 import { IconAyb } from "./view/IconAyb";
 import { PageValue } from "@/types/model";
 import { Router } from "@/components/Router/Router";
+import { Paper } from "@mui/material";
 
 export const Layout = () => {
   const [page, setPage] = useState<PageValue>('alphabet');
 
   return <div className={styles.root}>
     <main className={styles.main}>
-      <Router page={page} />
+      <Router page={page}/>
     </main>
     <div className={styles.footer}>
-      <BottomNavigation
-        value={page}
-        onChange={(event, newValue) => {
-          setPage(newValue);
-        }}
-      >
-        <BottomNavigationAction label="Алфавит" icon={<IconAyb />} value='alphabet' />
-        <BottomNavigationAction label="Практика" icon={<QuizIcon />} value='practice' />
-      </BottomNavigation>
+      <Paper elevation={3}>
+        <BottomNavigation
+          value={page}
+          onChange={(event, newValue) => {
+            setPage(newValue);
+          }}
+        >
+          <BottomNavigationAction label="Алфавит" icon={<IconAyb/>} value='alphabet'/>
+          <BottomNavigationAction label="Практика" icon={<QuizIcon/>} value='practice'/>
+        </BottomNavigation>
+      </Paper>
     </div>
   </div>
 }

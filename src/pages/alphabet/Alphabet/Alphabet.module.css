@@ -1,10 +1,11 @@
-.root {
+.list {
     margin: 0;
     list-style: none;
-    padding: 0;
+    padding: 10px 12px;
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(4, 1fr);
+    height: 100%;
 }
 
 .letter {
