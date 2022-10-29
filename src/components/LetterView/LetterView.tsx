@@ -27,19 +27,19 @@ export function LetterView({ openedLetter, onClose, state, onStateChange }: Prop
                         variant={state === 'new' ? 'contained' : 'outlined'}
                         onClick={() => onStateChange('new')}
                     >
-                        новая
+                        ❓
                     </Button>
                     <Button
                         variant={state === 'progress' ? 'contained' : 'outlined'}
                         onClick={() => onStateChange('progress')}
                     >
-                        учится
+                        🤔
                     </Button>
                     <Button
                         variant={state === 'done' ? 'contained' : 'outlined'}
                         onClick={() => onStateChange('done')}
                     >
-                        выучено
+                        ✅
                     </Button>
                 </ButtonGroup>
             </div>
