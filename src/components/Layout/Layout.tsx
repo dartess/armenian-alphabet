@@ -2,20 +2,19 @@ import { useState } from "react";
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import QuizIcon from '@mui/icons-material/Quiz';
 
-import { Alphabet } from "@/pages/alphabet/Alphabet/Alphabet";
 import styles from './Layout.module.css'
-
-type PageValue = 'alphabet' | 'practice';
+import { IconAyb } from "./view/IconAyb";
+import { PageValue } from "@/types/model";
+import { Router } from "@/components/Router/Router";
 
 export const Layout = () => {
   const [page, setPage] = useState<PageValue>('alphabet');
 
   return <div className={styles.root}>
     <main className={styles.main}>
-      <Alphabet />
+      <Router page={page} />
     </main>
     <div className={styles.footer}>
       <BottomNavigation
@@ -24,8 +23,8 @@ export const Layout = () => {
           setPage(newValue);
         }}
       >
-        <BottomNavigationAction label="Алфавит" icon={<RestoreIcon />} value='alphabet' />
-        <BottomNavigationAction label="Практика" icon={<FavoriteIcon />} value='practice' />
+        <BottomNavigationAction label="Алфавит" icon={<IconAyb />} value='alphabet' />
+        <BottomNavigationAction label="Практика" icon={<QuizIcon />} value='practice' />
       </BottomNavigation>
     </div>
   </div>
