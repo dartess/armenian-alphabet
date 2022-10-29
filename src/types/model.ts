@@ -1,4 +1,5 @@
 export type LetterType = {
+  id: string;
   uppercase: string;
   lowercase: string;
   name: string;

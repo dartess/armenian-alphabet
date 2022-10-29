@@ -15,7 +15,7 @@ export function Alphabet() {
     if (totalProgressFromStorage) {
       return JSON.parse(totalProgressFromStorage);
     }
-    return Object.fromEntries(alphabet.map(letter => [letter.uppercase, 'new']));
+    return Object.fromEntries(alphabet.map(letter => [letter.lowercase, 'new']));
   });
 
   useEffect(() => {
@@ -25,14 +25,14 @@ export function Alphabet() {
   return <>
     <ol className={styles.list}>
       {alphabet.map((letter) => <li
-        key={letter.uppercase}
+        key={letter.lowercase}
         className={styles.letter}
         onClick={() => {
           setLastOpenedLetter(letter);
           setIsOpenLetterView(true);
         }}
       >
-        <Letter {...letter} state={totalProgress[letter.uppercase]}/>
+        <Letter {...letter} state={totalProgress[letter.lowercase]}/>
       </li>)}
     </ol>
     {lastOpenedLetter && <LetterView
@@ -42,10 +42,10 @@ export function Alphabet() {
         onStateChange={(state) => {
           setTotalProgress({
             ...totalProgress,
-            [lastOpenedLetter.uppercase]: state
+            [lastOpenedLetter.lowercase]: state
           });
         }}
-        state={totalProgress[lastOpenedLetter.uppercase]}
+        state={totalProgress[lastOpenedLetter.lowercase]}
     />}
   </>
 }

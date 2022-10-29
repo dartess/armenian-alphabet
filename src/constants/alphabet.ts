@@ -274,4 +274,7 @@ export const alphabet: Array<LetterType> = [
     transliteration: 'f',
     ipa: 'f',
   },
-];
+].map(letter => ({
+  ...letter,
+  id: `${letter.transliteration}_${letter.ipa}`
+}));

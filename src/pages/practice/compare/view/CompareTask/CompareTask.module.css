@@ -1,0 +1,43 @@
+.root {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    grid-template-areas: "space" "question" "results";
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.question {
+    padding: 0 10vw;
+    grid-area: question;
+    font-size: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr auto auto;
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionUnit {
+    font-size: 60px;
+    grid-column: 1 / 3;
+}
+
+.results {
+    grid-area: results;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.letter {
+    justify-self: end;
+}
+
+.actions {
+    justify-self: start;
+}
+
+
