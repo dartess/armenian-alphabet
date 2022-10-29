@@ -7,7 +7,8 @@ import styles from './Alphabet.module.css';
 import { useEffect, useState } from "react";
 
 export function Alphabet() {
-  const [openedLetter, setOpenedLetter] = useState<LetterType | null>(null);
+  const [isOpenLetterView, setIsOpenLetterView] = useState(false);
+  const [lastOpenedLetter, setLastOpenedLetter] = useState<LetterType | null>(null);
 
   const [totalProgress, setTotalProgress] = useState<TotalProgress>(() => {
     const totalProgressFromStorage = localStorage.getItem('progress');
@@ -27,22 +28,26 @@ export function Alphabet() {
         return <li
           key={letter.uppercase}
           className={styles.letter}
-          onClick={() => setOpenedLetter(letter)}
+          onClick={() => {
+            setLastOpenedLetter(letter);
+            setIsOpenLetterView(true);
+          }}
         >
-          <Letter {...letter} state={totalProgress[letter.uppercase]} />
+          <Letter {...letter} state={totalProgress[letter.uppercase]}/>
         </li>
       })}
     </ol>
-    {openedLetter && <LetterView
-        openedLetter={openedLetter}
-        onClose={() => setOpenedLetter(null)}
+    {lastOpenedLetter && <LetterView
+        isOpenLetterView={isOpenLetterView}
+        openedLetter={lastOpenedLetter}
+        onClose={() => setIsOpenLetterView(false)}
         onStateChange={(state) => {
           setTotalProgress({
             ...totalProgress,
-            [openedLetter.uppercase]: state
+            [lastOpenedLetter.uppercase]: state
           });
         }}
-        state={totalProgress[openedLetter.uppercase]}
+        state={totalProgress[lastOpenedLetter.uppercase]}
     />}
   </div>
 }
