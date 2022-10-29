@@ -25,24 +25,30 @@ export function LetterView({ isOpenLetterView, openedLetter, onClose, state, onS
         <Letter {...openedLetter} />
       </div>
       <div className={styles.state}>
-        <ButtonGroup size='small'>
+        <ButtonGroup>
           <Button
             variant={state === 'new' ? 'contained' : 'outlined'}
             onClick={() => onStateChange('new')}
           >
-            ❓
+            <span className={styles.buttonText}>
+              🆕
+            </span>
           </Button>
           <Button
             variant={state === 'progress' ? 'contained' : 'outlined'}
             onClick={() => onStateChange('progress')}
           >
-            🤔
+            <span className={styles.buttonText}>
+              🎓
+            </span>
           </Button>
           <Button
             variant={state === 'done' ? 'contained' : 'outlined'}
             onClick={() => onStateChange('done')}
           >
-            ✅
+            <span className={styles.buttonText}>
+              ✅
+            </span>
           </Button>
         </ButtonGroup>
       </div>
