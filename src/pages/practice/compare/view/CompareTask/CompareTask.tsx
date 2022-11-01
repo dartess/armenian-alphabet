@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Button from '@mui/material/Button';
 import { TaskKey } from "@/pages/practice/tasks";
 
