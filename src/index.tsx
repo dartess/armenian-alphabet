@@ -10,3 +10,5 @@ const root = ReactDOM.createRoot(
 root.render(
   <App />
 );
+
+console.log('hello from actions')
