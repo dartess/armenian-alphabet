@@ -1,6 +1,5 @@
-import {
-  observable, makeObservable, action, reaction,
-} from 'mobx';
+import { observable, makeObservable, action, reaction } from 'mobx';
+
 import { LetterState, LetterType, TotalProgress } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
 

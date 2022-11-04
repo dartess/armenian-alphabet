@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
 import Button from '@mui/material/Button';
-import { TaskKey } from '@/pages/practice/tasks';
 
-import styles from './CompareTask.module.css';
+import { TaskKey } from '@/pages/practice/tasks';
 import { getCompareTaskQuestion, printTaskCompareUnit } from '@/pages/practice/compare/compareTasks';
 import { Letter } from '@/components/Letter/Letter';
+
+import styles from './CompareTask.module.css';
 
 interface Props {
   taskKey: TaskKey;
@@ -14,9 +15,7 @@ interface Props {
 export function CompareTask({ taskKey, onNextTask }: Props) {
   const [userAnswerId, setUserAnswerId] = useState<null | string>(null);
 
-  const {
-    questionLetter, answerLetters, unitFrom, unitTo,
-  } = useMemo(
+  const { questionLetter, answerLetters, unitFrom, unitTo } = useMemo(
     () => getCompareTaskQuestion(taskKey),
     [taskKey],
   );

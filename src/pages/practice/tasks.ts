@@ -1,9 +1,8 @@
-import { TaskCompareKey, taskCompareTypes } from './compare/compareTasks';
 import { getRandomItem } from '@/utils/getRandomItem';
 
-export const taskTypes = {
-  ...taskCompareTypes,
-};
+import { TaskCompareKey, taskCompareTypes } from './compare/compareTasks';
+
+export const taskTypes = { ...taskCompareTypes };
 
 const taskTypeKeys = Object.keys(taskTypes) as Array<keyof typeof taskTypes>;
 

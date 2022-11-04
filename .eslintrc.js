@@ -12,6 +12,8 @@ module.exports = {
         'plugin:eslint-comments/recommended',
     ],
     rules: {
+        'prefer-arrow-callback': 'off', // prevents using of named components as `observer` args
+        'object-curly-newline': ['error', { 'multiline': true }],
         'max-len': ['error', { 'code': 120, 'ignoreComments': true }],
         'no-array-any/no-array-any': 'error',
         'react/react-in-jsx-scope': 'off', // new jsx transform
@@ -25,6 +27,19 @@ module.exports = {
             default: 'generic',
             readonly: 'generic',
         }], // more explicit
+        'import/order': [
+            'error',
+            {
+                "pathGroups": [
+                    {
+                        "pattern": "@/**",
+                        "group": "internal"
+                    }
+                ],
+                groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'index'],
+                'newlines-between': 'always',
+            },
+        ],
     },
     parser: '@typescript-eslint/parser',
     parserOptions: {

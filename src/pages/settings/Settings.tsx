@@ -1,12 +1,12 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListSubheader from '@mui/material/ListSubheader';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
+import { ResetButton } from './ResetButton';
 
 export function Settings() {
   return (
@@ -23,7 +23,7 @@ export function Settings() {
             <ListItemIcon>
               <DeleteForeverIcon />
             </ListItemIcon>
-            <Button color="warning" variant="outlined">Стереть данные</Button>
+            <ResetButton />
           </ListItem>
         </List>
       </Box>

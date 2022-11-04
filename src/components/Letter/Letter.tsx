@@ -1,16 +1,16 @@
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+
 import { LetterState, LetterType } from '@/types/model';
-import styles from './Letter.module.css';
 import { toArray } from '@/utils/toArray';
+
+import styles from './Letter.module.css';
 
 type Props = Omit<LetterType, 'id'> & {
   state?: LetterState;
 };
 
-export function Letter({
-  uppercase, lowercase, transliteration, ipa, state,
-}: Props) {
+export function Letter({ uppercase, lowercase, transliteration, ipa, state }: Props) {
   const color = (() => {
     switch (state) {
       case 'new':
@@ -43,9 +43,7 @@ export function Letter({
             <Divider
               orientation="vertical"
               flexItem
-              sx={{
-                margin: '0 7px',
-              }}
+              sx={{ margin: '0 7px' }}
             />
             {toArray(ipa).map((ipaItem) => `[${ipaItem}]`).join(', ')}
           </Box>

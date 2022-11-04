@@ -4,10 +4,12 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import NotListedLocationOutlinedIcon from '@mui/icons-material/NotListedLocationOutlined';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
+
 import { LetterType, LetterState } from '@/types/model';
 
-import styles from './LetterView.module.css';
 import { Letter } from '../Letter/Letter';
+
+import styles from './LetterView.module.css';
 
 interface Props {
   isOpenLetterView: boolean;
@@ -23,9 +25,7 @@ const statusTexts: Record<LetterState, string> = {
   done: 'выучил!',
 };
 
-export function LetterView({
-  isOpenLetterView, openedLetter, onClose, state, onStateChange,
-}: Props) {
+export function LetterView({ isOpenLetterView, openedLetter, onClose, state, onStateChange }: Props) {
   if (!openedLetter) {
     return null;
   }

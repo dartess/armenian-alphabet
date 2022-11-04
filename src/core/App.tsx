@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material/styles';
+import { ConfirmProvider } from 'material-ui-confirm';
+
 import { Layout } from '@/components/Layout/Layout';
 import { Stores, StoresProvider } from '@/core/stores';
 
@@ -27,7 +29,9 @@ function App() {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <StoresProvider value={stores}>
-          <Layout />
+          <ConfirmProvider>
+            <Layout />
+          </ConfirmProvider>
         </StoresProvider>
       </ThemeProvider>
     </StyledEngineProvider>

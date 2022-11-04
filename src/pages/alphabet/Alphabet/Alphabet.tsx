@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
+
 import { alphabet } from '@/constants/alphabet';
 import { Letter } from '@/components/Letter/Letter';
 import { LetterView } from '@/components/LetterView/LetterView';
 import { LetterType } from '@/types/model';
+import { useStore } from '@/core/stores';
 
 import styles from './Alphabet.module.css';
-import { useStore } from '@/core/stores';
 
 export const Alphabet = observer(() => {
   const [isOpenLetterView, setIsOpenLetterView] = useState(false);
