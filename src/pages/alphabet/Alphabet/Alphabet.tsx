@@ -1,7 +1,7 @@
 import { alphabet } from '@/constants/alphabet';
 import { Letter } from "@/components/Letter/Letter";
 import { LetterView } from "@/components/LetterView/LetterView";
-import { LetterType, TotalProgress } from "@/types/model";
+import { LetterType } from "@/types/model";
 
 import styles from './Alphabet.module.css';
 import { useState } from "react";
@@ -13,10 +13,6 @@ export const Alphabet = observer(function Alphabet() {
   const [lastOpenedLetter, setLastOpenedLetter] = useState<LetterType | null>(null);
 
   const { totalProgress, setLetterProgress } = useStore('progress');
-
-  // useEffect(() => {
-  //   localStorage.setItem('progress', JSON.stringify(totalProgress));
-  // }, [totalProgress])
 
   return <>
     <ol className={styles.list}>
