@@ -1,6 +1,6 @@
 import { useContext, createContext } from 'react';
 
-import { ProgressStore } from "@/stores/ProgressStore";
+import { ProgressStore } from '@/stores/ProgressStore';
 
 export class Stores {
   constructor() {

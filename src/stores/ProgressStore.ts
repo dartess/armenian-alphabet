@@ -1,6 +1,8 @@
-import { observable, makeObservable, action, reaction } from 'mobx';
-import { LetterState, LetterType, TotalProgress } from "@/types/model";
-import { alphabet } from "@/constants/alphabet";
+import {
+  observable, makeObservable, action, reaction,
+} from 'mobx';
+import { LetterState, LetterType, TotalProgress } from '@/types/model';
+import { alphabet } from '@/constants/alphabet';
 
 export class ProgressStore {
   constructor() {
@@ -8,18 +10,18 @@ export class ProgressStore {
 
     reaction(
       () => JSON.stringify(this.totalProgress),
-      (progress) => localStorage.setItem(ProgressStore.LOCALSTORAGE_KEY, progress)
-    )
+      (progress) => localStorage.setItem(ProgressStore.LOCALSTORAGE_KEY, progress),
+    );
   }
 
   @observable
   public totalProgress: TotalProgress = (() => {
-    const totalProgressFromStorage = localStorage.getItem(ProgressStore.LOCALSTORAGE_KEY);
-    if (totalProgressFromStorage) {
-      return JSON.parse(totalProgressFromStorage);
-    }
-    return this.getInitialProgress();
-  })();
+      const totalProgressFromStorage = localStorage.getItem(ProgressStore.LOCALSTORAGE_KEY);
+      if (totalProgressFromStorage) {
+        return JSON.parse(totalProgressFromStorage);
+      }
+      return ProgressStore.getInitialProgress();
+    })();
 
   @action.bound
   public setLetterProgress(letter: LetterType, state: LetterState) {
@@ -28,11 +30,11 @@ export class ProgressStore {
 
   @action.bound
   public resetProgress() {
-    this.totalProgress = this.getInitialProgress();
+    this.totalProgress = ProgressStore.getInitialProgress();
   }
 
-  private getInitialProgress(): TotalProgress {
-    return Object.fromEntries(alphabet.map(letter => [letter.lowercase, 'new']));
+  private static getInitialProgress(): TotalProgress {
+    return Object.fromEntries(alphabet.map((letter) => [letter.lowercase, 'new']));
   }
 
   private static LOCALSTORAGE_KEY = 'totalProgress';

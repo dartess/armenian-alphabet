@@ -1,15 +1,15 @@
-import { TaskCompareKey, taskCompareTypes } from "./compare/compareTasks";
-import { getRandomItem } from "@/utils/getRandomItem";
+import { TaskCompareKey, taskCompareTypes } from './compare/compareTasks';
+import { getRandomItem } from '@/utils/getRandomItem';
 
 export const taskTypes = {
   ...taskCompareTypes,
-}
+};
 
 const taskTypeKeys = Object.keys(taskTypes) as Array<keyof typeof taskTypes>;
 
 export type TaskKey = TaskCompareKey;
 
-type GetRandomTaskTypeOptions = {
+interface GetRandomTaskTypeOptions {
   exclude?: Array<TaskKey>;
 }
 

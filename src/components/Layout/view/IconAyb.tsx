@@ -1,5 +1,5 @@
-import styles from "./IconAyb.module.css";
+import styles from './IconAyb.module.css';
 
-export const IconAyb = () => {
-  return <div className={styles.root}>Ա</div>
+export function IconAyb() {
+  return <div className={styles.root}>Ա</div>;
 }

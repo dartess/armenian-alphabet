@@ -1,14 +1,14 @@
-import { LetterType } from "@/types/model";
-import { toArray } from "@/utils/toArray";
-import { alphabet } from "@/constants/alphabet";
-import { getRandomItem } from "@/utils/getRandomItem";
-import { shuffleOnPlaceArray } from "@/utils/shuffleOnPlaceArray";
+import { LetterType } from '@/types/model';
+import { toArray } from '@/utils/toArray';
+import { alphabet } from '@/constants/alphabet';
+import { getRandomItem } from '@/utils/getRandomItem';
+import { shuffleOnPlaceArray } from '@/utils/shuffleOnPlaceArray';
 
 type TaskCompareUnit = 'meta' | 'lowercase' | 'uppercase';
 
 export type TaskCompareKey = `compare-${TaskCompareUnit}-${TaskCompareUnit}`;
 
-type TaskCompare = {
+interface TaskCompare {
   type: 'compare';
   from: TaskCompareUnit;
   to: TaskCompareUnit;
@@ -50,7 +50,7 @@ export const taskCompareTypes: Partial<Record<TaskCompareKey, TaskCompare>> = {
 };
 
 function getMetaPrintByLetter(letter: LetterType) {
-  return `${letter.transliteration} ${toArray(letter.ipa).map(ipa => `[${ipa}]`).join(', ')}`;
+  return `${letter.transliteration} ${toArray(letter.ipa).map((ipa) => `[${ipa}]`).join(', ')}`;
 }
 
 export function printTaskCompareUnit(letter: LetterType, unit: TaskCompareUnit) {
@@ -63,17 +63,18 @@ export function getCompareTaskQuestion(taskKey: TaskCompareKey) {
   const questionLetter = getRandomItem(alphabet);
 
   const answerLetters = [questionLetter];
-  for (let i = 1; i <= ANSWERS_COUNT - 1; i++) {
+  for (let i = 1; i <= ANSWERS_COUNT - 1; i += 1) {
     answerLetters.push(getRandomItem(alphabet, { exclude: answerLetters }));
   }
   shuffleOnPlaceArray(answerLetters);
 
-  const { from: unitFrom, to: unitTo } = taskCompareTypes[taskKey]!; // TODO remove !
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- todo remove !
+  const { from: unitFrom, to: unitTo } = taskCompareTypes[taskKey]!;
 
   return {
     questionLetter,
     answerLetters,
     unitFrom,
     unitTo,
-  }
+  };
 }

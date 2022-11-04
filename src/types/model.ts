@@ -1,4 +1,4 @@
-export type LetterType = {
+export interface LetterType {
   id: string;
   uppercase: string;
   lowercase: string;
@@ -7,7 +7,7 @@ export type LetterType = {
   ipa: string | Array<string>;
 }
 
-export type LetterState = 'new' | 'progress' | 'done'
+export type LetterState = 'new' | 'progress' | 'done';
 
 export type TotalProgress = Record<string, LetterState>;
 

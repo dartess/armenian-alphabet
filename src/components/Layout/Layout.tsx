@@ -1,37 +1,39 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import QuizIcon from '@mui/icons-material/Quiz';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import styles from './Layout.module.css'
-import { IconAyb } from "./view/IconAyb";
-import { PageValue } from "@/types/model";
-import { Router } from "@/components/Router/Router";
-import { Paper } from "@mui/material";
+import { Paper } from '@mui/material';
+import styles from './Layout.module.css';
+import { IconAyb } from './view/IconAyb';
+import { PageValue } from '@/types/model';
+import { Router } from '@/components/Router/Router';
 
-export const Layout = () => {
+export function Layout() {
   const [page, setPage] = useState<PageValue>('alphabet');
 
-  return <div className={styles.root}>
-    <main className={styles.main}>
-      <Router page={page}/>
-    </main>
-    <div className={styles.footer}>
-      <Paper elevation={3}>
-        <BottomNavigation
-          value={page}
-          onChange={(event, newValue) => {
-            setPage(newValue);
-          }}
-          showLabels
-        >
-          <BottomNavigationAction label="Алфавит" icon={<IconAyb/>} value='alphabet'/>
-          <BottomNavigationAction label="Практика" icon={<QuizIcon/>} value='practice'/>
-          <BottomNavigationAction label="Настройки" icon={<SettingsIcon/>} value='settings'/>
-        </BottomNavigation>
-      </Paper>
+  return (
+    <div className={styles.root}>
+      <main className={styles.main}>
+        <Router page={page} />
+      </main>
+      <div className={styles.footer}>
+        <Paper elevation={3}>
+          <BottomNavigation
+            value={page}
+            onChange={(event, newValue) => {
+              setPage(newValue);
+            }}
+            showLabels
+          >
+            <BottomNavigationAction label="Алфавит" icon={<IconAyb />} value="alphabet" />
+            <BottomNavigationAction label="Практика" icon={<QuizIcon />} value="practice" />
+            <BottomNavigationAction label="Настройки" icon={<SettingsIcon />} value="settings" />
+          </BottomNavigation>
+        </Paper>
+      </div>
     </div>
-  </div>
+  );
 }

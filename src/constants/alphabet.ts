@@ -1,4 +1,4 @@
-import { LetterType } from "@/types/model";
+import { LetterType } from '@/types/model';
 
 export const alphabet: Array<LetterType> = [
   {
@@ -274,7 +274,7 @@ export const alphabet: Array<LetterType> = [
     transliteration: 'f',
     ipa: 'f',
   },
-].map(letter => ({
+].map((letter) => ({
   ...letter,
-  id: `${letter.transliteration}_${letter.ipa}`
+  id: `${letter.transliteration}_${letter.ipa}`,
 }));

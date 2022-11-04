@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { getRandomTaskTypeKey } from "./tasks";
-import { CompareTask } from "@/pages/practice/compare/view/CompareTask/CompareTask";
+import { getRandomTaskTypeKey } from './tasks';
+import { CompareTask } from '@/pages/practice/compare/view/CompareTask/CompareTask';
 
-export const Practice = () => {
+export function Practice() {
   const [taskKey, setTaskKey] = useState(getRandomTaskTypeKey);
 
-  return <CompareTask
-    taskKey={taskKey}
-    onNextTask={() => setTaskKey(getRandomTaskTypeKey({ exclude: [taskKey] }))}
-  />
+  return (
+    <CompareTask
+      taskKey={taskKey}
+      onNextTask={() => setTaskKey(getRandomTaskTypeKey({ exclude: [taskKey] }))}
+    />
+  );
 }

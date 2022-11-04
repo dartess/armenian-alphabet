@@ -35,4 +35,3 @@ export function fixIOsVh(): void {
   window.addEventListener('resize', vhFixTimeoutFast);
   window.addEventListener('orientationchange', vhFixTimeoutLong);
 }
-

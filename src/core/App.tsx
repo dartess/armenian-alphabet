@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { StyledEngineProvider } from '@mui/material/styles';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Layout } from "@/components/Layout/Layout";
-import { Stores, StoresProvider } from "@/core/stores";
+import { StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material/styles';
+import { Layout } from '@/components/Layout/Layout';
+import { Stores, StoresProvider } from '@/core/stores';
 
 const theme = createTheme({
   palette: {
@@ -28,7 +27,7 @@ function App() {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <StoresProvider value={stores}>
-          <Layout/>
+          <Layout />
         </StoresProvider>
       </ThemeProvider>
     </StyledEngineProvider>
