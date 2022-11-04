@@ -4,23 +4,19 @@ import { LetterView } from "@/components/LetterView/LetterView";
 import { LetterType, TotalProgress } from "@/types/model";
 
 import styles from './Alphabet.module.css';
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { observer } from "mobx-react-lite";
+import { useStore } from "@/core/stores";
 
-export function Alphabet() {
+export const Alphabet = observer(function Alphabet() {
   const [isOpenLetterView, setIsOpenLetterView] = useState(false);
   const [lastOpenedLetter, setLastOpenedLetter] = useState<LetterType | null>(null);
 
-  const [totalProgress, setTotalProgress] = useState<TotalProgress>(() => {
-    const totalProgressFromStorage = localStorage.getItem('progress');
-    if (totalProgressFromStorage) {
-      return JSON.parse(totalProgressFromStorage);
-    }
-    return Object.fromEntries(alphabet.map(letter => [letter.lowercase, 'new']));
-  });
+  const { totalProgress, setLetterProgress } = useStore('progress');
 
-  useEffect(() => {
-    localStorage.setItem('progress', JSON.stringify(totalProgress));
-  }, [totalProgress])
+  // useEffect(() => {
+  //   localStorage.setItem('progress', JSON.stringify(totalProgress));
+  // }, [totalProgress])
 
   return <>
     <ol className={styles.list}>
@@ -39,13 +35,8 @@ export function Alphabet() {
         isOpenLetterView={isOpenLetterView}
         openedLetter={lastOpenedLetter}
         onClose={() => setIsOpenLetterView(false)}
-        onStateChange={(state) => {
-          setTotalProgress({
-            ...totalProgress,
-            [lastOpenedLetter.lowercase]: state
-          });
-        }}
+        onStateChange={(state) => setLetterProgress(lastOpenedLetter, state)}
         state={totalProgress[lastOpenedLetter.lowercase]}
     />}
   </>
-}
+});

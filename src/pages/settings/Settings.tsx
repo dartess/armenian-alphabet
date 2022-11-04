@@ -4,9 +4,19 @@ import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormHelperText from '@mui/material/FormHelperText';
-import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+import Switch from '@mui/material/Switch';
+import WifiIcon from '@mui/icons-material/Wifi';
+import BluetoothIcon from '@mui/icons-material/Bluetooth';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export const Settings = () => {
   const [state, setState] = useState({
@@ -52,7 +62,20 @@ export const Settings = () => {
         {/*    />*/}
         {/*  </FormGroup>*/}
         {/*</FormControl>*/}
+
+        <List
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+          subheader={<ListSubheader>Очистка данных</ListSubheader>}
+        >
+          <ListItem>
+            <ListItemIcon>
+              <DeleteForeverIcon />
+            </ListItemIcon>
+            <Button color='warning' variant='outlined'>Стереть данные</Button>
+          </ListItem>
+        </List>
       </Box>
     </Box>
   );
 }
+
