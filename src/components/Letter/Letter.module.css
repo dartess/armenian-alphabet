@@ -8,14 +8,6 @@
     font-size: 14px;
 }
 
-.progress {
-    color: blue;
-}
-
-.done {
-    color: gray;
-}
-
 @media (min-width: 768px) {
     .root {
         font-size: 25px;
