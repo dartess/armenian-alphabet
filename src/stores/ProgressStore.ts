@@ -18,12 +18,21 @@ export class ProgressStore {
     if (totalProgressFromStorage) {
       return JSON.parse(totalProgressFromStorage);
     }
-    return Object.fromEntries(alphabet.map(letter => [letter.lowercase, 'new']));
+    return this.getInitialProgress();
   })();
 
   @action.bound
   public setLetterProgress(letter: LetterType, state: LetterState) {
     this.totalProgress[letter.lowercase] = state;
+  }
+
+  @action.bound
+  public resetProgress() {
+    this.totalProgress = this.getInitialProgress();
+  }
+
+  private getInitialProgress(): TotalProgress {
+    return Object.fromEntries(alphabet.map(letter => [letter.lowercase, 'new']));
   }
 
   private static LOCALSTORAGE_KEY = 'totalProgress';
