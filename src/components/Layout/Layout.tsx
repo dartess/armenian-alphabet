@@ -3,6 +3,7 @@ import { useState } from "react";
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import QuizIcon from '@mui/icons-material/Quiz';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 import styles from './Layout.module.css'
 import { IconAyb } from "./view/IconAyb";
@@ -24,9 +25,11 @@ export const Layout = () => {
           onChange={(event, newValue) => {
             setPage(newValue);
           }}
+          showLabels
         >
           <BottomNavigationAction label="Алфавит" icon={<IconAyb/>} value='alphabet'/>
           <BottomNavigationAction label="Практика" icon={<QuizIcon/>} value='practice'/>
+          <BottomNavigationAction label="Настройки" icon={<SettingsIcon/>} value='settings'/>
         </BottomNavigation>
       </Paper>
     </div>
