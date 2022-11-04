@@ -1,6 +1,6 @@
 import { observable, makeObservable, action, reaction } from 'mobx';
 
-import { LetterState, LetterType, TotalProgress } from '@/types/model';
+import type { LetterState, LetterType, TotalProgress } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
 
 export class ProgressStore {

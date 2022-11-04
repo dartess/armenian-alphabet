@@ -1,4 +1,4 @@
-import { LetterType } from '@/types/model';
+import type { LetterType } from '@/types/model';
 
 export const alphabet: Array<LetterType> = [
   {

@@ -1,4 +1,4 @@
-import { LetterType } from '@/types/model';
+import type { LetterType } from '@/types/model';
 import { toArray } from '@/utils/toArray';
 import { alphabet } from '@/constants/alphabet';
 import { getRandomItem } from '@/utils/getRandomItem';

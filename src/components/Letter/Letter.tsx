@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 
-import { LetterState, LetterType } from '@/types/model';
+import type { LetterState, LetterType } from '@/types/model';
 import { toArray } from '@/utils/toArray';
 
 import styles from './Letter.module.css';

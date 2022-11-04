@@ -5,7 +5,7 @@ import NotListedLocationOutlinedIcon from '@mui/icons-material/NotListedLocation
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 
-import { LetterType, LetterState } from '@/types/model';
+import type { LetterType, LetterState } from '@/types/model';
 
 import { Letter } from '../Letter/Letter';
 

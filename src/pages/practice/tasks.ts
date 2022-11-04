@@ -1,6 +1,7 @@
 import { getRandomItem } from '@/utils/getRandomItem';
 
-import { TaskCompareKey, taskCompareTypes } from './compare/compareTasks';
+import type { TaskCompareKey } from './compare/compareTasks';
+import { taskCompareTypes } from './compare/compareTasks';
 
 export const taskTypes = { ...taskCompareTypes };
 

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import Button from '@mui/material/Button';
 
-import { TaskKey } from '@/pages/practice/tasks';
+import type { TaskKey } from '@/pages/practice/tasks';
 import { getCompareTaskQuestion, printTaskCompareUnit } from '@/pages/practice/compare/compareTasks';
 import { Letter } from '@/components/Letter/Letter';
 

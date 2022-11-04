@@ -27,6 +27,7 @@ module.exports = {
             default: 'generic',
             readonly: 'generic',
         }], // more explicit
+        '@typescript-eslint/consistent-type-imports': 'error',
         'import/order': [
             'error',
             {

@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { alphabet } from '@/constants/alphabet';
 import { Letter } from '@/components/Letter/Letter';
 import { LetterView } from '@/components/LetterView/LetterView';
-import { LetterType } from '@/types/model';
+import type { LetterType } from '@/types/model';
 import { useStore } from '@/core/stores';
 
 import styles from './Alphabet.module.css';

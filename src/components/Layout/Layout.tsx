@@ -6,7 +6,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { Paper } from '@mui/material';
 
 import { Router } from '@/components/Router/Router';
-import { PageValue } from '@/types/model';
+import type { PageValue } from '@/types/model';
 
 import styles from './Layout.module.css';
 import { IconAyb } from './view/IconAyb';
