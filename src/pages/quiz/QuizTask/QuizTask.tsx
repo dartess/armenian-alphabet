@@ -5,16 +5,16 @@ import Switch from '@mui/material/Switch';
 import Box from '@mui/material/Box';
 
 import type { LetterState } from '@/types/model';
-import type { TaskKey } from '@/pages/practice/tasks';
-import { getCompareTaskQuestion, printTaskCompareUnit } from '@/pages/practice/compare/compareTasks';
+import type { QuizKey } from '@/pages/quiz/tasks';
+import { getQuizQuestion, printQuizUnit } from '@/pages/quiz/tasks';
 import { Letter } from '@/components/Letter/Letter';
 import { useStore } from '@/core/stores';
 
-import styles from './CompareTask.module.css';
+import styles from './QuizTask.module.css';
 
 interface Props {
-  taskKey: TaskKey;
-  onNextTask: () => void;
+  quizKey: QuizKey;
+  onNextQuiz: () => void;
 }
 
 type UncompletedLetterState = Exclude<LetterState, 'done'>;
@@ -23,14 +23,14 @@ const updateStateLabels: Record<UncompletedLetterState, string> = { new: 'изу
 
 const updateStateNextValue: Record<UncompletedLetterState, LetterState> = { new: 'progress', progress: 'done' };
 
-export function CompareTask({ taskKey, onNextTask }: Props) {
+export function QuizTask({ quizKey, onNextQuiz }: Props) {
   const [userAnswerId, setUserAnswerId] = useState<null | string>(null);
 
   const { totalProgress, setLetterProgress } = useStore('progress');
 
   const { questionLetter, answerLetters, unitFrom, unitTo } = useMemo(
-    () => getCompareTaskQuestion(taskKey, totalProgress),
-    [taskKey],
+    () => getQuizQuestion(quizKey, totalProgress),
+    [quizKey],
   );
 
   const progress = totalProgress[questionLetter.lowercase];
@@ -43,14 +43,14 @@ export function CompareTask({ taskKey, onNextTask }: Props) {
     if (isUpdateState) {
       setLetterProgress(questionLetter, updateStateNextValue[progress as UncompletedLetterState]);
     }
-    onNextTask();
+    onNextQuiz();
   };
 
   return (
     <div className={styles.root}>
       <div className={styles.question}>
         <div className={styles.questionUnit}>
-          {printTaskCompareUnit(questionLetter, unitFrom)}
+          {printQuizUnit(questionLetter, unitFrom)}
         </div>
         {answerLetters.map((answerLetterItem) => {
           const color = (() => {
@@ -80,7 +80,7 @@ export function CompareTask({ taskKey, onNextTask }: Props) {
               color={color}
               className={styles.answerUnit}
             >
-              {printTaskCompareUnit(answerLetterItem, unitTo)}
+              {printQuizUnit(answerLetterItem, unitTo)}
             </Button>
           );
         })}

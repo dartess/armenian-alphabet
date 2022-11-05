@@ -1,12 +1,12 @@
+import { getRandomItem } from '@/utils/getRandomItem';
 import type { LetterState, LetterType, TotalProgress } from '@/types/model';
 import { toArray } from '@/utils/toArray';
 import { alphabet } from '@/constants/alphabet';
-import { getRandomItem } from '@/utils/getRandomItem';
 import { shuffleOnPlaceArray } from '@/utils/shuffleOnPlaceArray';
 
 type TaskCompareUnit = 'meta' | 'lowercase' | 'uppercase';
 
-export type TaskCompareKey = `compare-${TaskCompareUnit}-${TaskCompareUnit}`;
+export type QuizKey = `compare-${TaskCompareUnit}-${TaskCompareUnit}`;
 
 interface TaskCompare {
   type: 'compare';
@@ -16,7 +16,7 @@ interface TaskCompare {
 
 // todo rewrite on satisfies
 
-export const taskCompareTypes: Partial<Record<TaskCompareKey, TaskCompare>> = {
+export const quizTypes: Partial<Record<QuizKey, TaskCompare>> = {
   'compare-meta-lowercase': {
     type: 'compare',
     from: 'meta',
@@ -53,7 +53,7 @@ function getMetaPrintByLetter(letter: LetterType) {
   return `${letter.transliteration} ${toArray(letter.ipa).map((ipa) => `[${ipa}]`).join(', ')}`;
 }
 
-export function printTaskCompareUnit(letter: LetterType, unit: TaskCompareUnit) {
+export function printQuizUnit(letter: LetterType, unit: TaskCompareUnit) {
   return unit === 'meta' ? getMetaPrintByLetter(letter) : letter[unit];
 }
 
@@ -65,7 +65,7 @@ const weightsByProgress: Record<LetterState, number> = {
   progress: 4,
 };
 
-export function getCompareTaskQuestion(taskKey: TaskCompareKey, totalProgress: TotalProgress) {
+export function getQuizQuestion(taskKey: QuizKey, totalProgress: TotalProgress) {
   const getWeight = (letter: LetterType) => {
     const progress = totalProgress[letter.lowercase];
     return weightsByProgress[progress];
@@ -80,7 +80,7 @@ export function getCompareTaskQuestion(taskKey: TaskCompareKey, totalProgress: T
   shuffleOnPlaceArray(answerLetters);
 
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- todo remove `!`
-  const { from: unitFrom, to: unitTo } = taskCompareTypes[taskKey]!;
+  const { from: unitFrom, to: unitTo } = quizTypes[taskKey]!;
 
   return {
     questionLetter,
@@ -88,4 +88,14 @@ export function getCompareTaskQuestion(taskKey: TaskCompareKey, totalProgress: T
     unitFrom,
     unitTo,
   };
+}
+
+const quizTypeKeys = Object.keys(quizTypes) as Array<keyof typeof quizTypes>;
+
+interface GetRandomQuizTypeOptions {
+  exclude?: Array<QuizKey>;
+}
+
+export function getRandomQuizTypeKey(options: GetRandomQuizTypeOptions = {}): QuizKey {
+  return getRandomItem(quizTypeKeys, options);
 }

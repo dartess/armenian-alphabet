@@ -29,7 +29,7 @@ export function Layout() {
             showLabels
           >
             <BottomNavigationAction label="Алфавит" icon={<IconAyb />} value="alphabet" />
-            <BottomNavigationAction label="Практика" icon={<QuizIcon />} value="practice" />
+            <BottomNavigationAction label="Квиз" icon={<QuizIcon />} value="quiz" />
             <BottomNavigationAction label="Настройки" icon={<SettingsIcon />} value="settings" />
           </BottomNavigation>
         </Paper>
