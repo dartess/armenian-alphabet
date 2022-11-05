@@ -455,7 +455,10 @@ export function Drawing() {
               type="button"
               key={letter}
               style={{ fontSize: '25px' }}
-              onClick={() => setDrawLetter(letter)}
+              onClick={() => {
+                sigCanvas.current?.clear();
+                setDrawLetter(letter);
+              }}
             >
               {letter}
             </button>
@@ -478,7 +481,9 @@ export function Drawing() {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-expect-error
               navigator.clipboard.writeText(JSON.stringify(window.result, null, 2)).then( // eslint-disable-line compat/compat
-                () => alert('ok'),
+                () => {
+                  // alert('ok')
+                },
                 () => alert('FAIL!'),
               );
             }}
@@ -486,20 +491,20 @@ export function Drawing() {
             сохранить
           </button>
           {/* <button */}
-          {/*  type="button" */}
-          {/*  onClick={() => { */}
-          {/*    const dots = sigCanvas.current!.toData().flat(2).map((d) => ({ x: d.x, y: d.y })); */}
-          {/*    setResult(accuracy(letterShape, dots)); */}
-          {/*  }} */}
+          {/* type="button" */}
+          {/* onClick={() => { */}
+          {/*   const dots = sigCanvas.current!.toData().flat(2).map((d) => ({ x: d.x, y: d.y })); */}
+          {/*   setResult(accuracy(letterShape, dots)); */}
+          {/* }} */}
           {/* > */}
-          {/*  проверить */}
+          {/* проверить */}
           {/* </button> */}
-          {/* <button */}
-          {/*  type="button" */}
-          {/*  onClick={() => sigCanvas.current?.clear()} */}
-          {/* > */}
-          {/*  очистить */}
-          {/* </button> */}
+          <button
+            type="button"
+            onClick={() => sigCanvas.current?.clear()}
+          >
+            очистить
+          </button>
         </div>
         {/* Нарисуй что-то */}
       </div>
