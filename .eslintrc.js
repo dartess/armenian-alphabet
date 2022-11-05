@@ -13,11 +13,17 @@ module.exports = {
     ],
     rules: {
         'prefer-arrow-callback': 'off', // prevents using of named components as `observer` args
+        'consistent-return': 'off', // not needed in TS
         'object-curly-newline': ['error', { 'multiline': true }],
         'max-len': ['error', { 'code': 120, 'ignoreComments': true }],
         'no-array-any/no-array-any': 'error',
         'react/react-in-jsx-scope': 'off', // new jsx transform
         'react/require-default-props': 'off', // not needed in TS
+        'react/jsx-indent': [
+            'error',
+            2,
+            { indentLogicalExpressions: true },
+        ],
         'eslint-comments/disable-enable-pair': ['error', {allowWholeFile: true}],
         'eslint-comments/require-description': 'error',
         'mobx/missing-observer': 'off', // false positive
@@ -31,10 +37,10 @@ module.exports = {
         'import/order': [
             'error',
             {
-                "pathGroups": [
+                'pathGroups': [
                     {
-                        "pattern": "@/**",
-                        "group": "internal"
+                        'pattern': '@/**',
+                        'group': 'internal'
                     }
                 ],
                 groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'index'],
