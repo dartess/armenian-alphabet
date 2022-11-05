@@ -278,3 +278,7 @@ export const alphabet: Array<LetterType> = [
   ...letter,
   id: `${letter.transliteration}_${letter.ipa}`,
 }));
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+window.alphabet = alphabet;

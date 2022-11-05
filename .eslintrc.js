@@ -14,6 +14,7 @@ module.exports = {
     rules: {
         'prefer-arrow-callback': 'off', // prevents using of named components as `observer` args
         'consistent-return': 'off', // not needed in TS
+        'no-restricted-syntax': 'off', // TODO?
         'multiline-ternary': ['error', 'always-multiline'],
         'object-curly-newline': ['error', { 'multiline': true }],
         'max-len': ['error', { 'code': 120, 'ignoreComments': true }],
@@ -26,7 +27,7 @@ module.exports = {
             { indentLogicalExpressions: true },
         ],
         'eslint-comments/disable-enable-pair': ['error', {allowWholeFile: true}],
-        'eslint-comments/require-description': 'error',
+        'eslint-comments/require-description': 'warn',
         'mobx/missing-observer': 'off', // false positive
         'import/extensions': 'off',
         'import/prefer-default-export': 'off', // https://t.me/why_not_export_default
