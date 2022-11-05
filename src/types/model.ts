@@ -12,3 +12,5 @@ export type LetterState = 'new' | 'progress' | 'done';
 export type TotalProgress = Record<string, LetterState>;
 
 export type PageValue = 'alphabet' | 'quiz' | 'drawing' | 'settings';
+
+export type TaskUnit = 'meta' | 'lowercase' | 'uppercase';

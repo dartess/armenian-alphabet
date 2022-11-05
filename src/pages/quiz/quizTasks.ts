@@ -1,49 +1,40 @@
 import { getRandomItem } from '@/utils/getRandomItem';
-import type { LetterState, LetterType, TotalProgress } from '@/types/model';
+import type { LetterState, LetterType, TotalProgress, TaskUnit } from '@/types/model';
 import { toArray } from '@/utils/toArray';
 import { alphabet } from '@/constants/alphabet';
 import { shuffleOnPlaceArray } from '@/utils/shuffleOnPlaceArray';
 
-type TaskCompareUnit = 'meta' | 'lowercase' | 'uppercase';
+export type QuizKey = `compare-${TaskUnit}-${TaskUnit}`;
 
-export type QuizKey = `compare-${TaskCompareUnit}-${TaskCompareUnit}`;
-
-interface TaskCompare {
-  type: 'compare';
-  from: TaskCompareUnit;
-  to: TaskCompareUnit;
+interface TaskQuiz {
+  from: TaskUnit;
+  to: TaskUnit;
 }
 
 // todo rewrite on satisfies
 
-export const quizTypes: Partial<Record<QuizKey, TaskCompare>> = {
+export const quizTypes: Partial<Record<QuizKey, TaskQuiz>> = {
   'compare-meta-lowercase': {
-    type: 'compare',
     from: 'meta',
     to: 'lowercase',
   },
   'compare-meta-uppercase': {
-    type: 'compare',
     from: 'meta',
     to: 'uppercase',
   },
   'compare-lowercase-meta': {
-    type: 'compare',
     from: 'lowercase',
     to: 'meta',
   },
   'compare-lowercase-uppercase': {
-    type: 'compare',
     from: 'lowercase',
     to: 'uppercase',
   },
   'compare-uppercase-meta': {
-    type: 'compare',
     from: 'uppercase',
     to: 'meta',
   },
   'compare-uppercase-lowercase': {
-    type: 'compare',
     from: 'uppercase',
     to: 'lowercase',
   },
@@ -53,7 +44,7 @@ function getMetaPrintByLetter(letter: LetterType) {
   return `${letter.transliteration} ${toArray(letter.ipa).map((ipa) => `[${ipa}]`).join(', ')}`;
 }
 
-export function printQuizUnit(letter: LetterType, unit: TaskCompareUnit) {
+export function printQuizUnit(letter: LetterType, unit: TaskUnit) {
   return unit === 'meta' ? getMetaPrintByLetter(letter) : letter[unit];
 }
 

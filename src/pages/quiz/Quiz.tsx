@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { getRandomQuizTypeKey } from './tasks';
+import { getRandomQuizTypeKey } from './quizTasks';
 import { QuizTask } from './QuizTask/QuizTask';
 
 export function Quiz() {

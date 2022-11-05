@@ -5,10 +5,11 @@ import Switch from '@mui/material/Switch';
 import Box from '@mui/material/Box';
 
 import type { LetterState } from '@/types/model';
-import type { QuizKey } from '@/pages/quiz/tasks';
-import { getQuizQuestion, printQuizUnit } from '@/pages/quiz/tasks';
 import { Letter } from '@/components/Letter/Letter';
 import { useStore } from '@/core/stores';
+
+import type { QuizKey } from '../quizTasks';
+import { getQuizQuestion, printQuizUnit } from '../quizTasks';
 
 import styles from './QuizTask.module.css';
 
