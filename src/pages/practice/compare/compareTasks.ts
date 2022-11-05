@@ -1,4 +1,4 @@
-import type { LetterType } from '@/types/model';
+import type { LetterState, LetterType, TotalProgress } from '@/types/model';
 import { toArray } from '@/utils/toArray';
 import { alphabet } from '@/constants/alphabet';
 import { getRandomItem } from '@/utils/getRandomItem';
@@ -59,8 +59,19 @@ export function printTaskCompareUnit(letter: LetterType, unit: TaskCompareUnit) 
 
 const ANSWERS_COUNT = 4;
 
-export function getCompareTaskQuestion(taskKey: TaskCompareKey) {
-  const questionLetter = getRandomItem(alphabet);
+const weightsByProgress: Record<LetterState, number> = {
+  done: 1,
+  new: 2,
+  progress: 4,
+};
+
+export function getCompareTaskQuestion(taskKey: TaskCompareKey, totalProgress: TotalProgress) {
+  const getWeight = (letter: LetterType) => {
+    const progress = totalProgress[letter.lowercase];
+    return weightsByProgress[progress];
+  };
+
+  const questionLetter = getRandomItem(alphabet, { getWeight });
 
   const answerLetters = [questionLetter];
   for (let i = 1; i <= ANSWERS_COUNT - 1; i += 1) {
@@ -68,7 +79,7 @@ export function getCompareTaskQuestion(taskKey: TaskCompareKey) {
   }
   shuffleOnPlaceArray(answerLetters);
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- todo remove !
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- todo remove `!`
   const { from: unitFrom, to: unitTo } = taskCompareTypes[taskKey]!;
 
   return {

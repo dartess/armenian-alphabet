@@ -2,11 +2,19 @@ import { randomInteger } from '@/utils/randomInteger';
 
 interface GetRandomItemOptions<T> {
   exclude?: Array<T>;
+  getWeight?: (item: T) => number;
 }
 
 // TODO check exist
+// TODO validate weight
 export function getRandomItem<T>(items: Array<T>, options: GetRandomItemOptions<T> = {}): T {
-  const { exclude } = options;
-  const availableTaskTypes = exclude ? items.filter((type) => !exclude.includes(type)) : items;
-  return availableTaskTypes[randomInteger(0, availableTaskTypes.length - 1)];
+  const { exclude, getWeight } = options;
+  const availableItems = exclude ? items.filter((type) => !exclude.includes(type)) : items;
+  const weightedItems = getWeight
+    ? availableItems.flatMap((item) => {
+      const weight = getWeight(item);
+      return new Array<T>(weight).fill(item);
+    })
+    : availableItems;
+  return weightedItems[randomInteger(0, weightedItems.length - 1)];
 }

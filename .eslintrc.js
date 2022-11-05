@@ -14,6 +14,7 @@ module.exports = {
     rules: {
         'prefer-arrow-callback': 'off', // prevents using of named components as `observer` args
         'consistent-return': 'off', // not needed in TS
+        'multiline-ternary': ['error', 'always-multiline'],
         'object-curly-newline': ['error', { 'multiline': true }],
         'max-len': ['error', { 'code': 120, 'ignoreComments': true }],
         'no-array-any/no-array-any': 'error',

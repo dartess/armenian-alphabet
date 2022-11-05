@@ -26,12 +26,13 @@ const updateStateNextValue: Record<UncompletedLetterState, LetterState> = { new:
 export function CompareTask({ taskKey, onNextTask }: Props) {
   const [userAnswerId, setUserAnswerId] = useState<null | string>(null);
 
+  const { totalProgress, setLetterProgress } = useStore('progress');
+
   const { questionLetter, answerLetters, unitFrom, unitTo } = useMemo(
-    () => getCompareTaskQuestion(taskKey),
+    () => getCompareTaskQuestion(taskKey, totalProgress),
     [taskKey],
   );
 
-  const { totalProgress, setLetterProgress } = useStore('progress');
   const progress = totalProgress[questionLetter.lowercase];
 
   const [isUpdateState, setIsUpdateState] = useState(false);
