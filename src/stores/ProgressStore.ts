@@ -1,4 +1,4 @@
-import { observable, makeObservable, action, reaction } from 'mobx';
+import { observable, makeObservable, action, reaction, computed } from 'mobx';
 
 import type { LetterState, LetterType, TotalProgress } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
@@ -30,6 +30,11 @@ export class ProgressStore {
   @action.bound
   public resetProgress() {
     this.totalProgress = ProgressStore.getInitialProgress();
+  }
+
+  @computed
+  public get hasProgress() {
+    return Object.values(this.totalProgress).some((item) => item !== 'new');
   }
 
   private static getInitialProgress(): TotalProgress {
