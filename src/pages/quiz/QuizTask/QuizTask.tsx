@@ -7,9 +7,10 @@ import Box from '@mui/material/Box';
 import type { LetterState } from '@/types/model';
 import { Letter } from '@/components/Letter/Letter';
 import { useStore } from '@/core/stores';
+import { printTaskUnit } from '@/utils/printTaskUnit';
 
 import type { QuizKey } from '../quizTasks';
-import { getQuizQuestion, printQuizUnit } from '../quizTasks';
+import { getQuizQuestion } from '../quizTasks';
 
 import styles from './QuizTask.module.css';
 
@@ -51,7 +52,7 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
     <div className={styles.root}>
       <div className={styles.question}>
         <div className={styles.questionUnit}>
-          {printQuizUnit(questionLetter, unitFrom)}
+          {printTaskUnit(questionLetter, unitFrom)}
         </div>
         {answerLetters.map((answerLetterItem) => {
           const color = (() => {
@@ -81,7 +82,7 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
               color={color}
               className={styles.answerUnit}
             >
-              {printQuizUnit(answerLetterItem, unitTo)}
+              {printTaskUnit(answerLetterItem, unitTo)}
             </Button>
           );
         })}

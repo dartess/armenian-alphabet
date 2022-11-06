@@ -1,6 +1,6 @@
+import type { GetRandomItemOptions } from '@/utils/getRandomItem';
 import { getRandomItem } from '@/utils/getRandomItem';
 import type { LetterState, LetterType, TotalProgress, TaskUnit } from '@/types/model';
-import { toArray } from '@/utils/toArray';
 import { alphabet } from '@/constants/alphabet';
 import { shuffleOnPlaceArray } from '@/utils/shuffleOnPlaceArray';
 
@@ -40,14 +40,6 @@ export const quizTypes: Partial<Record<QuizKey, TaskQuiz>> = {
   },
 };
 
-function getMetaPrintByLetter(letter: LetterType) {
-  return `${letter.transliteration} ${toArray(letter.ipa).map((ipa) => `[${ipa}]`).join(', ')}`;
-}
-
-export function printQuizUnit(letter: LetterType, unit: TaskUnit) {
-  return unit === 'meta' ? getMetaPrintByLetter(letter) : letter[unit];
-}
-
 const ANSWERS_COUNT = 4;
 
 const weightsByProgress: Record<LetterState, number> = {
@@ -83,10 +75,6 @@ export function getQuizQuestion(taskKey: QuizKey, totalProgress: TotalProgress) 
 
 const quizTypeKeys = Object.keys(quizTypes) as Array<keyof typeof quizTypes>;
 
-interface GetRandomQuizTypeOptions {
-  exclude?: Array<QuizKey>;
-}
-
-export function getRandomQuizTypeKey(options: GetRandomQuizTypeOptions = {}): QuizKey {
+export function getRandomQuizTypeKey(options: GetRandomItemOptions<QuizKey> = {}): QuizKey {
   return getRandomItem(quizTypeKeys, options);
 }

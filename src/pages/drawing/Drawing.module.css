@@ -29,8 +29,13 @@
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     background: center / cover no-repeat;
-    opacity: 0.5;
+    opacity: 0;
     pointer-events: none;
+}
+
+.sampleShow {
+    opacity: 0.5;
+    transition: opacity 0.3s easy;
 }
 
 .sigPad {
@@ -38,4 +43,36 @@
     grid-row: 1 / 2;
     width: 100%;
     height: 100%;
+}
+
+.buttonClear {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: end;
+    justify-self: start;
+    transform: translateY(100%);
+}
+
+.buttonCheck {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: end;
+    justify-self: end;
+    transform: translateY(100%);
+}
+
+.buttonNext {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: end;
+    justify-self: end;
+    transform: translateY(210%);
+}
+
+.accuracy {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: start;
+    justify-self: end;
+    pointer-events: none;
 }
