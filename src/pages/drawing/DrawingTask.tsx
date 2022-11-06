@@ -64,7 +64,7 @@ export function DrawingTask() {
       }}
       >
         <Typography variant="h5" gutterBottom align="center">
-          Нариуйте
+          Нарисуйте
           {' '}
           {unitTo === 'uppercase' ? 'ЗАГЛАВНУЮ' : 'строчную'}
           {' '}
