@@ -61,6 +61,7 @@ export function DrawingTask() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-end',
+        padding: '0 15px',
       }}
       >
         <Typography variant="h5" gutterBottom align="center">
