@@ -67,11 +67,15 @@ export function DrawingTask() {
   }, [letterSamplePath]);
 
   const handleDrawEnd = useCallback(
-    () => setUserDrawRaw(sigCanvas.current!.toData()),
+    () => {
+      setUserDrawRaw([...sigCanvas.current!.toData()]);
+    },
     [],
   );
 
-  const canBeUndo = userDrawRaw.length > 0;
+  const wasDrawed = userDrawRaw.length > 0;
+  const canBeUndo = wasDrawed;
+  const canBeChecked = wasDrawed;
   const handleUndo = useCallback(
     () => {
       setUserDrawRaw((prevDraw) => {
@@ -89,28 +93,18 @@ export function DrawingTask() {
 
   const isResultCalculated = Boolean(accuracy);
 
+  const taskTypeText = unitTo === 'uppercase' ? 'ЗАГЛАВНУЮ' : 'строчную';
+  const taskUnit = printTaskUnit(questionLetter, unitFrom);
+  const taskText = `Нарисуйте ${taskTypeText} букву для ${taskUnit}`;
+
   return (
-    <div style={{ display: 'grid', gridTemplateRows: 'auto auto', height: '100%', gap: '15px' }}>
-      <div style={{
-        gridRow: '1/2',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 15px',
-      }}
-      >
+    <div className={styles.root}>
+      <div className={styles.taskDescription}>
         <Typography variant="h5" gutterBottom align="center">
-          Нарисуйте
-          {' '}
-          {unitTo === 'uppercase' ? 'ЗАГЛАВНУЮ' : 'строчную'}
-          {' '}
-          букву для
-          {' '}
-          {printTaskUnit(questionLetter, unitFrom)}
+          {taskText}
         </Typography>
       </div>
-      <div style={{ gridRow: '2/3', display: 'flex', justifyContent: 'center' }}>
+      <div className={styles.taskWorkZone}>
         <div className={styles.drawZone}>
           <SignaturePad
             canvasProps={{ className: styles.sigPad }}
@@ -169,6 +163,7 @@ export function DrawingTask() {
                 onClick={handleCheckAccuracy}
                 endIcon={<SpellcheckIcon />}
                 size="small"
+                disabled={!canBeChecked}
               >
                 Проверить
               </Button>
