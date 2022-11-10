@@ -1,13 +1,17 @@
 import { useContext, createContext } from 'react';
 
 import { ProgressStore } from '@/stores/ProgressStore';
+import { SettingsStore } from '@/stores/SettingsStore';
 
 export class Stores {
   constructor() {
     this.progress = new ProgressStore();
+    this.settings = new SettingsStore();
   }
 
-  readonly progress: ProgressStore;
+  public readonly progress: ProgressStore;
+
+  public readonly settings: SettingsStore;
 }
 
 const storesContext = createContext<Stores | null>(null);

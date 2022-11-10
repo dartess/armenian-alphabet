@@ -37,6 +37,12 @@ module.exports = {
         }], // more explicit
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/consistent-type-imports': 'error',
+        '@typescript-eslint/explicit-member-accessibility': ['error', {
+            accessibility: 'explicit',
+            overrides: {
+                constructors: 'off',
+            }
+        }],
         'import/order': [
             'error',
             {

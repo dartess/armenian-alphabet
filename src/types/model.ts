@@ -14,3 +14,6 @@ export type TotalProgress = Record<string, LetterState>;
 export type PageValue = 'alphabet' | 'quiz' | 'drawing' | 'settings';
 
 export type TaskUnit = 'meta' | 'lowercase' | 'uppercase';
+
+export type Theme = 'dark' | 'light';
+export type UserTheme = Theme | 'system';
