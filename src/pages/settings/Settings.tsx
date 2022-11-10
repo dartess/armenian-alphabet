@@ -2,11 +2,16 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import { observer } from 'mobx-react-lite';
+
+import { useStore } from '@/core/stores';
 
 import { ResetButton } from './ResetButton';
 import { ChangeTheme } from './ChangeTheme';
+import { Install } from './Install';
 
-export function Settings() {
+export const Settings = observer(function Settings() {
+  const { canBeInstalled } = useStore('installation');
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <Box sx={{ my: 3, mx: 2 }}>
@@ -20,12 +25,18 @@ export function Settings() {
           <ChangeTheme />
         </FormControl>
       </Box>
+      {canBeInstalled && (
+        <Box sx={{ my: 3, mx: 2 }}>
+          <FormControl>
+            <Install />
+          </FormControl>
+        </Box>
+      )}
       <Box sx={{ my: 3, mx: 2 }}>
         <FormControl>
-          <FormLabel sx={{ mb: 1 }}>Очистка данных</FormLabel>
           <ResetButton />
         </FormControl>
       </Box>
     </Box>
   );
-}
+});

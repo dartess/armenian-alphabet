@@ -38,11 +38,11 @@
   "id": "aybuben",
   "__overrides": {
     "__theme": {
-      "day": {
+      "light": {
         "theme_color": "#ff8f00",
         "background_color": "#ffffff"
       },
-      "night": {
+      "dark": {
         "theme_color": "#ffb74d",
         "background_color": "#121212"
       }

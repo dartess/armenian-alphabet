@@ -1,0 +1,151 @@
+.root {
+  --text-color-description: #333;
+  --border-bottom-color: rgba(0, 0, 0, 0.1);
+  --icon-accent-color: #3478f6;
+
+  display: grid;
+
+  grid-template-areas:
+    'icon about'
+    'how-to how-to';
+
+  grid-template-columns: 95px auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .root {
+    --text-color-description: #9e9aa1;
+    --border-bottom-color: #353535;
+    --icon-accent-color: #5a91f7;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid var(--border-bottom-color);
+
+  grid-area: icon;
+}
+
+.icon-image {
+  width: 64px;
+  height: 64px;
+
+  margin: 0 auto;
+
+  border-radius: 6px;
+}
+
+.about {
+  display: grid;
+
+  border-bottom: 1px solid var(--border-bottom-color);
+
+  grid-area: about;
+  grid-template-rows: 35px 60px;
+}
+
+.name {
+  display: flex;
+
+  align-items: flex-start;
+
+  padding-top: 10px;
+  padding-right: 10px;
+
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.description {
+  overflow-y: auto;
+
+  margin-bottom: 15px;
+  padding-right: 15px;
+
+  color: var(--text-color-description);
+
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.how-to-instruction {
+  display: grid;
+  overflow: hidden;
+
+  overflow-y: auto;
+
+  max-height: 400px;
+
+  padding: 15px;
+
+  transition: opacity 0.3s ease-in-out 0.2s, max-height 0.5s ease-in-out;
+
+  opacity: 1;
+
+  gap: 10px;
+
+  grid-area: how-to;
+}
+
+.instruction-step {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  font-size: 13px;
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .instruction-step {
+    font-size: 14px;
+  }
+}
+
+.svg-wrap {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 6px;
+}
+
+.svg-share,
+.svg-add,
+.svg-safari {
+  margin: 0 auto;
+}
+
+.svg-safari,
+.svg-share {
+  fill: var(--icon-accent-color);
+}
+
+.svg-share {
+  margin-bottom: 4px;
+
+  transform: scale(0.75);
+}
+
+.svg-add {
+  transform: scale(0.8);
+  fill: var(--text-color-normal);
+}
+
+.svg-safari {
+  transform: scale(0.92);
+}
+
+.step-text {
+  text-align: left;
+
+  font-weight: 600;
+}

@@ -2,16 +2,20 @@ import { useContext, createContext } from 'react';
 
 import { ProgressStore } from '@/stores/ProgressStore';
 import { SettingsStore } from '@/stores/SettingsStore';
+import { InstallationStore } from '@/stores/installation/mobx/InstallationStore';
 
 export class Stores {
   constructor() {
     this.progress = new ProgressStore();
     this.settings = new SettingsStore();
+    this.installation = new InstallationStore(this.settings);
   }
 
   public readonly progress: ProgressStore;
 
   public readonly settings: SettingsStore;
+
+  public readonly installation: InstallationStore;
 }
 
 const storesContext = createContext<Stores | null>(null);

@@ -1,0 +1,96 @@
+.root {
+  --text-color-normal: #27272a;
+  --background-color: #fefbff;
+
+  position: fixed;
+
+  right: 0;
+
+  bottom: 0;
+  left: 0;
+
+  z-index: 2147483001;
+
+  width: auto;
+
+  max-width: 630px;
+
+  margin: 0 auto;
+
+  user-select: none;
+
+  will-change: transform, box-shadow;
+
+  transition: transform 0.2s linear, box-shadow 0.2s linear;
+  transform: translateY(100%);
+  pointer-events: none;
+
+  color: var(--text-color-normal);
+
+  background-color: var(--background-color);
+  box-shadow: 0 0 8px 2px rgba(34, 60, 80, 0);
+
+  font-family: Roboto, 'Segoe UI', BlinkMacSystemFont, system-ui, -apple-system;
+
+  font-size: 16px;
+}
+
+.root.show {
+   transform: translateY(0);
+   pointer-events: unset;
+
+   box-shadow: 0 0 8px 2px rgba(34, 60, 80, 0.27);
+}
+
+.root.show .content {
+  opacity: 1;
+}
+
+.content {
+  transition: opacity 0.1s linear 0.15s;
+
+  opacity: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .root {
+    --text-color-normal: #e6e4e7;
+    --background-color: #2b2c36;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+
+  width: 26px;
+  height: 26px;
+  margin-left: auto;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  opacity: 1;
+
+  color: var(--text-color-normal);
+
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  line-height: 0;
+}
+
+.close svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--text-color-normal);
+}
+
+.close-centered {
+  top: 50%;
+
+  transform: translateY(-50%);
+}

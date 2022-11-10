@@ -17,3 +17,5 @@ export type TaskUnit = 'meta' | 'lowercase' | 'uppercase';
 
 export type Theme = 'dark' | 'light';
 export type UserTheme = Theme | 'system';
+
+export type DisplayMode = 'twa' | 'standalone' | 'browser';

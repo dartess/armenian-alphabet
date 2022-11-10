@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "@types/css-modules": "^1.0.2",
+    "@types/dom-chromium-installation-events": "^101.0.0",
     "@types/node": "^18.11.9",
     "@types/react-signature-canvas": "^1.0.2",
     "@types/web-app-manifest": "^1.0.2",
