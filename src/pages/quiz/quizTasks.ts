@@ -62,7 +62,6 @@ export function getQuizQuestion(taskKey: QuizKey, totalProgress: TotalProgress) 
   }
   shuffleOnPlaceArray(answerLetters);
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- todo remove `!`
   const { from: unitFrom, to: unitTo } = quizTypes[taskKey]!;
 
   return {

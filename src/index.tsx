@@ -8,7 +8,6 @@ import { fixIOsVh } from '@/core/vh';
 fixIOsVh();
 
 const root = ReactDOM.createRoot(
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- честное слово (TODO после Sentry)
   document.getElementById('root')!,
 );
 root.render(

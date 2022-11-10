@@ -17,7 +17,7 @@ function average(arr: Array<number>) {
   return sum / arr.length;
 }
 
-function getAccuracy(sample: Shape, input: Shape): number {
+function calculateAccuracy(sample: Shape, input: Shape): number {
   if (input.length === 0) {
     return 0;
   }
@@ -65,6 +65,6 @@ async function getSampleShape(url: string): Promise<Shape> {
 }
 
 export {
-  getAccuracy,
+  calculateAccuracy,
   getSampleShape,
 };

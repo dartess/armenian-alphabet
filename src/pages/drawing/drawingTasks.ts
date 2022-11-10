@@ -2,9 +2,6 @@ import type { TaskUnit, LetterState, LetterType, TotalProgress } from '@/types/m
 import type { GetRandomItemOptions } from '@/utils/getRandomItem';
 import { getRandomItem } from '@/utils/getRandomItem';
 import { alphabet } from '@/constants/alphabet';
-import { shuffleOnPlaceArray } from '@/utils/shuffleOnPlaceArray';
-import type { QuizKey } from '@/pages/quiz/quizTasks';
-import { quizTypes } from '@/pages/quiz/quizTasks';
 
 export type DrawingKey = `drawing-${TaskUnit}-${TaskUnit}`;
 
@@ -41,7 +38,6 @@ const weightsByProgress: Record<LetterState, number> = {
 };
 
 function isValidDrawingQuestion(letter: LetterType, taskKey: DrawingKey): boolean {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- todo remove `!`
   const { to: unitTo } = drawingTypes[taskKey]!;
   return !(unitTo === 'uppercase' && letter.uppercase === 'Եվ');
 }
@@ -60,7 +56,6 @@ export function getDrawingQuestion(taskKey: DrawingKey, totalProgress: TotalProg
     }
   } while (!questionLetter);
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- todo remove `!`
   const { from: unitFrom, to: unitTo } = drawingTypes[taskKey]!;
 
   return {

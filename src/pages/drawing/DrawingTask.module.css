@@ -45,28 +45,34 @@
     height: 100%;
 }
 
-.buttonClear {
+.button {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    min-width: auto;
+}
+
+.buttonUndo {
     align-self: end;
     justify-self: start;
     transform: translateY(100%);
 }
 
-.buttonCheck {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+.buttonClear {
     align-self: end;
-    justify-self: end;
-    transform: translateY(100%);
+    justify-self: start;
+    transform: translate(100%, 100%);
 }
 
 .buttonNext {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    align-self: end;
+    justify-self: start;
+    transform: translate(200%, 100%);
+}
+
+.buttonPrimaryAction {
     align-self: end;
     justify-self: end;
-    transform: translateY(210%);
+    transform: translateY(100%);
 }
 
 .accuracy {

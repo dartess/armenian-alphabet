@@ -11,6 +11,7 @@
 - роутер
 - установка+sw
 - SEO
+- @typescript-eslint/explicit-module-boundary-types
 
 TODO: 
 - попробовать preact
