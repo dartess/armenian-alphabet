@@ -40,7 +40,7 @@ export function DrawingTask() {
 
   const letterValue = questionLetter[unitTo as Exclude<typeof unitTo, 'meta'>];
   const letterMod = unitTo === 'uppercase' ? '+' : '-';
-  const letterSamplePath = `/armenian-alphabet/letters/${letterValue}${letterMod}.png`;
+  const letterSamplePath = `/letters/${letterValue}${letterMod}.png`;
 
   const handleCheckAccuracy = () => {
     const dots = sigCanvas.current!.toData().flat(2).map((d) => ({ x: d.x / 3, y: d.y / 3 }));
