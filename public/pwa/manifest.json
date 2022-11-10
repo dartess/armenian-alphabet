@@ -65,15 +65,7 @@
         ]
       },
       "macOS": {
-        "display": "minimal-ui",
-        "icons": [
-          {
-            "src": "/pwa/macos-1024x1024.png",
-            "sizes": "1024x1024",
-            "type": "image/png",
-            "purpose": "any"
-          }
-        ]
+        "display": "minimal-ui"
       }
     }
   },
