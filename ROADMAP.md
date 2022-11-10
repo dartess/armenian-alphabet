@@ -1,5 +1,5 @@
 настройки
-- PWA манифест
+- установка
 - сообщение об успешном обучении https://www.npmjs.com/package/react-confetti
 
 Техническое
@@ -8,7 +8,6 @@
 - прекоммит, препуш
 - sentry
 - роутер
-- установка+sw
 - SEO
 - @typescript-eslint/explicit-module-boundary-types
 

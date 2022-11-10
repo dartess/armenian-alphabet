@@ -1,0 +1,81 @@
+{
+  "name": "Aybuben — армянский алфавит",
+  "short_name": "Aybuben",
+  "description": "Изучение армянского алфавита",
+  "theme_color": "#ff8f00",
+  "background_color": "#ffffff",
+  "start_url": "/?utm_source=web_app_manifest",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "/pwa/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/android-chrome-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/android-chrome-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "aybuben",
+  "__overrides": {
+    "__theme": {
+      "day": {
+        "theme_color": "#ff8f00",
+        "background_color": "#ffffff"
+      },
+      "night": {
+        "theme_color": "#ffb74d",
+        "background_color": "#121212"
+      }
+    },
+    "__platform": {
+      "Windows": {
+        "display": "minimal-ui"
+      },
+      "Android": {},
+      "Linux": {
+        "display": "minimal-ui"
+      },
+      "iOS": {
+        "icons": [
+          {
+            "src": "/pwa/apple-touch-icon-180x180.png",
+            "sizes": "180x180",
+            "type": "image/png"
+          }
+        ]
+      },
+      "macOS": {
+        "display": "minimal-ui",
+        "icons": [
+          {
+            "src": "/pwa/macos-1024x1024.png",
+            "sizes": "1024x1024",
+            "type": "image/png",
+            "purpose": "any"
+          }
+        ]
+      }
+    }
+  },
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json"
+}
