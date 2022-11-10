@@ -27,7 +27,6 @@
 }
 
 .lines {
-    --line-color: rgba(0, 0, 0, 0.2);
     --line-length: 10px;
     border: 1px solid var(--line-color);
     grid-column: 1 / 2;

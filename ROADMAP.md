@@ -1,5 +1,4 @@
 настройки
-- настройка темы
 - PWA манифест
 - сообщение об успешном обучении https://www.npmjs.com/package/react-confetti
 

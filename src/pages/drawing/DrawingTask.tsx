@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+import { observer } from 'mobx-react-lite';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import SignaturePad from 'react-signature-canvas';
 import cn from 'classnames';
@@ -19,12 +21,14 @@ import { printTaskUnit } from '@/utils/printTaskUnit';
 import styles from './DrawingTask.module.css';
 import type { Shape } from './model';
 
-export function DrawingTask() {
+type UserDraw = Array<Array<SignaturePad.Point>>;
+
+export const DrawingTask = observer(function DrawingTask() {
   const [accuracy, setAccuracy] = useState<number | null>(null);
 
   const sigCanvas = useRef<SignaturePad>(null);
 
-  const [userDrawRaw, setUserDrawRaw] = useState<Array<Array<SignaturePad.Point>>>([]);
+  const [userDrawRaw, setUserDrawRaw] = useState<UserDraw>([]);
 
   const clearSig = () => {
     sigCanvas.current?.clear();
@@ -97,6 +101,17 @@ export function DrawingTask() {
   const taskUnit = printTaskUnit(questionLetter, unitFrom);
   const taskText = `Нарисуйте ${taskTypeText} букву для ${taskUnit}`;
 
+  const { appTheme } = useStore('settings');
+  const penColor = appTheme === 'light' ? '#000000' : '#dddddd';
+  useEffect(() => {
+    setUserDrawRaw((prevDraw) => {
+      const invertedDraw = prevDraw
+        .map((shape) => shape.map((point) => ({ ...point, color: penColor }))) as UserDraw;
+      sigCanvas.current!.fromData(invertedDraw);
+      return invertedDraw;
+    });
+  }, [penColor]);
+
   return (
     <div className={styles.root}>
       <div className={styles.taskDescription}>
@@ -110,12 +125,20 @@ export function DrawingTask() {
             canvasProps={{ className: styles.sigPad }}
             onEnd={handleDrawEnd}
             ref={sigCanvas}
+            penColor={penColor}
           />
           <div
             className={cn(styles.sample, { [styles.sampleShow]: isResultCalculated })}
             style={{ backgroundImage: `url("${letterSamplePath}")` }}
           />
-          <div className={styles.lines} />
+          <div
+            className={styles.lines}
+            style={{
+              '--line-color': appTheme === 'light'
+                ? 'rgba(0, 0, 0, 0.2)'
+                : 'rgba(255, 255, 255, 0.1)',
+            } as CSSProperties}
+          />
           <div className={styles.accuracy}>
             {(() => {
               if (!accuracy) {
@@ -172,4 +195,4 @@ export function DrawingTask() {
       </div>
     </div>
   );
-}
+});
