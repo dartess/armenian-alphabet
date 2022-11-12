@@ -1,30 +1,31 @@
-import { useState } from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import QuizIcon from '@mui/icons-material/Quiz';
 import SettingsIcon from '@mui/icons-material/Settings';
 import GestureIcon from '@mui/icons-material/Gesture';
 import { Paper } from '@mui/material';
+import { useLocation } from 'wouter';
 
-import { Router } from '@/components/Router/Router';
-import type { PageValue } from '@/types/model';
+import { Router } from '../Router';
 
-import styles from './Layout.module.css';
 import { IconAyb } from './view/IconAyb';
+import styles from './Layout.module.css';
 
 export function Layout() {
-  const [page, setPage] = useState<PageValue>('alphabet');
+  const [location, setLocation] = useLocation();
+
+  const page = location.slice(1);
 
   return (
     <div className={styles.root}>
       <main className={styles.main}>
-        <Router page={page} />
+        <Router />
       </main>
       <div className={styles.footer}>
         <Paper elevation={3}>
           <BottomNavigation
             value={page}
-            onChange={(_, newValue) => setPage(newValue)}
+            onChange={(_, newValue) => setLocation(`/${newValue}`)}
             showLabels
           >
             <BottomNavigationAction label="Алфавит" icon={<IconAyb />} value="alphabet" />

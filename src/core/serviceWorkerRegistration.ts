@@ -24,7 +24,7 @@ interface Config {
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 }
 
-export function register(config?: Config) {
+export function serviceWorkerRegister(config?: Config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);

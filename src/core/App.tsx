@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { ConfirmProvider } from 'material-ui-confirm';
 
-import { Layout } from '@/components/Layout/Layout';
 import { InstallationProvider } from '@/stores/installation/view/InstallationProvider';
 import { ManifestDynamic } from '@/stores/installation/view/ManifestDynamic';
 
 import { Stores, StoresProvider } from './stores';
 import { ThemeProvider } from './ThemeProvider';
+import { Layout } from './Layout/Layout';
 
-function App() {
+export function App() {
   const [stores] = useState(() => new Stores());
 
   return (
@@ -26,5 +26,3 @@ function App() {
     </StoresProvider>
   );
 }
-
-export default App;
