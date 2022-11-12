@@ -19,23 +19,27 @@ export const Alphabet = observer(() => {
     <>
       <ol className={styles.list}>
         {alphabet.map((letter) => (
-          // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions -- todo
           <li
             key={letter.lowercase}
             className={styles.letter}
-            onClick={() => {
-              setLastOpenedLetter(letter);
-              setIsOpenLetterView(true);
-            }}
           >
-            <Letter
-              uppercase={letter.uppercase}
-              lowercase={letter.lowercase}
-              name={letter.name}
-              transliteration={letter.transliteration}
-              ipa={letter.ipa}
-              state={totalProgress[letter.lowercase]}
-            />
+            <button
+              type="button"
+              onClick={() => {
+                setLastOpenedLetter(letter);
+                setIsOpenLetterView(true);
+              }}
+              className={styles.letterButton}
+            >
+              <Letter
+                uppercase={letter.uppercase}
+                lowercase={letter.lowercase}
+                name={letter.name}
+                transliteration={letter.transliteration}
+                ipa={letter.ipa}
+                state={totalProgress[letter.lowercase]}
+              />
+            </button>
           </li>
         ))}
       </ol>
