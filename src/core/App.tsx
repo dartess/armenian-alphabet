@@ -4,6 +4,7 @@ import { ConfirmProvider } from 'material-ui-confirm';
 
 import { InstallationProvider } from '@/stores/installation/view/InstallationProvider';
 import { ManifestDynamic } from '@/stores/installation/view/ManifestDynamic';
+import { CongratulationsProvider } from '@/stores/progress/view/Congratulations/CongratulationsProvider';
 
 import { Stores, StoresProvider } from './stores';
 import { ThemeProvider } from './ThemeProvider';
@@ -20,6 +21,7 @@ export function App() {
             <Layout />
             <ManifestDynamic />
             <InstallationProvider />
+            <CongratulationsProvider />
           </ConfirmProvider>
         </ThemeProvider>
       </StyledEngineProvider>

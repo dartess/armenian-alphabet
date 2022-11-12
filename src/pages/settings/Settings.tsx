@@ -12,6 +12,7 @@ import { Install } from './Install';
 
 export const Settings = observer(function Settings() {
   const { canBeInstalled } = useStore('installation');
+  const { isProgressCompleted, progressCounts } = useStore('progress');
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <Box sx={{ my: 3, mx: 2 }}>
@@ -34,6 +35,13 @@ export const Settings = observer(function Settings() {
       )}
       <Box sx={{ my: 3, mx: 2 }}>
         <FormControl>
+          <FormLabel sx={{ mb: 1 }}>
+            Прогресс:
+            {' '}
+            {isProgressCompleted
+              ? 'завершён'
+              : `${progressCounts.newCount} / ${progressCounts.progressCount} / ${progressCounts.doneCount}`}
+          </FormLabel>
           <ResetButton />
         </FormControl>
       </Box>

@@ -2,7 +2,7 @@ import { makeObservable, computed, observable, autorun, runInAction } from 'mobx
 import type { WebAppManifest } from 'web-app-manifest';
 
 import { PLATFORM_ENV } from '@/utils/envPlatform';
-import type { SettingsStore } from '@/stores/SettingsStore';
+import type { SettingsStore } from '@/stores/settings/SettingsStore';
 
 import type { InstallationImplementationKind, InstallationStoreImplementation } from '../model';
 

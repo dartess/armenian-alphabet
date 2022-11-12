@@ -1,6 +1,6 @@
 import { action, makeObservable, observable } from 'mobx';
 
-import type { SettingsStore } from '@/stores/SettingsStore';
+import type { SettingsStore } from '@/stores/settings/SettingsStore';
 import { IS_IOS } from '@/utils/envPlatform';
 
 import type { InstallationStoreImplementation } from '../model';

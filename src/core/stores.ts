@@ -1,7 +1,7 @@
 import { useContext, createContext } from 'react';
 
-import { ProgressStore } from '@/stores/ProgressStore';
-import { SettingsStore } from '@/stores/SettingsStore';
+import { ProgressStore } from '@/stores/progress/ProgressStore';
+import { SettingsStore } from '@/stores/settings/SettingsStore';
 import { InstallationStore } from '@/stores/installation/mobx/InstallationStore';
 
 export class Stores {
