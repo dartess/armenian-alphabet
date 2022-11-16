@@ -43,6 +43,15 @@ module.exports = {
                 constructors: 'off',
             }
         }],
+        '@typescript-eslint/no-use-before-define': ['error', {
+            functions: false,
+            classes: true,
+            variables: true,
+            allowNamedExports: false,
+            enums: true,
+            typedefs: true,
+            ignoreTypeReferences: true,
+        }],
         'import/order': [
             'error',
             {

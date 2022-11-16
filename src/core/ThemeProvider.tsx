@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { observer } from 'mobx-react-lite';
@@ -48,7 +48,18 @@ const getDesignTokens = (mode: PaletteMode) => ({
 
 export const ThemeProvider = observer(function ThemeProvider({ children }: Props) {
   const { appTheme } = useStore('settings');
+
   const theme = useMemo(() => createTheme(getDesignTokens(appTheme)), [appTheme]);
+
+  const [themeColorMeta] = useState(getThemeColorMeta);
+
+  useEffect(
+    function toggleTheme() {
+      themeColorMeta.content = theme.palette.primary.main;
+    },
+    [theme],
+  );
+
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
@@ -56,3 +67,14 @@ export const ThemeProvider = observer(function ThemeProvider({ children }: Props
     </MuiThemeProvider>
   );
 });
+
+function getThemeColorMeta(): HTMLMetaElement {
+  return (document.querySelector('meta[name="theme-color"]')) ?? makeThemeColorMeta();
+}
+
+function makeThemeColorMeta(): HTMLMetaElement {
+  const meta = document.createElement('meta');
+  meta.name = 'theme-color';
+  document.head.appendChild(meta);
+  return meta;
+}
