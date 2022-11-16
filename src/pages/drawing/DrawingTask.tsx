@@ -78,6 +78,7 @@ export const DrawingTask = observer(function DrawingTask() {
   );
 
   const wasDrawed = userDrawRaw.length > 0;
+  const canBeCleared = wasDrawed;
   const canBeUndo = wasDrawed;
   const canBeChecked = wasDrawed;
   const handleUndo = useCallback(
@@ -159,6 +160,7 @@ export const DrawingTask = observer(function DrawingTask() {
             className={cn(styles.button, { [styles.buttonClear]: true })}
             onClick={clearSig}
             size="small"
+            disabled={!canBeCleared}
           >
             <ClearIcon />
           </Button>
