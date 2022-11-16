@@ -12,8 +12,6 @@
 ### Техническое
 
 - метрика
-- sentry
-- рефакторинг
 - лицензия
 - отрисовка на канвасе без спрайтов
 - test на ios
@@ -29,6 +27,7 @@
 ### Техническое
 
 - прекоммит, препуш
+- рефакторинг
 - SEO
 - @typescript-eslint/explicit-module-boundary-types
 - storage reaction
@@ -38,6 +37,7 @@
 - адаптация под десктопы
 - попробовать preact
 - <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/pwa/favicon.svg">
+- https://docs.sentry.io/platforms/javascript/sourcemaps/
 
 ### С блокерами:
 

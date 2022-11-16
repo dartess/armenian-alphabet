@@ -4,7 +4,10 @@ import { createRoot } from 'react-dom/client';
 import { serviceWorkerRegister } from '@/core/serviceWorkerRegistration';
 import { App } from '@/core/App';
 import { fixIOsVh } from '@/core/vh';
+import { sentryInit } from '@/utils/sentryInit';
 import '@/core/index.css';
+
+sentryInit();
 
 fixIOsVh();
 
