@@ -5,6 +5,7 @@ export interface LetterType {
   name: string;
   transliteration: string | Array<string>;
   ipa: string | Array<string>;
+  audio: string;
 }
 
 export type LetterState = 'new' | 'progress' | 'done';

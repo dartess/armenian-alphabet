@@ -7,6 +7,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Айб',
     transliteration: 'a',
     ipa: 'ɑ',
+    audio: 'Hy-ա',
   },
   {
     uppercase: 'Բ',
@@ -14,6 +15,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Бен',
     transliteration: 'b',
     ipa: 'b',
+    audio: 'Hy-EA-բ',
   },
   {
     uppercase: 'Գ',
@@ -21,6 +23,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Гим',
     transliteration: 'g',
     ipa: 'g',
+    audio: 'Hy-EA-գ',
   },
   {
     uppercase: 'Դ',
@@ -28,6 +31,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Да',
     transliteration: 'd',
     ipa: 'd',
+    audio: 'Hy-EA-դ',
   },
   {
     uppercase: 'Ե',
@@ -35,6 +39,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Эдж',
     transliteration: ['e', 'ye'],
     ipa: ['ɛ', 'jɛ'],
+    audio: 'Hy-ե',
   },
   {
     uppercase: 'Զ',
@@ -42,6 +47,7 @@ export const alphabet: Array<LetterType> = [
     name: 'За',
     transliteration: 'z',
     ipa: 'z',
+    audio: 'Hy-զ',
   },
   {
     uppercase: 'Է',
@@ -49,6 +55,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Э',
     transliteration: 'e',
     ipa: 'e',
+    audio: 'Hy-է',
   },
   {
     uppercase: 'Ը',
@@ -56,6 +63,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ыт',
     transliteration: 'y',
     ipa: 'ə',
+    audio: 'Hy-ը',
   },
   {
     uppercase: 'Թ',
@@ -63,6 +71,7 @@ export const alphabet: Array<LetterType> = [
     name: 'То',
     transliteration: 't’',
     ipa: 'tʰ',
+    audio: 'Hy-թ',
   },
   {
     uppercase: 'Ժ',
@@ -70,6 +79,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Же',
     transliteration: 'zh',
     ipa: 'ʒ',
+    audio: 'Hy-ժ',
   },
   {
     uppercase: 'Ի',
@@ -77,6 +87,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ини',
     transliteration: 'i',
     ipa: 'i',
+    audio: 'Hy-ի',
   },
   {
     uppercase: 'Լ',
@@ -84,6 +95,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Льюн',
     transliteration: 'l',
     ipa: 'l',
+    audio: 'Hy-լ',
   },
   {
     uppercase: 'Խ',
@@ -91,6 +103,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Хе',
     transliteration: 'kh',
     ipa: 'χ',
+    audio: 'Hy-խ',
   },
   {
     uppercase: 'Ծ',
@@ -98,6 +111,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Тьца',
     transliteration: 'ts',
     ipa: 't͡s',
+    audio: 'Hy-EA-ծ',
   },
   {
     uppercase: 'Կ',
@@ -105,6 +119,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Кен',
     transliteration: 'k',
     ipa: 'k',
+    audio: 'Hy-EA-կ',
   },
   {
     uppercase: 'Հ',
@@ -112,6 +127,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Хо',
     transliteration: 'h',
     ipa: 'h',
+    audio: 'Hy-հ',
   },
   {
     uppercase: 'Ձ',
@@ -119,6 +135,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Дза',
     transliteration: 'dz',
     ipa: 'd͡z',
+    audio: 'Hy-EA-ձ',
   },
   {
     uppercase: 'Ղ',
@@ -126,6 +143,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Гхат',
     transliteration: 'gh',
     ipa: ['ʁ', 'ɫ'],
+    audio: 'Hy-ղ',
   },
   {
     uppercase: 'Ճ',
@@ -133,6 +151,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Тче',
     transliteration: 'ch',
     ipa: 't͡ʃ',
+    audio: 'Hy-EA-ճ',
   },
   {
     uppercase: 'Մ',
@@ -140,6 +159,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Мен',
     transliteration: 'm',
     ipa: 'm',
+    audio: 'Hy-մ',
   },
   {
     uppercase: 'Յ',
@@ -147,6 +167,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Йи',
     transliteration: 'y',
     ipa: 'j',
+    audio: 'Hy-յ',
   },
   {
     uppercase: 'Ն',
@@ -154,6 +175,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ну',
     transliteration: 'n',
     ipa: ['n', 'ŋ'],
+    audio: 'Hy-ն',
   },
   {
     uppercase: 'Շ',
@@ -161,6 +183,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ша',
     transliteration: 'sh',
     ipa: 'ʃ',
+    audio: 'Hy-շ',
   },
   {
     uppercase: 'Ո',
@@ -168,6 +191,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Во',
     transliteration: ['o', 'vo'],
     ipa: ['o', 'ʋɔ'],
+    audio: 'Hy-ո',
   },
   {
     uppercase: 'Չ',
@@ -175,6 +199,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ча',
     transliteration: 'ch’',
     ipa: 't͡ʃʰ',
+    audio: 'Hy-չ',
   },
   {
     uppercase: 'Պ',
@@ -182,6 +207,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Пе',
     transliteration: 'p',
     ipa: 'p',
+    audio: 'Hy-EA-պ',
   },
   {
     uppercase: 'Ջ',
@@ -189,6 +215,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Дже',
     transliteration: 'j',
     ipa: 'd͡ʒ',
+    audio: 'Hy-EA-ջ',
   },
   {
     uppercase: 'Ռ',
@@ -196,6 +223,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ра',
     transliteration: 'rr',
     ipa: 'r',
+    audio: 'Hy-ռ',
   },
   {
     uppercase: 'Ս',
@@ -203,6 +231,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Се',
     transliteration: 's',
     ipa: 's',
+    audio: 'Hy-ս',
   },
   {
     uppercase: 'Վ',
@@ -210,6 +239,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Вев',
     transliteration: 'v',
     ipa: ['v', 'ʋ'],
+    audio: 'Hy-վ',
   },
   {
     uppercase: 'Տ',
@@ -217,6 +247,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Тюн',
     transliteration: 't',
     ipa: 't',
+    audio: 'Hy-EA-տ',
   },
   {
     uppercase: 'Ր',
@@ -224,6 +255,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ре',
     transliteration: 'r',
     ipa: 'ɹ',
+    audio: 'Hy-ր',
   },
   {
     uppercase: 'Ց',
@@ -231,6 +263,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Цо',
     transliteration: 'ts’',
     ipa: 'tsʰ',
+    audio: 'Hy-ց',
   },
   {
     uppercase: 'Ւ',
@@ -238,6 +271,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Йюн',
     transliteration: 'w',
     ipa: 'w',
+    audio: 'Hy-ւ',
   },
   {
     uppercase: 'Փ',
@@ -245,6 +279,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Пьюр',
     transliteration: 'p’',
     ipa: 'pʰ',
+    audio: 'Hy-փ',
   },
   {
     uppercase: 'Ք',
@@ -252,6 +287,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ке',
     transliteration: 'k’',
     ipa: 'kʰ',
+    audio: 'Hy-ք',
   },
   {
     uppercase: 'Եվ',
@@ -259,6 +295,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ев',
     transliteration: ['ev', 'yev'],
     ipa: ['ɛv', 'jɛv'],
+    audio: 'Hy-և',
   },
   {
     uppercase: 'Օ',
@@ -266,6 +303,7 @@ export const alphabet: Array<LetterType> = [
     name: 'О',
     transliteration: 'o',
     ipa: 'o',
+    audio: 'Hy-օ',
   },
   {
     uppercase: 'Ֆ',
@@ -273,6 +311,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Фе',
     transliteration: 'f',
     ipa: 'f',
+    audio: 'Hy-ֆ',
   },
   {
     uppercase: ['Ու', 'ՈՒ'],
@@ -280,6 +319,7 @@ export const alphabet: Array<LetterType> = [
     name: 'У',
     transliteration: 'u',
     ipa: 'u',
+    audio: 'Hy-ու',
   },
 ].map((letter) => ({
   ...letter,
