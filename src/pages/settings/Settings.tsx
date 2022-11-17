@@ -9,6 +9,9 @@ import { useStore } from '@/core/stores';
 import { ResetButton } from './ResetButton';
 import { ChangeTheme } from './ChangeTheme';
 import { Install } from './Install';
+import { AboutDonate } from './AboutDonate';
+import { AboutContacts } from './AboutContacts';
+import { AboutLicense } from './AboutLicense';
 
 export const Settings = observer(function Settings() {
   const { canBeInstalled } = useStore('installation');
@@ -43,6 +46,14 @@ export const Settings = observer(function Settings() {
               : `${progressCounts.newCount} / ${progressCounts.progressCount} / ${progressCounts.doneCount}`}
           </FormLabel>
           <ResetButton />
+        </FormControl>
+      </Box>
+      <Box sx={{ my: 3, mx: 2 }}>
+        <FormControl>
+          <FormLabel>О приложении</FormLabel>
+          <AboutDonate />
+          <AboutContacts />
+          <AboutLicense />
         </FormControl>
       </Box>
     </Box>

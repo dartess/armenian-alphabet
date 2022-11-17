@@ -27,6 +27,7 @@ module.exports = {
             2,
             { indentLogicalExpressions: true },
         ],
+        'jsx-a11y/anchor-is-valid': 'off',
         'eslint-comments/disable-enable-pair': ['error', {allowWholeFile: true}],
         'eslint-comments/require-description': 'warn',
         'mobx/missing-observer': 'off', // false positive
