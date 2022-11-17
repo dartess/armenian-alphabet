@@ -7,7 +7,9 @@ import { fixIOsVh } from '@/core/vh';
 import { sentryInit } from '@/utils/sentryInit';
 import '@/core/index.css';
 
-sentryInit();
+if (process.env.NODE_ENV === 'production') {
+  sentryInit();
+}
 
 fixIOsVh();
 
