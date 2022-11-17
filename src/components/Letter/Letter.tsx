@@ -3,6 +3,7 @@ import Divider from '@mui/material/Divider';
 
 import type { LetterState, LetterType } from '@/types/model';
 import { toArray } from '@/utils/toArray';
+import { ArmenianText } from '@/components/ArmenianText/ArmenianText';
 
 import styles from './Letter.module.css';
 
@@ -27,9 +28,9 @@ export function Letter({ uppercase, lowercase, transliteration, ipa, state }: Pr
     <div className={styles.root}>
       <Box sx={{ color }}>
         <div>
-          {uppercase}
+          <ArmenianText>{uppercase}</ArmenianText>
           {' '}
-          {lowercase}
+          <ArmenianText>{lowercase}</ArmenianText>
         </div>
         <div className={styles.info}>
           <Box

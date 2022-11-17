@@ -100,7 +100,17 @@ export const DrawingTask = observer(function DrawingTask() {
 
   const taskTypeText = unitTo === 'uppercase' ? 'ЗАГЛАВНУЮ' : 'строчную';
   const taskUnit = printTaskUnit(questionLetter, unitFrom);
-  const taskText = `Нарисуйте ${taskTypeText} букву для ${taskUnit}`;
+  const taskText = (
+    <>
+      Нарисуйте
+      {' '}
+      {taskTypeText}
+      {' '}
+      букву для
+      {' '}
+      {taskUnit}
+    </>
+  );
 
   const { appTheme } = useStore('settings');
   const penColor = appTheme === 'light' ? '#000000' : '#dddddd';
