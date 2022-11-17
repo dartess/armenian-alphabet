@@ -35,11 +35,8 @@ export function LetterView({ isOpenLetterView, openedLetter, onClose, state, onS
         <h4 className={styles.name}>{openedLetter.name}</h4>
         <div className={styles.basicLetter}>
           <Letter
-            uppercase={openedLetter.uppercase}
-            lowercase={openedLetter.lowercase}
-            name={openedLetter.name}
-            transliteration={openedLetter.transliteration}
-            ipa={openedLetter.ipa}
+            letter={openedLetter}
+            showVariants
           />
         </div>
         <div className={styles.state}>

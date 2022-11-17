@@ -1,6 +1,6 @@
 export interface LetterType {
   id: string;
-  uppercase: string;
+  uppercase: string | Array<string>;
   lowercase: string;
   name: string;
   transliteration: string | Array<string>;

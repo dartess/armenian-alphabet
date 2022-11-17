@@ -2,16 +2,20 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 
 import type { LetterState, LetterType } from '@/types/model';
-import { toArray } from '@/utils/toArray';
-import { ArmenianText } from '@/components/ArmenianText/ArmenianText';
+import { LetterUppercase } from '@/components/units/LetterUppercase';
+import { LetterLowercase } from '@/components/units/LetterLowercase';
+import { LetterTransliteration } from '@/components/units/LetterTransliteration';
+import { LetterIpa } from '@/components/units/LetterIpa';
 
 import styles from './Letter.module.css';
 
-type Props = Omit<LetterType, 'id'> & {
+interface Props {
+  letter: LetterType;
   state?: LetterState;
-};
+  showVariants: boolean;
+}
 
-export function Letter({ uppercase, lowercase, transliteration, ipa, state }: Props) {
+export function Letter({ letter, state, showVariants }: Props) {
   const color = (() => {
     switch (state) {
       case 'new':
@@ -24,13 +28,14 @@ export function Letter({ uppercase, lowercase, transliteration, ipa, state }: Pr
         return undefined;
     }
   })();
+
   return (
     <div className={styles.root}>
       <Box sx={{ color }}>
         <div>
-          <ArmenianText>{uppercase}</ArmenianText>
+          <LetterUppercase letter={letter} showVariants={showVariants} />
           {' '}
-          <ArmenianText>{lowercase}</ArmenianText>
+          <LetterLowercase letter={letter} />
         </div>
         <div className={styles.info}>
           <Box
@@ -40,13 +45,13 @@ export function Letter({ uppercase, lowercase, transliteration, ipa, state }: Pr
               alignItems: 'center',
             }}
           >
-            {toArray(transliteration).join(', ')}
+            <LetterTransliteration letter={letter} showVariants={showVariants} />
             <Divider
               orientation="vertical"
               flexItem
               sx={{ margin: '0 7px' }}
             />
-            {toArray(ipa).map((ipaItem) => `[${ipaItem}]`).join(', ')}
+            <LetterIpa letter={letter} showVariants={showVariants} />
           </Box>
         </div>
       </Box>

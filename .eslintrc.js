@@ -4,6 +4,7 @@ module.exports = {
     plugins: ['no-array-any'],
     extends: [
         'airbnb',
+        'airbnb/hooks',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/strict',
         'airbnb-typescript', // must be below `@typescript-eslint/recommended`

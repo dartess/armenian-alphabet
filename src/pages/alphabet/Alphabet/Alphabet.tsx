@@ -32,12 +32,9 @@ export const Alphabet = observer(() => {
               className={styles.letterButton}
             >
               <Letter
-                uppercase={letter.uppercase}
-                lowercase={letter.lowercase}
-                name={letter.name}
-                transliteration={letter.transliteration}
-                ipa={letter.ipa}
+                letter={letter}
                 state={totalProgress[letter.lowercase]}
+                showVariants={false}
               />
             </button>
           </li>

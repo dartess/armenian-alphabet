@@ -16,7 +16,7 @@ import Typography from '@mui/material/Typography';
 import { calculateAccuracy, getSampleShape } from '@/pages/drawing/utils';
 import { getDrawingQuestion, getRandomDrawingTypeKey } from '@/pages/drawing/drawingTasks';
 import { useStore } from '@/core/stores';
-import { printTaskUnit } from '@/utils/printTaskUnit';
+import { LetterUnit } from '@/components/units/LetterUnit';
 
 import styles from './DrawingTask.module.css';
 import type { Shape } from './model';
@@ -47,6 +47,7 @@ export const DrawingTask = observer(function DrawingTask() {
 
   const { questionLetter, unitFrom, unitTo } = useMemo(
     () => getDrawingQuestion(drawingKey, totalProgress),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- TODO check it
     [drawingKey],
   );
 
@@ -61,6 +62,7 @@ export const DrawingTask = observer(function DrawingTask() {
       const dots = userDrawRaw.flat(2).map((d) => ({ x: d.x / 3, y: d.y / 3 }));
       setAccuracy(calculateAccuracy(sampleShape, dots));
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- TODO check it
     [userDrawRaw],
   );
 
@@ -99,7 +101,7 @@ export const DrawingTask = observer(function DrawingTask() {
   const isResultCalculated = Boolean(accuracy);
 
   const taskTypeText = unitTo === 'uppercase' ? 'ЗАГЛАВНУЮ' : 'строчную';
-  const taskUnit = printTaskUnit(questionLetter, unitFrom);
+  // const taskUnit = printTaskUnit(, );
   const taskText = (
     <>
       Нарисуйте
@@ -108,7 +110,11 @@ export const DrawingTask = observer(function DrawingTask() {
       {' '}
       букву для
       {' '}
-      {taskUnit}
+      <LetterUnit
+        letter={questionLetter}
+        unit={unitFrom}
+        showVariants
+      />
     </>
   );
 

@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import type { LetterState } from '@/types/model';
 import { Letter } from '@/components/Letter/Letter';
 import { useStore } from '@/core/stores';
-import { printTaskUnit } from '@/utils/printTaskUnit';
+import { LetterUnit } from '@/components/units/LetterUnit';
 
 import type { QuizKey } from '../quizTasks';
 import { getQuizQuestion } from '../quizTasks';
@@ -32,6 +32,7 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
 
   const { questionLetter, answerLetters, unitFrom, unitTo } = useMemo(
     () => getQuizQuestion(quizKey, totalProgress),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- TODO check it
     [quizKey],
   );
 
@@ -52,7 +53,7 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
     <div className={styles.root}>
       <div className={styles.question}>
         <div className={styles.questionUnit}>
-          {printTaskUnit(questionLetter, unitFrom)}
+          <LetterUnit letter={questionLetter} unit={unitFrom} showVariants />
         </div>
         {answerLetters.map((answerLetterItem) => {
           const color = (() => {
@@ -82,7 +83,7 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
               color={color}
               className={styles.answerUnit}
             >
-              {printTaskUnit(answerLetterItem, unitTo)}
+              <LetterUnit letter={answerLetterItem} unit={unitTo} showVariants={false} />
             </Button>
           );
         })}
@@ -91,11 +92,8 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
         <div className={styles.results}>
           <div className={styles.letter}>
             <Letter
-              uppercase={questionLetter.uppercase}
-              lowercase={questionLetter.lowercase}
-              name={questionLetter.name}
-              transliteration={questionLetter.transliteration}
-              ipa={questionLetter.ipa}
+              letter={questionLetter}
+              showVariants
             />
           </div>
           <div className={styles.actions}>

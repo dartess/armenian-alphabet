@@ -125,7 +125,7 @@ export const alphabet: Array<LetterType> = [
     lowercase: 'ղ',
     name: 'Гхат',
     transliteration: 'gh',
-    ipa: ['l', 'ɫ'],
+    ipa: ['ʁ', 'ɫ'],
   },
   {
     uppercase: 'Ճ',
@@ -257,8 +257,8 @@ export const alphabet: Array<LetterType> = [
     uppercase: 'Եվ',
     lowercase: 'և',
     name: 'Ев',
-    transliteration: ['yev', 'ev'],
-    ipa: ['jɛv', 'ɛv'],
+    transliteration: ['ev', 'yev'],
+    ipa: ['ɛv', 'jɛv'],
   },
   {
     uppercase: 'Օ',
@@ -273,6 +273,13 @@ export const alphabet: Array<LetterType> = [
     name: 'Фе',
     transliteration: 'f',
     ipa: 'f',
+  },
+  {
+    uppercase: ['Ու', 'ՈՒ'],
+    lowercase: 'ու',
+    name: 'У',
+    transliteration: 'u',
+    ipa: 'u',
   },
 ].map((letter) => ({
   ...letter,
