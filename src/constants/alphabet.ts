@@ -295,7 +295,7 @@ export const alphabet: Array<LetterType> = [
     name: 'Ев',
     transliteration: ['ev', 'yev'],
     ipa: ['ɛv', 'jɛv'],
-    audio: 'Hy-և',
+    audio: 'Hy-եւ',
   },
   {
     uppercase: 'Օ',
