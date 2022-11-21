@@ -55,8 +55,13 @@ export const LetterView = observer(function LetterView({
   const handleClickPrev = () => onChangeLetter(prevLetter);
   const handleClickNext = () => onChangeLetter(nextLetter);
 
+  const handleStateChange = (clickedState: LetterState) => {
+    const newState = state !== clickedState ? clickedState : 'new';
+    onStateChange(newState);
+  };
+
   return (
-    <Dialog open={isOpenLetterView} onClose={onClose}>
+    <Dialog open={isOpenLetterView} onClose={onClose} fullWidth>
       <div className={styles.root}>
         <div className={styles.content}>
           <h4 className={styles.name}>{openedLetter.name}</h4>
@@ -67,22 +72,16 @@ export const LetterView = observer(function LetterView({
             />
           </div>
           <div className={styles.state}>
-            <ButtonGroup size="large">
-              <Button
-                variant={state === 'new' ? 'contained' : 'outlined'}
-                onClick={() => onStateChange('new')}
-              >
-                <NotListedLocationOutlinedIcon />
-              </Button>
+            <ButtonGroup size="medium">
               <Button
                 variant={state === 'progress' ? 'contained' : 'outlined'}
-                onClick={() => onStateChange('progress')}
+                onClick={() => handleStateChange('progress')}
               >
                 <SchoolOutlinedIcon />
               </Button>
               <Button
                 variant={state === 'done' ? 'contained' : 'outlined'}
-                onClick={() => onStateChange('done')}
+                onClick={() => handleStateChange('done')}
               >
                 <DoneOutlinedIcon />
               </Button>
@@ -99,14 +98,20 @@ export const LetterView = observer(function LetterView({
           className={styles.navigation}
           fullWidth
         >
-          <Button onClick={handleClickPrev} startIcon={<NavigateNextIcon className={styles.navigatePrev} />}>
+          <Button
+            onClick={handleClickPrev}
+            startIcon={<NavigateNextIcon className={styles.navigatePrev} />}
+          >
             <LetterUnit
               unit="uppercase"
               letter={prevLetter}
               showVariants={false}
             />
           </Button>
-          <Button onClick={handleClickNext} endIcon={<NavigateNextIcon />}>
+          <Button
+            onClick={handleClickNext}
+            endIcon={<NavigateNextIcon />}
+          >
             <LetterUnit
               unit="uppercase"
               letter={nextLetter}
