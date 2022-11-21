@@ -9,6 +9,6 @@ interface Props {
 
 const mapIpa = (ipaItem: string) => `[${ipaItem}]`;
 
-export function LetterIpa({ letter: { transliteration }, showVariants }: Props) {
-  return <>{useVariantsPrint(transliteration, showVariants, ', ', mapIpa)}</>;
+export function LetterIpa({ letter: { ipa }, showVariants }: Props) {
+  return <>{useVariantsPrint(ipa, showVariants, ', ', mapIpa)}</>;
 }
