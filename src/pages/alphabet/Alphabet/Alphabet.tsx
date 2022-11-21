@@ -47,6 +47,7 @@ export const Alphabet = observer(() => {
           onClose={() => setIsOpenLetterView(false)}
           onStateChange={(state) => setLetterProgress(lastOpenedLetter, state)}
           state={totalProgress[lastOpenedLetter.lowercase]}
+          onChangeLetter={setLastOpenedLetter}
         />
       )}
     </>
