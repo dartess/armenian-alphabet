@@ -20,16 +20,12 @@ import { useState } from 'react';
 
 const cryptoItems = [
   {
-    name: 'Bitcoin',
-    value: '1',
-  },
-  {
     name: 'Litecoin',
-    value: '2',
+    value: 'LXBsTiA2LaoR1JogRFXEcw6Pn1ruNMKrzq',
   },
   {
-    name: 'USDT TRC20',
-    value: '3',
+    name: 'USDT (TRC20)',
+    value: 'TAfWnTToyiFCwKYshNWEVu8pSa5zESS9Ji',
   },
 ];
 
@@ -89,7 +85,16 @@ export function AboutDonate() {
                     <ListItemIcon>
                       <ContentCopyIcon />
                     </ListItemIcon>
-                    <ListItemText primary={`${crypto.name}: ${crypto.value}`} />
+                    <ListItemText
+                      primary={`${crypto.name}: ${crypto.value}`}
+                      primaryTypographyProps={{
+                        style: {
+                          whiteSpace: 'nowrap',
+                          textOverflow: 'ellipsis',
+                          overflow: 'hidden',
+                        },
+                      }}
+                    />
                   </ListItemButton>
                 </ListItem>
               ))}
