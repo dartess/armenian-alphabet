@@ -8,6 +8,14 @@
 .content {
     display: grid;
     gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.description {
+    display: grid;
+    gap: 10px;
+    align-self: end;
+    padding-bottom: 0.9rem;
 }
 
 .name {

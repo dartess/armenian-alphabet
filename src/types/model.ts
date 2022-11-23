@@ -20,3 +20,11 @@ export type Theme = 'dark' | 'light';
 export type UserTheme = Theme | 'system';
 
 export type DisplayMode = 'twa' | 'standalone' | 'browser';
+
+// todo labeled eslint
+export type WordData = [
+  string,
+  string,
+  string,
+  string,
+];

@@ -48,3 +48,7 @@ keygen {
   font-size: inherit;
   line-height: inherit;
 }
+
+img {
+  max-width: 100%;
+}

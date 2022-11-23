@@ -9,6 +9,7 @@ import { observer } from 'mobx-react-lite';
 import type { LetterType, LetterState } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
 import { LetterUnit } from '@/components/units/LetterUnit';
+import { Illustration } from '@/components/Illustration/Illustration';
 
 import { Letter } from '../Letter/Letter';
 
@@ -63,31 +64,36 @@ export const LetterView = observer(function LetterView({
     <Dialog open={isOpenLetterView} onClose={onClose} fullWidth>
       <div className={styles.root}>
         <div className={styles.content}>
-          <h4 className={styles.name}>{openedLetter.name}</h4>
-          <div className={styles.basicLetter}>
-            <Letter
-              letter={openedLetter}
-              showVariants
-            />
+          <div className={styles.illustration}>
+            <Illustration letter={openedLetter} />
           </div>
-          <div className={styles.state}>
-            <ButtonGroup size="medium">
-              <Button
-                variant={state === 'progress' ? 'contained' : 'outlined'}
-                onClick={() => handleStateChange('progress')}
-              >
-                <SchoolOutlinedIcon />
-              </Button>
-              <Button
-                variant={state === 'done' ? 'contained' : 'outlined'}
-                onClick={() => handleStateChange('done')}
-              >
-                <DoneOutlinedIcon />
-              </Button>
-            </ButtonGroup>
-          </div>
-          <div className={styles.stateText}>
-            {statusTexts[state]}
+          <div className={styles.description}>
+            <h4 className={styles.name}>{openedLetter.name}</h4>
+            <div className={styles.basicLetter}>
+              <Letter
+                letter={openedLetter}
+                showVariants
+              />
+            </div>
+            <div className={styles.state}>
+              <ButtonGroup size="medium">
+                <Button
+                  variant={state === 'progress' ? 'contained' : 'outlined'}
+                  onClick={() => handleStateChange('progress')}
+                >
+                  <SchoolOutlinedIcon />
+                </Button>
+                <Button
+                  variant={state === 'done' ? 'contained' : 'outlined'}
+                  onClick={() => handleStateChange('done')}
+                >
+                  <DoneOutlinedIcon />
+                </Button>
+              </ButtonGroup>
+            </div>
+            <div className={styles.stateText}>
+              {statusTexts[state]}
+            </div>
           </div>
         </div>
         <ButtonGroup

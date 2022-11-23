@@ -1,7 +1,9 @@
+import type { ReactNode } from 'react';
+
 import styles from './ArmenianText.module.css';
 
 interface Props {
-  children: string;
+  children: string | ReactNode;
 }
 
 export function ArmenianText({ children }: Props) {
