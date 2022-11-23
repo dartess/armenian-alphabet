@@ -6,6 +6,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useToggle } from 'react-use';
+import Link from '@mui/material/Link';
 
 import { LinkExternal } from '@/components/LinkExternal';
 
@@ -14,24 +15,31 @@ export function AboutLicense() {
 
   return (
     <Box sx={{ my: 1 }}>
-      <Button variant="outlined" onClick={toggleIsOpen}>
+      <Link
+        component="button"
+        variant="overline"
+        onClick={toggleIsOpen}
+        color="secondary"
+      >
         Лицензии
-      </Button>
+      </Link>
       <Dialog open={isOpen} onClose={toggleIsOpen}>
         <DialogTitle>
           Использованные материалы
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Озвучка использована по лицензии CC BY 3.0.
+          <DialogContentText sx={{ mb: 1 }}>
+            Озвучка использована по лицензии CC BY 3.0. Автор:
+            {' '}
+            <LinkExternal href="https://commons.wikimedia.org/wiki/User:Vahagn_Petrosyan">
+              Vahagn Petrosyan
+            </LinkExternal>
           </DialogContentText>
           <DialogContentText>
-            Автор:
+            Изображения сгенерированы в
             {' '}
-            <LinkExternal
-              href="https://commons.wikimedia.org/wiki/User:Vahagn_Petrosyan"
-            >
-              Vahagn Petrosyan
+            <LinkExternal href="https://dream.ai/">
+              Dream by WOMBO
             </LinkExternal>
           </DialogContentText>
         </DialogContent>

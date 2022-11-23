@@ -17,26 +17,38 @@ export const Settings = observer(function Settings() {
   const { canBeInstalled } = useStore('installation');
   const { isProgressCompleted, progressCounts } = useStore('progress');
   return (
-    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      <Box sx={{ my: 3, mx: 2 }}>
+    <Box
+      sx={{
+        width: '100%',
+        maxWidth: 360,
+        minHeight: '100%',
+        bgcolor: 'background.paper',
+        display: 'flex',
+        flexDirection: 'column',
+        px: 2,
+        pt: 3,
+      }}
+      position="relative"
+    >
+      <Box sx={{ mb: 3 }}>
         <Typography gutterBottom variant="h4" component="div">
           Настройки
         </Typography>
       </Box>
-      <Box sx={{ my: 3, mx: 2 }}>
+      <Box sx={{ mb: 3 }}>
         <FormControl>
           <FormLabel id="theme">Тема приложения</FormLabel>
           <ChangeTheme />
         </FormControl>
       </Box>
       {canBeInstalled && (
-        <Box sx={{ my: 3, mx: 2 }}>
+        <Box sx={{ mb: 3 }}>
           <FormControl>
             <Install />
           </FormControl>
         </Box>
       )}
-      <Box sx={{ my: 3, mx: 2 }}>
+      <Box sx={{ mb: 3 }}>
         <FormControl>
           <FormLabel sx={{ mb: 1 }}>
             Прогресс:
@@ -48,13 +60,15 @@ export const Settings = observer(function Settings() {
           <ResetButton />
         </FormControl>
       </Box>
-      <Box sx={{ my: 3, mx: 2 }}>
+      <Box sx={{ mb: 3 }}>
         <FormControl>
           <FormLabel>О приложении</FormLabel>
           <AboutDonate />
           <AboutContacts />
-          <AboutLicense />
         </FormControl>
+      </Box>
+      <Box sx={{ mt: 'auto' }}>
+        <AboutLicense />
       </Box>
     </Box>
   );
