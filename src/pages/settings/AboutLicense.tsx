@@ -14,7 +14,7 @@ export function AboutLicense() {
   const [isOpen, toggleIsOpen] = useToggle(false);
 
   return (
-    <Box sx={{ my: 1 }}>
+    <Box sx={{ my: 1, textAlign: 'right' }}>
       <Link
         component="button"
         variant="overline"
