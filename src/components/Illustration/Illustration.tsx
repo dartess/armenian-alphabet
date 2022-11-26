@@ -9,7 +9,7 @@ import { HighlightedText } from '@/components/HighlightedText/HighlightedText';
 import styles from './Illustration.module.css';
 
 interface Props {
-  letter: LetterType
+  letter: LetterType // todo force ;
 }
 
 export function Illustration({ letter }: Props) {
@@ -26,18 +26,32 @@ export function Illustration({ letter }: Props) {
         >
           <img
             src={imagePath}
-            alt={wordTranslation}
+            alt={wordTransliteration}
             className={styles.image}
           />
         </Paper>
         <ImageListItemBar
           title={(
-            <ArmenianText>
-              <HighlightedText
-                text={word}
-                highlights={letter.lowercase}
-              />
-            </ArmenianText>
+            <>
+              <Typography display="block">
+                <ArmenianText>
+                  <HighlightedText
+                    text={word}
+                    highlights={letter.lowercase}
+                    textCase="uppercase"
+                  />
+                </ArmenianText>
+              </Typography>
+              <Typography display="block">
+                <ArmenianText>
+                  <HighlightedText
+                    text={word}
+                    highlights={letter.lowercase}
+                    textCase="lowercase"
+                  />
+                </ArmenianText>
+              </Typography>
+            </>
           )}
           subtitle={(
             <>
