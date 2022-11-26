@@ -9,7 +9,7 @@ interface Props {
 }
 
 export function LetterAudio({ letter: { audio } }: Props) {
-  const [audioElement, state, controls] = useAudio({ src: `/audio/letters/${audio}.ogg` });
+  const [audioElement, state, controls] = useAudio({ src: `/audio/letters/${audio}.mp3` });
 
   return (
     <>
