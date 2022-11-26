@@ -4,7 +4,7 @@
   "description": "Изучение армянского алфавита",
   "theme_color": "#ff8f00",
   "background_color": "#ffffff",
-  "start_url": "/?utm_source=web_app_manifest",
+  "start_url": "/alphabet?utm_source=web_app_manifest",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
@@ -49,13 +49,18 @@
     },
     "__platform": {
       "Windows": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_windows",
         "display": "minimal-ui"
       },
-      "Android": {},
+      "Android": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_android"
+      },
       "Linux": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_linux",
         "display": "minimal-ui"
       },
       "iOS": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_ios",
         "icons": [
           {
             "src": "/pwa/apple-touch-icon-180x180.png",
@@ -65,6 +70,7 @@
         ]
       },
       "macOS": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_macos",
         "display": "minimal-ui"
       }
     }
