@@ -1,5 +1,7 @@
-import { Redirect, Route, Switch } from 'wouter';
+import { Redirect, Route, Switch, useLocation } from 'wouter';
 import type { ComponentType } from 'react';
+import { useUpdateEffect } from 'react-use';
+import ym from 'react-yandex-metrika';
 
 import type { PageValue } from '@/types/model';
 import { Alphabet } from '@/pages/alphabet/Alphabet/Alphabet';
@@ -15,6 +17,14 @@ const routes: Record<PageValue, ComponentType<any>> = {
 };
 
 export function Router() {
+  const [location] = useLocation();
+  useUpdateEffect(
+    () => {
+      ym('hit', location);
+    },
+    [location],
+  );
+
   return (
     <Switch>
       {Object.entries(routes).map(([page, component]) => <Route key={page} path={`/${page}`} component={component} />)}
