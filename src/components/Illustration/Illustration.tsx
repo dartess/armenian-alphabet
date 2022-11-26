@@ -15,7 +15,7 @@ interface Props {
 export function Illustration({ letter }: Props) {
   const [word, wordTransliteration, wordTranslation, imageName] = wordExamples[letter.lowercase];
 
-  const imagePath = `/pictures/words/${imageName}.jpeg`;
+  const imagePath = `/pictures/words/${imageName}.jpg`;
 
   return (
     <div>
