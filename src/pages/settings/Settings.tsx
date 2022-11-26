@@ -20,7 +20,6 @@ export const Settings = observer(function Settings() {
     <Box
       sx={{
         width: '100%',
-        maxWidth: 360,
         minHeight: '100%',
         bgcolor: 'background.paper',
         display: 'flex',
