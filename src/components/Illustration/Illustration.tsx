@@ -1,7 +1,7 @@
 import { ImageListItem, ImageListItemBar, Paper } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-import { wordExamples } from '@/constants/alphabet';
+import { wordExamples } from '@/constants/wordExamples';
 import type { LetterType } from '@/types/model';
 import { ArmenianText } from '@/components/ArmenianText/ArmenianText';
 import { HighlightedText } from '@/components/HighlightedText/HighlightedText';
