@@ -25,7 +25,6 @@ export const ResetButton = observer(() => {
 
   return (
     <Button
-      color="warning"
       variant="outlined"
       onClick={handleClick}
       endIcon={<DeleteForeverIcon />}
