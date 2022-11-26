@@ -13,7 +13,6 @@ export const Install = observer(function Install() {
 
   return (
     <Button
-      color="warning"
       variant="outlined"
       onClick={showInstallPrompt}
       endIcon={<InstallIcon />}
