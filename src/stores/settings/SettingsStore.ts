@@ -1,4 +1,5 @@
-import { observable, makeObservable, action, reaction, computed } from 'mobx';
+import { observable, makeObservable, action, computed } from 'mobx';
+import { makePersistable } from 'mobx-persist-store';
 
 import type { DisplayMode, Theme, UserTheme } from '@/types/model';
 
@@ -8,21 +9,15 @@ export class SettingsStore {
   constructor() {
     makeObservable(this);
 
+    makePersistable(this, { name: 'SettingsStore', properties: ['userTheme'] });
+
     this.mediaPrefersColorSchemeDark.addEventListener('change', this.handleChangeSystemPrefersColorSchemeDark);
 
     this.standaloneMatchMedia.addEventListener('change', this.handleStandaloneChange);
-
-    reaction(
-      () => this.userTheme,
-      (userTheme) => localStorage.setItem(SettingsStore.LOCALSTORAGE_KEY_THEME, userTheme),
-    );
   }
 
   @observable
-  public userTheme: UserTheme = (() => {
-      const userThemeFromStorage = localStorage.getItem(SettingsStore.LOCALSTORAGE_KEY_THEME);
-      return (userThemeFromStorage ?? 'system') as UserTheme;
-    })();
+  public userTheme: UserTheme = 'system';
 
   @action.bound
   public setUserTheme = (userTheme: UserTheme) => {
@@ -62,6 +57,4 @@ export class SettingsStore {
   private handleStandaloneChange = (event: MediaQueryListEvent) => {
     this.displayMode = event.matches ? 'standalone' : 'browser';
   };
-
-  private static LOCALSTORAGE_KEY_THEME = 'userTheme';
 }

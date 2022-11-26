@@ -1,4 +1,5 @@
-import { observable, makeObservable, action, reaction, computed, autorun, runInAction } from 'mobx';
+import { observable, makeObservable, action, computed, autorun, runInAction } from 'mobx';
+import { makePersistable } from 'mobx-persist-store';
 
 import type { LetterState, LetterType, TotalProgress } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
@@ -8,10 +9,7 @@ export class ProgressStore {
   constructor() {
     makeObservable(this);
 
-    reaction(
-      () => JSON.stringify(this.totalProgress),
-      (progress) => localStorage.setItem(ProgressStore.LOCALSTORAGE_KEY, progress),
-    );
+    makePersistable(this, { name: 'ProgressStore', properties: ['totalProgress'] });
 
     autorun(
       () => {
@@ -28,13 +26,7 @@ export class ProgressStore {
   }
 
   @observable
-  public totalProgress: TotalProgress = (() => {
-      const totalProgressFromStorage = localStorage.getItem(ProgressStore.LOCALSTORAGE_KEY);
-      if (totalProgressFromStorage) {
-        return JSON.parse(totalProgressFromStorage);
-      }
-      return ProgressStore.getInitialProgress();
-    })();
+  public totalProgress: TotalProgress = ProgressStore.getInitialProgress();
 
   @observable
   public isShowCongratulations = false;
@@ -75,6 +67,4 @@ export class ProgressStore {
   private static getInitialProgress(): TotalProgress {
     return Object.fromEntries(alphabet.map((letter) => [letter.lowercase, 'new']));
   }
-
-  private static LOCALSTORAGE_KEY = 'totalProgress';
 }
