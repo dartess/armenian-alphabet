@@ -7,6 +7,7 @@ import { App } from '@/core/App';
 import { fixIOsVh } from '@/core/vh';
 import { sentryInit } from '@/utils/sentryInit';
 import { safeLocalStorage } from '@/utils/safeLocalStorage';
+import { InstallationStore } from '@/stores/installation/mobx/InstallationStore';
 import '@/core/index.css';
 
 if (process.env.NODE_ENV === 'production') {
@@ -16,6 +17,8 @@ if (process.env.NODE_ENV === 'production') {
 fixIOsVh();
 
 configurePersistable({ storage: safeLocalStorage });
+
+InstallationStore.listenEvents();
 
 const root = createRoot(document.getElementById('root')!);
 root.render(<StrictMode><App /></StrictMode>);

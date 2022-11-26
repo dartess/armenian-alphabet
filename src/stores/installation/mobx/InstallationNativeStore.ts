@@ -75,6 +75,6 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
   }
 
   public static isSupported() {
-    return IS_SUPPORT_BEFORE_INSTALL_PROMPT && false;
+    return IS_SUPPORT_BEFORE_INSTALL_PROMPT;
   }
 }
