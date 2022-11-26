@@ -320,10 +320,10 @@ export const alphabet: Array<LetterType> = [
 
 export const wordExamples: Record<string, WordData> = {
   ա: ['առյուծ', 'arryuts', 'лев', 'lion'],
-  բ: ['բադիկ', 'badik', 'утка', 'duck'],
+  բ: ['բադիկ', 'badik', 'утёнок', 'duckling'],
   գ: ['գորգ', 'gorg', 'ковёр', 'carpet'],
   դ: ['դելֆին', 'delfin', 'дельфин', 'dolphin'],
-  ե: ['եղնիկ', 'yeghn', 'олень', 'deer'],
+  ե: ['եղնիկ', 'yeghnik', 'олень', 'deer'],
   զ: ['զեբրա', 'zebra', 'зебра', 'zebra'],
   է: ['էքսկավատոր', 'ek’skavator', 'экскаватор', 'excavator'],
   ը: ['ընձուղտ', 'yndzught', 'жираф', 'giraffe'],
@@ -337,7 +337,7 @@ export const wordExamples: Record<string, WordData> = {
   հ: ['հեծանիվ', 'hetsaniv', 'велосипед', 'bike'],
   ձ: ['ձւկ', 'dzuk', 'рыба', 'fish'],
   ղ: ['ղեկ', 'ghek', 'руль', 'wheel'],
-  ճ: ['ճուտիկ', 'chutik', 'цыплёнок', 'chick'],
+  ճ: ['ճուտիկ', 'chutik', 'птенец', 'chick'],
   մ: ['մեղու', 'meghu', 'пчела', 'bee'],
   յ: ['յասաման', 'yasaman', 'сирень', 'lilac'],
   ն: ['նապաստակ', 'napastak', 'заяц', 'hare'],
