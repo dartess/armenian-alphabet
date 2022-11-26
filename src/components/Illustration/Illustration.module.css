@@ -4,4 +4,6 @@
 
 .image {
     display: block;
+    width: 100%;
+    aspect-ratio: 960 / 1568;
 }
