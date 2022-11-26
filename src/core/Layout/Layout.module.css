@@ -9,4 +9,5 @@
 }
 
 .footer {
+    position: relative; /* fix styles order */
 }
