@@ -22,7 +22,7 @@ export function Layout() {
         <Router />
       </main>
       <div className={styles.footer}>
-        <Paper elevation={3}>
+        <Paper className={styles.footerPaper} elevation={3}>
           <BottomNavigation
             value={page}
             onChange={(_, newValue) => setLocation(`/${newValue}`)}

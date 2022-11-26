@@ -30,7 +30,7 @@ export function fixIOsVh(): void {
   const vhFixTimeoutLong = vhFix.bind(null, fixedTest, vhTest, 500);
 
   vhFixTimeout();
-  window.addEventListener('load', vhFixTimeout);
+  window.addEventListener('load', vhFixTimeoutFast);
   window.addEventListener('scroll', vhFixTimeoutFast);
   window.addEventListener('resize', vhFixTimeoutFast);
   window.addEventListener('orientationchange', vhFixTimeoutLong);

@@ -11,3 +11,7 @@
 .footer {
     position: relative; /* fix styles order */
 }
+
+.footerPaper {
+    padding-bottom: env(safe-area-inset-bottom);
+}
