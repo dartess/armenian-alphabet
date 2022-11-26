@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
@@ -8,8 +9,19 @@ import Link from '@mui/material/Link';
 import DialogActions from '@mui/material/DialogActions';
 import { useToggle } from 'react-use';
 
+import { reachGoal } from '@/utils/reachGoal';
+
 export function AboutContacts() {
   const [isOpen, toggleIsOpen] = useToggle(false);
+
+  useEffect(
+    () => {
+      if (isOpen) {
+        reachGoal('openContacts');
+      }
+    },
+    [isOpen],
+  );
 
   return (
     <Box sx={{ my: 1 }}>

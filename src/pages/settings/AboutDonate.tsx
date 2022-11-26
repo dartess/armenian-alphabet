@@ -16,7 +16,9 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Link from '@mui/material/Link';
 import Snackbar from '@mui/material/Snackbar';
 import type { SyntheticEvent } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { reachGoal } from '@/utils/reachGoal';
 
 const cryptoItems = [
   {
@@ -40,6 +42,15 @@ export function AboutDonate() {
     }
     setSnackbarItem(null);
   };
+
+  useEffect(
+    () => {
+      if (isOpen) {
+        reachGoal('openDonate');
+      }
+    },
+    [isOpen],
+  );
 
   return (
     <Box sx={{ my: 1 }}>

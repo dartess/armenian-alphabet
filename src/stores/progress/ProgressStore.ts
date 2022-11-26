@@ -4,6 +4,7 @@ import { makePersistable } from 'mobx-persist-store';
 import type { LetterState, LetterType, TotalProgress } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
 import { fireOnceEvent } from '@/utils/fireOnceEvent';
+import { reachGoal } from '@/utils/reachGoal';
 
 export class ProgressStore {
   constructor() {
@@ -19,6 +20,7 @@ export class ProgressStore {
         fireOnceEvent('progressCompleted', () => {
           runInAction(() => {
             this.isShowCongratulations = true;
+            reachGoal('progressTotalComplete');
           });
         });
       },
@@ -34,6 +36,16 @@ export class ProgressStore {
   @action.bound
   public setLetterProgress(letter: LetterType, state: LetterState) {
     this.totalProgress[letter.lowercase] = state;
+
+    switch (state) {
+      case 'progress':
+        reachGoal('progressLetterStart', { letter: letter.lowercase });
+        break;
+      case 'done':
+        reachGoal('progressLetterEnd', { letter: letter.lowercase });
+        break;
+      // no default
+    }
   }
 
   @action.bound

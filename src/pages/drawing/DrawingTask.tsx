@@ -17,6 +17,8 @@ import { calculateAccuracy, getSampleShape } from '@/pages/drawing/utils';
 import { getDrawingQuestion, getRandomDrawingTypeKey } from '@/pages/drawing/drawingTasks';
 import { useStore } from '@/core/stores';
 import { LetterUnit } from '@/components/units/LetterUnit';
+import { reachGoal } from '@/utils/reachGoal';
+import { exhaustiveCheck } from '@/utils/exhaustiveCheck';
 
 import styles from './DrawingTask.module.css';
 import type { Shape } from './model';
@@ -129,6 +131,28 @@ export const DrawingTask = observer(function DrawingTask() {
     });
   }, [penColor]);
 
+  const answerStatus = (() => {
+    if (!accuracy) {
+      return 'none';
+    }
+    return accuracy >= 95 ? 'correct' : 'wrong';
+  })();
+
+  useEffect(
+    () => {
+      switch (answerStatus) {
+        case 'correct':
+          reachGoal('drawCorrect');
+          break;
+        case 'wrong':
+          reachGoal('drawWrong');
+          break;
+        // no default
+      }
+    },
+    [answerStatus],
+  );
+
   return (
     <div className={styles.root}>
       <div className={styles.taskDescription}>
@@ -158,10 +182,16 @@ export const DrawingTask = observer(function DrawingTask() {
           />
           <div className={styles.accuracy}>
             {(() => {
-              if (!accuracy) {
-                return null;
+              switch (answerStatus) {
+                case 'none':
+                  return null;
+                case 'correct':
+                  return <ThumbUpOffAltIcon color="success" />;
+                case 'wrong':
+                  return <ThumbDownOffAltIcon color="warning" />;
+                default:
+                  exhaustiveCheck(answerStatus);
               }
-              return accuracy >= 95 ? <ThumbUpOffAltIcon color="success" /> : <ThumbDownOffAltIcon color="warning" />;
             })()}
           </div>
           <Button

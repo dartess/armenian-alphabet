@@ -5,11 +5,13 @@ import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { observer } from 'mobx-react-lite';
+import { useEffect } from 'react';
 
 import type { LetterType, LetterState } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
 import { LetterUnit } from '@/components/units/LetterUnit';
 import { Illustration } from '@/components/Illustration/Illustration';
+import { reachGoal } from '@/utils/reachGoal';
 
 import { Letter } from '../Letter/Letter';
 
@@ -59,6 +61,13 @@ export const LetterView = observer(function LetterView({
     const newState = state !== clickedState ? clickedState : 'new';
     onStateChange(newState);
   };
+
+  useEffect(
+    () => {
+      reachGoal('cardOpen', { letter: openedLetter.lowercase });
+    },
+    [openedLetter],
+  );
 
   return (
     <Dialog open={isOpenLetterView} onClose={onClose} fullWidth>

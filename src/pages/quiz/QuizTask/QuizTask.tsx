@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
@@ -8,6 +8,7 @@ import type { LetterState } from '@/types/model';
 import { Letter } from '@/components/Letter/Letter';
 import { useStore } from '@/core/stores';
 import { LetterUnit } from '@/components/units/LetterUnit';
+import { reachGoal } from '@/utils/reachGoal';
 
 import type { QuizKey } from '../quizTasks';
 import { getQuizQuestion } from '../quizTasks';
@@ -48,6 +49,28 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
     }
     onNextQuiz();
   };
+
+  const answerStatus = (() => {
+    if (!userAnswerId) {
+      return 'none';
+    }
+    return questionLetter.id === userAnswerId ? 'correct' : 'wrong';
+  })();
+
+  useEffect(
+    () => {
+      switch (answerStatus) {
+        case 'correct':
+          reachGoal('quizCorrect');
+          break;
+        case 'wrong':
+          reachGoal('quizWrong');
+          break;
+        // no default
+      }
+    },
+    [answerStatus],
+  );
 
   return (
     <div className={styles.root}>
