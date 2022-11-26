@@ -18,7 +18,7 @@ export function Router() {
   return (
     <Switch>
       {Object.entries(routes).map(([page, component]) => <Route key={page} path={`/${page}`} component={component} />)}
-      <Redirect to="/alphabet" />
+      <Redirect to="/alphabet" replace />
     </Switch>
   );
 }
