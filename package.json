@@ -18,13 +18,14 @@
     "react-signature-canvas": "^1.0.6",
     "react-use": "^17.4.0",
     "react-yandex-metrika": "^2.6.0",
-    "typescript": "^4.8.4",
+    "typescript": "^5.0.2",
     "wouter": "^2.8.1"
   },
   "scripts": {
     "start": "PORT=3006 node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
+    "test": "npm run lint && npm run ts",
+    "ts": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "generate-manifests": "ts-node scripts_/manifestsGeneration.ts"
