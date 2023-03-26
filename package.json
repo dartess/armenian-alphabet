@@ -37,7 +37,7 @@
     "test": "react-app-rewired test",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
-    "generate-manifests": "ts-node scripts/manifestsGeneration.ts",
+    "generate-manifests": "ts-node scripts_/manifestsGeneration.ts",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
