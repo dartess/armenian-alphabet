@@ -1,4 +1,4 @@
-import type { Point, Shape } from '@/pages/drawing/model';
+import type { Lines, Point, Shape } from '@/pages/drawing/model';
 
 function length(pointA: Point, pointB: Point): number {
   const ac = pointB.x - pointA.x;
@@ -32,7 +32,7 @@ function calculateAccuracy(sample: Shape, input: Shape): number {
   return 100 - average(minLengthsForDots);
 }
 
-function getSampleShape(originalCanvas: HTMLCanvasElement): Shape {
+function calculateSampleShape(originalCanvas: HTMLCanvasElement): Shape {
   const resizedCanvas = document.createElement('canvas');
   const RESIZED_WIDHT = 100;
   const RESIZED_HEIGHT = 100;
@@ -51,24 +51,82 @@ function getSampleShape(originalCanvas: HTMLCanvasElement): Shape {
     RESIZED_HEIGHT,
   );
 
-  const { data } = resizedCtx.getImageData(0, 0, 100, 100);
-  const rawAlpha = data.filter((_, index) => (index + 1) % 4 === 0);
+  const alphaMatrix = getAlphaMatrix(resizedCanvas);
 
   const COEFF = 3;
-  for (let y = 0; y < 100; y += 1) {
-    for (let x = 0; x < 100; x += 1) {
+  alphaMatrix.forEach((line, y) => {
+    line.forEach((dot, x) => {
       if (x % COEFF || y % COEFF) {
-        rawAlpha[y * 100 + x] = 0;
+        alphaMatrix[y][x] = 0;
       }
-    }
-  }
+    });
+  });
 
   const result: Shape = [];
-  for (let y = 0; y < 100; y += 1) {
-    for (let x = 0; x < 100; x += 1) {
-      if (rawAlpha[y * 100 + x]) {
+  alphaMatrix.forEach((line, y) => {
+    line.forEach((dot, x) => {
+      if (dot > 0) {
         result.push({ x, y });
       }
+    });
+  });
+  return result;
+}
+
+function drawLetter(canvas: HTMLCanvasElement, letterValue: string) {
+  const ctx = canvas.getContext('2d')!;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const fontSize = canvas.height * 0.82;
+  ctx.font = `${fontSize}px Noto Sans Armenian`;
+  ctx.fillStyle = '#808080';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  const centerX = canvas.width / 2;
+  const centerY = canvas.height / 2;
+  ctx.fillText(letterValue, centerX, centerY);
+}
+
+function calculateAllLines(): Lines {
+  const canvas = document.createElement('canvas');
+  canvas.width = 300;
+  canvas.height = 300;
+
+  drawLetter(canvas, 'լ');
+  const { top: lowercaseLine, bottom: descenderLine } = calculateTopBottomLines(canvas);
+
+  drawLetter(canvas, 'Լ');
+  const { top: capLine, bottom: baseLine } = calculateTopBottomLines(canvas);
+
+  return {
+    capLine,
+    lowercaseLine,
+    baseLine,
+    descenderLine,
+  };
+}
+
+function calculateTopBottomLines(canvas: HTMLCanvasElement): { top: number, bottom: number } {
+  const alphaMatrix = getAlphaMatrix(canvas);
+  const linesAlphas = alphaMatrix.map((line) => line.some(Boolean));
+  const { length: linesCount } = linesAlphas;
+  const top = linesAlphas.findIndex(Boolean) / linesCount;
+  linesAlphas.reverse();
+  const bottom = 1 - (linesAlphas.findIndex(Boolean) / linesCount);
+  return { top, bottom };
+}
+
+function getAlphaMatrix(canvas: HTMLCanvasElement): Array<Array<number>> {
+  const { width, height } = canvas;
+  const ctx = canvas.getContext('2d')!;
+  const { data } = ctx.getImageData(0, 0, width, height);
+  const rawAlpha = data.filter((_, index) => (index + 1) % 4 === 0);
+  const result: Array<Array<number>> = [];
+  for (let y = 0; y < height; y += 1) {
+    result[y] = [];
+    for (let x = 0; x < width; x += 1) {
+      result[y][x] = rawAlpha[y * width + x];
     }
   }
   return result;
@@ -76,5 +134,7 @@ function getSampleShape(originalCanvas: HTMLCanvasElement): Shape {
 
 export {
   calculateAccuracy,
-  getSampleShape,
+  calculateSampleShape,
+  calculateAllLines,
+  drawLetter,
 };

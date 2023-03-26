@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import { useUpdatedRef } from '@/utils/useUpdatedRef';
 
+import { drawLetter } from './utils';
 import styles from './DrawingTask.module.css';
 
 interface Props {
@@ -17,18 +18,7 @@ export function DrawingSample({ letterValue, onDraw }: Props) {
     if (!canvas) {
       return;
     }
-    const ctx = canvas.getContext('2d')!;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.font = '246px Arial';
-    ctx.fillStyle = '#808080';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-
-    const centerX = canvas.width / 2;
-    const centerY = (canvas.height / 2) - 6;
-
-    ctx.fillText(letterValue, centerX, centerY);
+    drawLetter(canvas, letterValue);
     onDrawRef.current(canvas);
   }, [letterValue, onDrawRef]);
 

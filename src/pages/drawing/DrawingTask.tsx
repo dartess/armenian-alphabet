@@ -13,7 +13,7 @@ import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import Typography from '@mui/material/Typography';
 
-import { calculateAccuracy, getSampleShape } from '@/pages/drawing/utils';
+import { calculateAccuracy, calculateAllLines, calculateSampleShape } from '@/pages/drawing/utils';
 import { getDrawingQuestion, getRandomDrawingTypeKey } from '@/pages/drawing/drawingTasks';
 import { useStore } from '@/core/stores';
 import { LetterUnit } from '@/components/units/LetterUnit';
@@ -22,7 +22,7 @@ import { exhaustiveCheck } from '@/utils/exhaustiveCheck';
 
 import { DrawingSample } from './DrawingSample';
 import styles from './DrawingTask.module.css';
-import type { Shape } from './model';
+import type { Shape, Lines } from './model';
 
 type UserDraw = Array<Array<SignaturePad.Point>>;
 
@@ -67,7 +67,12 @@ export const DrawingTask = observer(function DrawingTask() {
     [userDrawRaw],
   );
 
-  const onSampleDraw = (canvas: HTMLCanvasElement) => setSampleShape(getSampleShape(canvas));
+  const [lines, setLines] = useState<Lines | null>(null);
+
+  const onSampleDraw = (canvas: HTMLCanvasElement) => {
+    setSampleShape(calculateSampleShape(canvas));
+    setLines(calculateAllLines());
+  };
 
   const handleDrawEnd = useCallback(
     () => {
@@ -172,6 +177,12 @@ export const DrawingTask = observer(function DrawingTask() {
               '--line-color': appTheme === 'light'
                 ? 'rgba(0, 0, 0, 0.2)'
                 : 'rgba(255, 255, 255, 0.1)',
+              ...(lines && {
+                '--cap-line': `${lines.capLine * 100}%`,
+                '--lowercase-line': `${lines.lowercaseLine * 100}%`,
+                '--base-line': `${lines.baseLine * 100}%`,
+                '--descender-line': `${lines.descenderLine * 100}%`,
+              }),
             } as CSSProperties}
           />
           <div className={styles.accuracy}>

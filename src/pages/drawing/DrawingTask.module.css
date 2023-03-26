@@ -27,22 +27,19 @@
 }
 
 .lines {
-    --line-length: 10px;
-    border: 1px solid var(--line-color);
+    --length: 10px;
+    --t: transparent;
+    --color: var(--line-color);
+    border: 1px solid var(--color);
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     pointer-events: none;
     background:
-            linear-gradient(to bottom, transparent 0%, transparent 50%, var(--line-color) 50%, var(--line-color) 100%)
-            center top / 1px var(--line-length) repeat-y,
-            linear-gradient(to right, transparent 0%, transparent 50%, var(--line-color) 50%, var(--line-color) 100%)
-            left 8.2% / var(--line-length) 1px repeat-x,
-            linear-gradient(to right, transparent 0%, transparent 50%, var(--line-color) 50%, var(--line-color) 100%)
-            left 30% / var(--line-length) 1px repeat-x,
-            linear-gradient(to right, transparent 0%, transparent 50%, var(--line-color) 50%, var(--line-color) 100%)
-            left 70% / var(--line-length) 1px repeat-x,
-            linear-gradient(to right, transparent 0%, transparent 50%, var(--line-color) 50%, var(--line-color) 100%)
-            left 89.5% / var(--line-length) 1px repeat-x
+            linear-gradient(to bottom, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) center top / 1px var(--length) repeat-y,
+            linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--cap-line) / var(--length) 1px repeat-x,
+            linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--lowercase-line) / var(--length) 1px repeat-x,
+            linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--base-line) / var(--length) 1px repeat-x,
+            linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--descender-line) / var(--length) 1px repeat-x
 ;
 }
 
