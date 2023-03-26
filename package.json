@@ -29,18 +29,6 @@
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "generate-manifests": "ts-node scripts_/manifestsGeneration.ts"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@babel/core": "^7.21.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
@@ -91,10 +79,5 @@
     "webpack-dev-server": "^4.13.1",
     "webpack-manifest-plugin": "^5.0.0",
     "workbox-webpack-plugin": "^6.5.4"
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
   }
 }
