@@ -32,9 +32,9 @@
     "wouter": "^2.8.1"
   },
   "scripts": {
-    "start": "DISABLE_ESLINT_PLUGIN=true PORT=3006 react-app-rewired start",
-    "build": "DISABLE_ESLINT_PLUGIN=true react-app-rewired build",
-    "test": "react-app-rewired test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "generate-manifests": "ts-node scripts_/manifestsGeneration.ts",
