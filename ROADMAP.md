@@ -49,7 +49,7 @@
 
 - [canvas-отрисовка] полное кэширование данных
 - [canvas-отрисовка] выбор шрифта
-- [preact/eject] postcss-normalize
-- [ts] [webstorm] [preact/eject] satisfy  для алфавита
+- [preact] postcss-normalize
+- [ts] [webstorm] [preact] satisfy  для алфавита
 - [webstorm] flat-конфиг eslint
 - [?] Пуши
