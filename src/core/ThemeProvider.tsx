@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { observer } from 'mobx-react-lite';
@@ -51,10 +51,9 @@ export const ThemeProvider = observer(function ThemeProvider({ children }: Props
 
   const theme = useMemo(() => createTheme(getDesignTokens(appTheme)), [appTheme]);
 
-  const [themeColorMeta] = useState(getThemeColorMeta);
-
   useEffect(
     function toggleTheme() {
+      const themeColorMeta = getThemeColorMeta();
       themeColorMeta.content = theme.palette.primary.main;
     },
     [theme],

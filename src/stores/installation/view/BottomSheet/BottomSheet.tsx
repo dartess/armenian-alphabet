@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-props-no-spreading -- by design */
 import { useStore } from '@/core/stores';
 
 import type { Props } from './model';
