@@ -1,5 +1,3 @@
-/* eslint-disable arrow-parens,arrow-body-style,react/no-array-index-key */
-
 import { Fragment, useMemo } from 'react';
 import Typography from '@mui/material/Typography';
 
@@ -29,9 +27,9 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
       const highlightsCased = (() => {
         switch (textCase) {
           case 'uppercase':
-            return highlightsArray.map(item => item.toUpperCase());
+            return highlightsArray.map((item) => item.toUpperCase());
           case 'lowercase':
-            return highlightsArray.map(item => item.toLowerCase());
+            return highlightsArray.map((item) => item.toLowerCase());
           default:
             return highlightsArray;
         }
@@ -44,7 +42,7 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
   const parts = useMemo(
     () => {
       return highlights.reduce<Array<string | { highlight: string }>>((partsAcc, highlight) => {
-        return partsAcc.flatMap(part => {
+        return partsAcc.flatMap((part) => {
           if (typeof part === 'object') {
             return part;
           }
@@ -60,6 +58,7 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
   return (
     <>
       {parts.map((part, index) => (
+        // eslint-disable-next-line react/no-array-index-key -- no variants
         <Fragment key={index}>
           {typeof part === 'string'
             ? part

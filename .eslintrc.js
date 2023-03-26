@@ -13,6 +13,7 @@ module.exports = {
         'plugin:eslint-comments/recommended',
     ],
     rules: {
+        'arrow-body-style': 'off', // code can get ugly
         'prefer-arrow-callback': 'off', // prevents using of named components as `observer` args
         'consistent-return': 'off', // not needed in TS
         'no-restricted-syntax': 'off', // TODO?
