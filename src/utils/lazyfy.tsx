@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any -- can be used in extends */
 import type { ComponentType, ReactNode, LazyExoticComponent } from 'react';
 import React, { Suspense, lazy } from 'react';
 
@@ -11,7 +11,7 @@ export function lazyfy<T extends Record<string, ComponentType<any>>, K extends k
   return {
     [`${componentName}Lazy`]: ((props) => (
       <Suspense fallback={fallback}>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        {/* eslint-disable-next-line react/jsx-props-no-spreading -- it should be */}
         <LazyComponent {...props} />
       </Suspense>
     )) as LazyExoticComponent<T[K]>,

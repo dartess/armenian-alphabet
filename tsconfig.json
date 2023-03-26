@@ -26,7 +26,8 @@
     }
   },
   "include": [
-    "src"
+    "src",
+    "scripts"
   ],
   "ts-node": {
     "transpileOnly": true,
