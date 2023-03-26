@@ -32,16 +32,26 @@ function calculateAccuracy(sample: Shape, input: Shape): number {
   return 100 - average(minLengthsForDots);
 }
 
-async function getSampleShape(url: string): Promise<Shape> {
-  const image = new Image(100, 100);
-  image.src = url;
-  await image.decode();
-  const canvas = document.createElement('canvas');
-  canvas.width = 100;
-  canvas.height = 100;
-  const context = canvas.getContext('2d')!;
-  context.drawImage(image, 0, 0, 100, 100);
-  const { data } = context.getImageData(0, 0, 100, 100);
+function getSampleShape(originalCanvas: HTMLCanvasElement): Shape {
+  const resizedCanvas = document.createElement('canvas');
+  const RESIZED_WIDHT = 100;
+  const RESIZED_HEIGHT = 100;
+  resizedCanvas.width = RESIZED_WIDHT;
+  resizedCanvas.height = RESIZED_HEIGHT;
+  const resizedCtx = resizedCanvas.getContext('2d')!;
+  resizedCtx.drawImage(
+    originalCanvas,
+    0,
+    0,
+    originalCanvas.width,
+    originalCanvas.height,
+    0,
+    0,
+    RESIZED_WIDHT,
+    RESIZED_HEIGHT,
+  );
+
+  const { data } = resizedCtx.getImageData(0, 0, 100, 100);
   const rawAlpha = data.filter((_, index) => (index + 1) % 4 === 0);
 
   const COEFF = 3;

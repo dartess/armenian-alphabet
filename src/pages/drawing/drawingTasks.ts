@@ -7,7 +7,7 @@ export type DrawingKey = `drawing-${TaskUnit}-${TaskUnit}`;
 
 interface TaskDrawing {
   from: TaskUnit;
-  to: TaskUnit;
+  to: Exclude<TaskUnit, 'meta'>;
 }
 
 // todo rewrite on satisfies

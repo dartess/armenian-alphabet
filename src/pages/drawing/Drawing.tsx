@@ -1,11 +1,12 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { observer } from 'mobx-react-lite';
 
 import { useStore } from '@/core/stores';
 
 import { DrawingTask } from './DrawingTask';
 
-export function Drawing() {
+export const Drawing = observer(function Drawing() {
   const { hasProgress } = useStore('progress');
 
   if (!hasProgress) {
@@ -28,4 +29,4 @@ export function Drawing() {
   }
 
   return <DrawingTask />;
-}
+});

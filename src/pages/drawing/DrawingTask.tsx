@@ -20,6 +20,7 @@ import { LetterUnit } from '@/components/units/LetterUnit';
 import { reachGoal } from '@/utils/reachGoal';
 import { exhaustiveCheck } from '@/utils/exhaustiveCheck';
 
+import { DrawingSample } from './DrawingSample';
 import styles from './DrawingTask.module.css';
 import type { Shape } from './model';
 
@@ -53,9 +54,7 @@ export const DrawingTask = observer(function DrawingTask() {
     [drawingKey],
   );
 
-  const letterValue = questionLetter[unitTo as Exclude<typeof unitTo, 'meta'>];
-  const letterMod = unitTo === 'uppercase' ? '+' : '-';
-  const letterSamplePath = `/letters/${letterValue}${letterMod}.png`;
+  const letterValue = questionLetter[unitTo as Exclude<typeof unitTo, 'meta'>] as string;
 
   const [sampleShape, setSampleShape] = useState<Shape>([]);
 
@@ -68,11 +67,7 @@ export const DrawingTask = observer(function DrawingTask() {
     [userDrawRaw],
   );
 
-  useEffect(() => {
-    (async () => {
-      setSampleShape(await getSampleShape(letterSamplePath));
-    })();
-  }, [letterSamplePath]);
+  const onSampleDraw = (canvas: HTMLCanvasElement) => setSampleShape(getSampleShape(canvas));
 
   const handleDrawEnd = useCallback(
     () => {
@@ -162,15 +157,14 @@ export const DrawingTask = observer(function DrawingTask() {
       </div>
       <div className={styles.taskWorkZone}>
         <div className={styles.drawZone}>
+          <div className={cn(styles.sample, { [styles.sampleShow]: isResultCalculated })}>
+            <DrawingSample letterValue={letterValue} onDraw={onSampleDraw} />
+          </div>
           <SignaturePad
             canvasProps={{ className: styles.sigPad }}
             onEnd={handleDrawEnd}
             ref={sigCanvas}
             penColor={penColor}
-          />
-          <div
-            className={cn(styles.sample, { [styles.sampleShow]: isResultCalculated })}
-            style={{ backgroundImage: `url("${letterSamplePath}")` }}
           />
           <div
             className={styles.lines}
