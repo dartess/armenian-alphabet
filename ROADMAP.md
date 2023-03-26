@@ -30,26 +30,24 @@
 - подсказку для ios в пакет
 - промоутинг в пакет
 - стайллинт
-- адаптация под десктопы
 - попробовать preact
 - <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/pwa/favicon.svg">
 - https://docs.sentry.io/platforms/javascript/sourcemaps/
 - запаковать в апп
-- typescript 4.9
 - детальное тестирование на ios
 - тесты
 - зависимости
 - лайтхаус
 - todos
 - eslint: unused + посмотреть из sokolov, bitsgap
-- https://aybuben.app/alphabet в приватной не работает
 - reatom
+- полное кэширование данных
+- выбор шрифта
+- flat-конфиг eslint
+- Setup browsers
 
 ## С блокерами:
 
-- [canvas-отрисовка] полное кэширование данных
-- [canvas-отрисовка] выбор шрифта
 - [preact] postcss-normalize
 - [ts] [webstorm] [preact] satisfy  для алфавита
-- [webstorm] flat-конфиг eslint
 - [?] Пуши
