@@ -1,0 +1,45 @@
+{
+  "$ NOTES $": [
+    "The file is generated automatically; to update run `npm run generate-manifests`",
+    "Don't delete this file anyway! This will break the manifest update for PWA users."
+  ],
+  "name": "Aybuben — армянский алфавит",
+  "short_name": "Aybuben",
+  "description": "Изучение армянского алфавита",
+  "theme_color": "#ff8f00",
+  "background_color": "#ffffff",
+  "start_url": "/alphabet?utm_source=web_app_manifest_linux",
+  "scope": "/",
+  "display": "minimal-ui",
+  "orientation": "portrait",
+  "categories": [
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "/pwa/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/android-chrome-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/android-chrome-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "aybuben"
+}

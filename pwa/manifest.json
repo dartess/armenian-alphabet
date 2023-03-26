@@ -1,0 +1,79 @@
+{
+  "name": "Aybuben — армянский алфавит",
+  "short_name": "Aybuben",
+  "description": "Изучение армянского алфавита",
+  "theme_color": "#ff8f00",
+  "background_color": "#ffffff",
+  "start_url": "/alphabet?utm_source=web_app_manifest",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "/pwa/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/android-chrome-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/android-chrome-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "aybuben",
+  "__overrides": {
+    "__theme": {
+      "light": {
+        "theme_color": "#ff8f00",
+        "background_color": "#ffffff"
+      },
+      "dark": {
+        "theme_color": "#ffb74d",
+        "background_color": "#121212"
+      }
+    },
+    "__platform": {
+      "Windows": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_windows",
+        "display": "minimal-ui"
+      },
+      "Android": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_android"
+      },
+      "Linux": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_linux",
+        "display": "minimal-ui"
+      },
+      "iOS": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_ios",
+        "icons": [
+          {
+            "src": "/pwa/apple-touch-icon-180x180.png",
+            "sizes": "180x180",
+            "type": "image/png"
+          }
+        ]
+      },
+      "macOS": {
+        "start_url": "/alphabet?utm_source=web_app_manifest_macos",
+        "display": "minimal-ui"
+      }
+    }
+  },
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json"
+}
