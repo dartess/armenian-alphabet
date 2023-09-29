@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import useWindowSize from 'react-use/lib/useWindowSize';
 import ReactConfetti from 'react-confetti';
 import Dialog from '@mui/material/Dialog';

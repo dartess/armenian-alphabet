@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -15,8 +16,6 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Link from '@mui/material/Link';
 import Snackbar from '@mui/material/Snackbar';
-import type { SyntheticEvent } from 'react';
-import { useEffect, useState } from 'react';
 
 import { reachGoal } from '@/utils/reachGoal';
 
@@ -36,7 +35,7 @@ export function AboutDonate() {
   const [, copyToClipboard] = useCopyToClipboard();
   const [snackbarItem, setSnackbarItem] = useState<null | string>(null);
 
-  const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
+  const handleClose = (_: unknown, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }

@@ -1,3 +1,3 @@
 .eslintrc.js
-babel.config.js
+vite.config.ts
 scripts/*

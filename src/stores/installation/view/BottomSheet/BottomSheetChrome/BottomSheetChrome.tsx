@@ -1,9 +1,8 @@
-import React from 'react';
 import cn from 'classnames';
 
 import type { Props } from '../model';
 
-import { ReactComponent as CrossIcon } from './Cross.svg';
+import CrossIcon from './Cross.svg?react';
 import styles from './BottomSheetChrome.module.css';
 
 export function BottomSheetChrome({ isOpen, onClose, children, closePosition }: Props) {

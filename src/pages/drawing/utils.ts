@@ -55,7 +55,7 @@ function calculateSampleShape(originalCanvas: HTMLCanvasElement): Shape {
 
   const COEFF = 3;
   alphaMatrix.forEach((line, y) => {
-    line.forEach((dot, x) => {
+    line.forEach((_, x) => {
       if (x % COEFF || y % COEFF) {
         alphaMatrix[y][x] = 0;
       }

@@ -2,7 +2,7 @@ import { useStore } from '@/core/stores';
 import { lazyfy } from '@/utils/lazyfy';
 
 const { InstallationIosLazy } = lazyfy(
-  () => import(/* webpackChunkName: "InstallationIos" */ './InstallationIos/InstallationIos'),
+  () => import('./InstallationIos/InstallationIos'),
   'InstallationIos',
 );
 
