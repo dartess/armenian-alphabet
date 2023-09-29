@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { ConfirmProvider } from 'material-ui-confirm';
 import { YMInitializer } from 'react-yandex-metrika';

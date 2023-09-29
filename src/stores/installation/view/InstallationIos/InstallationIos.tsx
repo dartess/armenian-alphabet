@@ -1,13 +1,14 @@
-import React from 'react';
+/// <reference types="vite-plugin-svgr/client" />
+
 import { observer } from 'mobx-react-lite';
 
 import { useStore } from '@/core/stores';
 
 import { BottomSheetIos } from '../BottomSheet/BottomSheetIos/BottomSheetIos';
 
-import { ReactComponent as SafariIcon } from './Safari.svg';
-import { ReactComponent as ShareIcon } from './Share.svg';
-import { ReactComponent as AddIcon } from './Add.svg';
+import SafariIcon from './Safari.svg?react';
+import ShareIcon from './Share.svg?react';
+import AddIcon from './Add.svg?react';
 import styles from './InstallationIos.module.css';
 
 // original source: https://github.com/khmyznikov/pwa-install

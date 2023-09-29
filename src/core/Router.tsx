@@ -9,6 +9,7 @@ import { Quiz } from '@/pages/quiz/Quiz';
 import { Drawing } from '@/pages/drawing/Drawing';
 import { Settings } from '@/pages/settings/Settings';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- TODO
 const routes: Record<PageValue, ComponentType<any>> = {
   alphabet: Alphabet,
   quiz: Quiz,

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- can be used in extends */
 import type { ComponentType, ReactNode, LazyExoticComponent } from 'react';
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 
 export function lazyfy<T extends Record<string, ComponentType<any>>, K extends keyof T & string>(
   factory: () => Promise<T>,
