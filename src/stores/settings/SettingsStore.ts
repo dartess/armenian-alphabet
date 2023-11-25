@@ -17,7 +17,7 @@ export class SettingsStore {
   }
 
   @observable
-  public userTheme: UserTheme = 'system';
+  public accessor userTheme: UserTheme = 'system';
 
   @action.bound
   public setUserTheme = (userTheme: UserTheme) => {
@@ -27,7 +27,7 @@ export class SettingsStore {
   private mediaPrefersColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   @observable
-  private isSystemPrefersColorSchemeDark: boolean = this.mediaPrefersColorSchemeDark.matches;
+  private accessor isSystemPrefersColorSchemeDark: boolean = this.mediaPrefersColorSchemeDark.matches;
 
   @action.bound
   private handleChangeSystemPrefersColorSchemeDark = () => {

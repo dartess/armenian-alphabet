@@ -25,7 +25,6 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
-    "experimentalDecorators": true,
     "paths": {
       "@/*": ["./*"]
     }

@@ -22,9 +22,11 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
     return this.canBeInstalledByEvent && this.canBeInstalledByRelatedApps;
   }
 
-  @observable private canBeInstalledByRelatedApps = true;
+  @observable
+  private accessor canBeInstalledByRelatedApps = true;
 
-  @observable private canBeInstalledByEvent = Boolean(deferredInstallPromptEvent);
+  @observable
+  private accessor canBeInstalledByEvent = Boolean(deferredInstallPromptEvent);
 
   @action private setIsCanBeInstalledByEvent = (value: boolean) => {
     this.canBeInstalledByEvent = value;
