@@ -10,9 +10,11 @@ export class InstallationIosStore implements InstallationStoreImplementation {
     makeObservable(this);
   }
 
-  @observable public canBeInstalled = this.settings.displayMode === 'browser';
+  @observable
+  public accessor canBeInstalled = this.settings.displayMode === 'browser';
 
-  @observable public isShowCustomInstallPrompt = false;
+  @observable
+  public accessor isShowCustomInstallPrompt = false;
 
   @action private setIsShowCustomInstallPrompt = (value: boolean): void => {
     this.isShowCustomInstallPrompt = value;

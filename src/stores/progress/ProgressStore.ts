@@ -28,10 +28,10 @@ export class ProgressStore {
   }
 
   @observable
-  public totalProgress: TotalProgress = ProgressStore.getInitialProgress();
+  public accessor totalProgress: TotalProgress = ProgressStore.getInitialProgress();
 
   @observable
-  public isShowCongratulations = false;
+  public accessor isShowCongratulations = false;
 
   @action.bound
   public setLetterProgress(letter: LetterType, state: LetterState) {
