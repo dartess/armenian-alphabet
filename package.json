@@ -14,7 +14,7 @@
     "material-ui-confirm": "^3.0.7",
     "mobx": "^6.6.2",
     "mobx-persist-store": "^1.1.2",
-    "mobx-react-lite": "^3.4.0",
+    "mobx-react-lite": "^4.0.5",
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
