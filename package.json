@@ -2,6 +2,7 @@
   "name": "armenian-alphabet",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -53,7 +54,7 @@
     "postcss-preset-env": "^8.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
-    "vite": "^4.4.9",
+    "vite": "^5.0.2",
     "vite-plugin-svgr": "^4.0.0",
     "vite-tsconfig-paths": "^4.2.1"
   }
