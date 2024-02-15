@@ -23,7 +23,8 @@ const root = createRoot(document.getElementById('root')!);
 root.render(<StrictMode><App /></StrictMode>);
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
-    registrations.forEach((registration) => registration.unregister());
-  });
+  // navigator.serviceWorker.getRegistrations().then((registrations) => {
+  //   registrations.forEach((registration) => registration.unregister());
+  // });
+  navigator.serviceWorker.register('service-worker.js');
 }

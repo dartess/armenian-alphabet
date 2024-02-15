@@ -46,7 +46,9 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
       this.setIsCanBeInstalledByEvent(false);
       return;
     }
-    deferredInstallPromptEvent.prompt();
+    deferredInstallPromptEvent.prompt().then(result => {
+      console.log('prompt() result', result)
+    });
   };
 
   // private checkInstalledRelatedApps() {
