@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { useStore } from '@/core/stores';
 import { lazyfy } from '@/utils/lazyfy';
 
@@ -6,7 +8,7 @@ const { InstallationIosLazy } = lazyfy(
   'InstallationIos',
 );
 
-export function InstallationProvider() {
+export const InstallationProvider = observer(function InstallationProvider() {
   const { implementationKind, canBeInstalled } = useStore('installation');
   const isRenderIosProvider = implementationKind === 'iOS' && canBeInstalled;
 
@@ -15,4 +17,4 @@ export function InstallationProvider() {
   }
 
   return <InstallationIosLazy />;
-}
+});

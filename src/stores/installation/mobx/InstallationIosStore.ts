@@ -18,9 +18,13 @@ export class InstallationIosStore implements InstallationStoreImplementation {
     this.isShowCustomInstallPrompt = value;
   };
 
-  public showInstallPrompt = (): void => this.setIsShowCustomInstallPrompt(true);
+  public showInstallPrompt = (): void => {
+    this.setIsShowCustomInstallPrompt(true)
+  };
 
-  public hideInstallPrompt = (): void => this.setIsShowCustomInstallPrompt(false);
+  public hideInstallPrompt = (): void => {
+    this.setIsShowCustomInstallPrompt(false)
+  };
 
   public static isSupported() {
     return IS_IOS;

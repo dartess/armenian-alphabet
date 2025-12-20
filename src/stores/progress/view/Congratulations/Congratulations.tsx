@@ -11,7 +11,9 @@ import Button from '@mui/material/Button';
 export function Congratulations() {
   const { width, height } = useWindowSize();
   const [isOpenDialog, setIsOpenDialog] = useState(true);
-  const handleCloseDialog = useCallback(() => setIsOpenDialog(false), []);
+  const handleCloseDialog = useCallback(() => {
+    setIsOpenDialog(false)
+  }, []);
   return (
     <>
       <Dialog open={isOpenDialog} onClose={handleCloseDialog}>

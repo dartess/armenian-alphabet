@@ -6,7 +6,7 @@ import { shuffleOnPlaceArray } from '@/utils/shuffleOnPlaceArray';
 
 export type QuizKey = `compare-${TaskUnit}-${TaskUnit}`;
 
-interface TaskQuiz {
+type TaskQuiz = {
   from: TaskUnit;
   to: TaskUnit;
 }

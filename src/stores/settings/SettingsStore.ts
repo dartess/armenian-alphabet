@@ -19,7 +19,7 @@ export class SettingsStore {
   @observable
   public userTheme: UserTheme = 'system';
 
-  @action.bound
+  @action
   public setUserTheme = (userTheme: UserTheme) => {
       this.userTheme = userTheme;
     };
@@ -29,7 +29,7 @@ export class SettingsStore {
   @observable
   private isSystemPrefersColorSchemeDark: boolean = this.mediaPrefersColorSchemeDark.matches;
 
-  @action.bound
+  @action
   private handleChangeSystemPrefersColorSchemeDark = () => {
       this.isSystemPrefersColorSchemeDark = this.mediaPrefersColorSchemeDark.matches;
     };

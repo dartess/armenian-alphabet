@@ -33,8 +33,8 @@ export class ProgressStore {
   @observable
   public isShowCongratulations = false;
 
-  @action.bound
-  public setLetterProgress(letter: LetterType, state: LetterState) {
+  @action
+  public setLetterProgress = (letter: LetterType, state: LetterState) => {
     this.totalProgress[letter.lowercase] = state;
 
     switch (state) {
@@ -48,8 +48,8 @@ export class ProgressStore {
     }
   }
 
-  @action.bound
-  public resetProgress() {
+  @action
+  public resetProgress = () => {
     this.totalProgress = ProgressStore.getInitialProgress();
   }
 

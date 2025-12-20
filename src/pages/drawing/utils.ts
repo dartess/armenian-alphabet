@@ -32,13 +32,34 @@ function calculateAccuracy(sample: Shape, input: Shape): number {
   return 100 - average(minLengthsForDots);
 }
 
+function getAlphaMatrix(canvas: HTMLCanvasElement): Array<Array<number>> {
+  const { width, height } = canvas;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    throw new Error('ctx is empty')
+  }
+  const { data } = ctx.getImageData(0, 0, width, height);
+  const rawAlpha = data.filter((_, index) => (index + 1) % 4 === 0);
+  const result: Array<Array<number>> = [];
+  for (let y = 0; y < height; y += 1) {
+    result[y] = [];
+    for (let x = 0; x < width; x += 1) {
+      result[y][x] = rawAlpha[y * width + x];
+    }
+  }
+  return result;
+}
+
 function calculateSampleShape(originalCanvas: HTMLCanvasElement): Shape {
   const resizedCanvas = document.createElement('canvas');
   const RESIZED_WIDHT = 100;
   const RESIZED_HEIGHT = 100;
   resizedCanvas.width = RESIZED_WIDHT;
   resizedCanvas.height = RESIZED_HEIGHT;
-  const resizedCtx = resizedCanvas.getContext('2d')!;
+  const resizedCtx = resizedCanvas.getContext('2d');
+  if (!resizedCtx) {
+    throw new Error('resizedCtx is empty')
+  }
   resizedCtx.drawImage(
     originalCanvas,
     0,
@@ -74,7 +95,10 @@ function calculateSampleShape(originalCanvas: HTMLCanvasElement): Shape {
 }
 
 function drawLetter(canvas: HTMLCanvasElement, letterValue: string) {
-  const ctx = canvas.getContext('2d')!;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    throw new Error('ctx is empty')
+  }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -86,6 +110,16 @@ function drawLetter(canvas: HTMLCanvasElement, letterValue: string) {
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
   ctx.fillText(letterValue, centerX, centerY);
+}
+
+function calculateTopBottomLines(canvas: HTMLCanvasElement): { top: number, bottom: number } {
+  const alphaMatrix = getAlphaMatrix(canvas);
+  const linesAlphas = alphaMatrix.map((line) => line.some(Boolean));
+  const { length: linesCount } = linesAlphas;
+  const top = linesAlphas.findIndex(Boolean) / linesCount;
+  linesAlphas.reverse();
+  const bottom = 1 - (linesAlphas.findIndex(Boolean) / linesCount);
+  return { top, bottom };
 }
 
 function calculateAllLines(): Lines {
@@ -105,31 +139,6 @@ function calculateAllLines(): Lines {
     baseLine,
     descenderLine,
   };
-}
-
-function calculateTopBottomLines(canvas: HTMLCanvasElement): { top: number, bottom: number } {
-  const alphaMatrix = getAlphaMatrix(canvas);
-  const linesAlphas = alphaMatrix.map((line) => line.some(Boolean));
-  const { length: linesCount } = linesAlphas;
-  const top = linesAlphas.findIndex(Boolean) / linesCount;
-  linesAlphas.reverse();
-  const bottom = 1 - (linesAlphas.findIndex(Boolean) / linesCount);
-  return { top, bottom };
-}
-
-function getAlphaMatrix(canvas: HTMLCanvasElement): Array<Array<number>> {
-  const { width, height } = canvas;
-  const ctx = canvas.getContext('2d')!;
-  const { data } = ctx.getImageData(0, 0, width, height);
-  const rawAlpha = data.filter((_, index) => (index + 1) % 4 === 0);
-  const result: Array<Array<number>> = [];
-  for (let y = 0; y < height; y += 1) {
-    result[y] = [];
-    for (let x = 0; x < width; x += 1) {
-      result[y][x] = rawAlpha[y * width + x];
-    }
-  }
-  return result;
 }
 
 export {

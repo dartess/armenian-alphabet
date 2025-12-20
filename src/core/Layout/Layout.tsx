@@ -25,7 +25,10 @@ export function Layout() {
         <Paper className={styles.footerPaper} elevation={3}>
           <BottomNavigation
             value={page}
-            onChange={(_, newValue) => setLocation(`/${newValue}`)}
+            onChange={(_, newValue) => {
+              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- TODO
+              setLocation(`/${newValue}`)
+            }}
             showLabels
           >
             <BottomNavigationAction label="Алфавит" icon={<IconAyb />} value="alphabet" />

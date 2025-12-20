@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import { useEffect, useMemo, useState } from 'react';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -15,7 +16,7 @@ import { getQuizQuestion } from '../quizTasks';
 
 import styles from './QuizTask.module.css';
 
-interface Props {
+type Props = {
   quizKey: QuizKey;
   onNextQuiz: () => void;
 }
@@ -26,7 +27,7 @@ const updateStateLabels: Record<UncompletedLetterState, string> = { new: 'изу
 
 const updateStateNextValue: Record<UncompletedLetterState, LetterState> = { new: 'progress', progress: 'done' };
 
-export function QuizTask({ quizKey, onNextQuiz }: Props) {
+export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Props) {
   const [userAnswerId, setUserAnswerId] = useState<null | string>(null);
 
   const { totalProgress, setLetterProgress } = useStore('progress');
@@ -81,7 +82,7 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
         {answerLetters.map((answerLetterItem) => {
           const color = (() => {
             if (!userAnswerId) {
-              return undefined;
+              return;
             }
             if (questionLetter.id === answerLetterItem.id) {
               return 'success';
@@ -89,7 +90,6 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
             if (userAnswerId === answerLetterItem.id) {
               return 'error';
             }
-            return undefined;
           })();
           return (
             <Button
@@ -130,7 +130,14 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
             {progress !== 'done' && (
               <Box>
                 <FormControlLabel
-                  control={<Switch checked={isUpdateState} onChange={(_, checked) => setIsUpdateState(checked)} />}
+                  control={(
+                    <Switch
+                      checked={isUpdateState}
+                      onChange={(_, checked) => {
+                        setIsUpdateState(checked)
+                      }}
+                    />
+                  )}
                   label={updateStateLabels[progress]}
                 />
               </Box>
@@ -140,4 +147,4 @@ export function QuizTask({ quizKey, onNextQuiz }: Props) {
       )}
     </div>
   );
-}
+});

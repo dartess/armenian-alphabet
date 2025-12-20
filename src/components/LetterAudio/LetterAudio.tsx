@@ -5,7 +5,7 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import type { LetterType } from '@/types/model';
 import { reachGoal } from '@/utils/reachGoal';
 
-interface Props {
+type Props = {
   letter: LetterType;
 }
 

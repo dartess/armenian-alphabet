@@ -17,7 +17,7 @@ import { Letter } from '../Letter/Letter';
 
 import styles from './LetterView.module.css';
 
-interface Props {
+type Props = {
   isOpenLetterView: boolean;
   openedLetter: LetterType;
   onClose: () => void;
@@ -54,8 +54,12 @@ export const LetterView = observer(function LetterView({
 }: Props) {
   const prevLetter = getPrevLetter(openedLetter);
   const nextLetter = getNextLetter(openedLetter);
-  const handleClickPrev = () => onChangeLetter(prevLetter);
-  const handleClickNext = () => onChangeLetter(nextLetter);
+  const handleClickPrev = () => {
+    onChangeLetter(prevLetter)
+  };
+  const handleClickNext = () => {
+    onChangeLetter(nextLetter)
+  };
 
   const handleStateChange = (clickedState: LetterState) => {
     const newState = state !== clickedState ? clickedState : 'new';
@@ -88,13 +92,17 @@ export const LetterView = observer(function LetterView({
               <ButtonGroup size="medium">
                 <Button
                   variant={state === 'progress' ? 'contained' : 'outlined'}
-                  onClick={() => handleStateChange('progress')}
+                  onClick={() => {
+                    handleStateChange('progress')
+                  }}
                 >
                   <SchoolOutlinedIcon />
                 </Button>
                 <Button
                   variant={state === 'done' ? 'contained' : 'outlined'}
-                  onClick={() => handleStateChange('done')}
+                  onClick={() => {
+                    handleStateChange('done')
+                  }}
                 >
                   <DoneOutlinedIcon />
                 </Button>

@@ -315,5 +315,6 @@ export const alphabet: Array<LetterType> = [
   },
 ].map((letter) => ({
   ...letter,
+  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- TODO
   id: `${letter.transliteration}_${letter.ipa}`,
 }));

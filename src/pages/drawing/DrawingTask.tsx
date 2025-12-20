@@ -54,7 +54,7 @@ export const DrawingTask = observer(function DrawingTask() {
     [drawingKey],
   );
 
-  const letterValue = questionLetter[unitTo as Exclude<typeof unitTo, 'meta'>] as string;
+  const letterValue = questionLetter[unitTo] as string;
 
   const [sampleShape, setSampleShape] = useState<Shape>([]);
 
@@ -125,6 +125,7 @@ export const DrawingTask = observer(function DrawingTask() {
   useEffect(() => {
     setUserDrawRaw((prevDraw) => {
       const invertedDraw = prevDraw
+        // eslint-disable-next-line @typescript-eslint/no-misused-spread -- TODO
         .map((shape) => shape.map((point) => ({ ...point, color: penColor }))) as UserDraw;
       sigCanvas.current!.fromData(invertedDraw);
       return invertedDraw;

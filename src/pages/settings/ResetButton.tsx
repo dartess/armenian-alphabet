@@ -5,7 +5,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import { useStore } from '@/core/stores';
 
-export const ResetButton = observer(() => {
+export const ResetButton = observer(function ResetButton() {
   const { resetProgress } = useStore('progress');
 
   const confirm = useConfirm();

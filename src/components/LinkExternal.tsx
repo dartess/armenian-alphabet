@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading -- by design */
 import type { ComponentPropsWithoutRef } from 'react';
 import Link from '@mui/material/Link';
 

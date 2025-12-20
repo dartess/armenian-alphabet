@@ -1,6 +1,6 @@
 import { randomInteger } from '@/utils/randomInteger';
 
-export interface GetRandomItemOptions<T> {
+export type GetRandomItemOptions<T> = {
   exclude?: Array<T>;
   getWeight?: (item: T) => number;
 }

@@ -7,7 +7,7 @@ import type { ReactNode } from 'react';
 
 import { useStore } from '@/core/stores';
 
-interface Props {
+type Props = {
   children: ReactNode;
 }
 
@@ -46,6 +46,17 @@ const getDesignTokens = (mode: PaletteMode) => ({
   },
 });
 
+function makeThemeColorMeta(): HTMLMetaElement {
+  const meta = document.createElement('meta');
+  meta.name = 'theme-color';
+  document.head.appendChild(meta);
+  return meta;
+}
+
+function getThemeColorMeta(): HTMLMetaElement {
+  return (document.querySelector('meta[name="theme-color"]')) ?? makeThemeColorMeta();
+}
+
 export const ThemeProvider = observer(function ThemeProvider({ children }: Props) {
   const { appTheme } = useStore('settings');
 
@@ -66,14 +77,3 @@ export const ThemeProvider = observer(function ThemeProvider({ children }: Props
     </MuiThemeProvider>
   );
 });
-
-function getThemeColorMeta(): HTMLMetaElement {
-  return (document.querySelector('meta[name="theme-color"]')) ?? makeThemeColorMeta();
-}
-
-function makeThemeColorMeta(): HTMLMetaElement {
-  const meta = document.createElement('meta');
-  meta.name = 'theme-color';
-  document.head.appendChild(meta);
-  return meta;
-}

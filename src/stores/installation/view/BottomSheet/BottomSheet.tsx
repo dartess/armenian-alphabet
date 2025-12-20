@@ -1,11 +1,12 @@
-/* eslint-disable react/jsx-props-no-spreading -- by design */
+import { observer } from 'mobx-react-lite';
+
 import { useStore } from '@/core/stores';
 
 import type { Props } from './model';
 import { BottomSheetIos } from './BottomSheetIos/BottomSheetIos';
 import { BottomSheetChrome } from './BottomSheetChrome/BottomSheetChrome';
 
-export function BottomSheet(props: Props) {
+export const BottomSheet = observer(function BottomSheet(props: Props) {
   const { implementationKind } = useStore('installation');
 
   switch (implementationKind) {
@@ -16,4 +17,4 @@ export function BottomSheet(props: Props) {
     default:
       return null;
   }
-}
+});
