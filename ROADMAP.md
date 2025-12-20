@@ -22,7 +22,7 @@
 ## Техническое
 
 - eslint-plugin-react-refresh
-- заменить @mui и @emotion
+- обновить @mui и @emotion
 - заменить classnames на clsx
 - prettier или аналог
 - букву из меню перевести в кривые

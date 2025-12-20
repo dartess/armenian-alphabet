@@ -19,17 +19,6 @@ import Snackbar from '@mui/material/Snackbar';
 
 import { reachGoal } from '@/utils/reachGoal';
 
-const cryptoItems = [
-  {
-    name: 'Litecoin',
-    value: 'LXBsTiA2LaoR1JogRFXEcw6Pn1ruNMKrzq',
-  },
-  {
-    name: 'USDT (TRC20)',
-    value: 'TAfWnTToyiFCwKYshNWEVu8pSa5zESS9Ji',
-  },
-];
-
 export function AboutDonate() {
   const [isOpen, toggleIsOpen] = useToggle(false);
   const [, copyToClipboard] = useCopyToClipboard();
@@ -67,9 +56,6 @@ export function AboutDonate() {
           <DialogContentText sx={{ my: 1 }}>
             При желании вы можете отблагодарить автора шоколадкой 🍫 или помочь оплатить домен 🌐.
           </DialogContentText>
-          <DialogContentText sx={{ my: 1 }}>
-            Сделать это можно любым удобным для вас способом:
-          </DialogContentText>
           <Box sx={{ my: 1 }}>
             <List>
               <ListItem disablePadding>
@@ -85,29 +71,6 @@ export function AboutDonate() {
                   <ListItemText primary={<Link component="button">Boosty</Link>} />
                 </ListItemButton>
               </ListItem>
-              {cryptoItems.map((crypto) => (
-                <ListItem disablePadding key={crypto.value}>
-                  <ListItemButton onClick={() => {
-                    copyToClipboard(crypto.value);
-                    setSnackbarItem(crypto.name);
-                  }}
-                  >
-                    <ListItemIcon>
-                      <ContentCopyIcon />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={`${crypto.name}: ${crypto.value}`}
-                      primaryTypographyProps={{
-                        style: {
-                          whiteSpace: 'nowrap',
-                          textOverflow: 'ellipsis',
-                          overflow: 'hidden',
-                        },
-                      }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              ))}
             </List>
           </Box>
         </DialogContent>
