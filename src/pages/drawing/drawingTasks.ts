@@ -5,7 +5,7 @@ import { alphabet } from '@/constants/alphabet';
 
 export type DrawingKey = `drawing-${TaskUnit}-${TaskUnit}`;
 
-interface TaskDrawing {
+type TaskDrawing = {
   from: TaskUnit;
   to: Exclude<TaskUnit, 'meta'>;
 }

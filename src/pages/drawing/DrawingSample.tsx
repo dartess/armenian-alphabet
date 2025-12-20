@@ -5,7 +5,7 @@ import { useUpdatedRef } from '@/utils/useUpdatedRef';
 import { drawLetter } from './utils';
 import styles from './DrawingTask.module.css';
 
-interface Props {
+type Props = {
   letterValue: string;
   onDraw: (canvas: HTMLCanvasElement) => void;
 }

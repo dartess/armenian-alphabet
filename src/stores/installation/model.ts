@@ -1,4 +1,4 @@
-export interface InstallationStoreImplementation {
+export type InstallationStoreImplementation = {
   canBeInstalled: boolean;
   showInstallPrompt: () => void;
   hideInstallPrompt?: () => void;

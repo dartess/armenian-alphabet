@@ -9,7 +9,7 @@ import { useStore } from '@/core/stores';
 
 import styles from './Alphabet.module.css';
 
-export const Alphabet = observer(() => {
+export const Alphabet = observer(function Alphabet() {
   const [isOpenLetterView, setIsOpenLetterView] = useState(false);
   const [lastOpenedLetter, setLastOpenedLetter] = useState<LetterType | null>(null);
 
@@ -44,8 +44,12 @@ export const Alphabet = observer(() => {
         <LetterView
           isOpenLetterView={isOpenLetterView}
           openedLetter={lastOpenedLetter}
-          onClose={() => setIsOpenLetterView(false)}
-          onStateChange={(state) => setLetterProgress(lastOpenedLetter, state)}
+          onClose={() => {
+            setIsOpenLetterView(false)
+          }}
+          onStateChange={(state) => {
+            setLetterProgress(lastOpenedLetter, state)
+          }}
           state={totalProgress[lastOpenedLetter.lowercase]}
           onChangeLetter={setLastOpenedLetter}
         />

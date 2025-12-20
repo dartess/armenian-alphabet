@@ -6,7 +6,7 @@ import { LetterIpa } from './LetterIpa';
 import { LetterUppercase } from './LetterUppercase';
 import { LetterLowercase } from './LetterLowercase';
 
-interface Props {
+type Props = {
   unit: TaskUnit;
   letter: LetterType;
   showVariants: boolean;

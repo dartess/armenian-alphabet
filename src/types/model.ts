@@ -1,4 +1,4 @@
-export interface LetterType {
+export type LetterType = {
   id: string;
   uppercase: string | Array<string>;
   lowercase: string;

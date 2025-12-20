@@ -21,6 +21,10 @@
 
 ## Техническое
 
+- eslint-plugin-react-refresh
+- обновить @mui и @emotion
+- заменить classnames на clsx
+- prettier или аналог
 - букву из меню перевести в кривые
 - прекоммит, препуш
 - скейлер до 320

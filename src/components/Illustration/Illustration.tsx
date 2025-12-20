@@ -8,7 +8,7 @@ import { HighlightedText } from '@/components/HighlightedText/HighlightedText';
 
 import styles from './Illustration.module.css';
 
-interface Props {
+type Props = {
   letter: LetterType // todo force ;
 }
 

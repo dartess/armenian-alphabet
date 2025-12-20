@@ -2,7 +2,7 @@ import type { LetterType } from '@/types/model';
 
 import { useVariantsPrint } from './useVariantsPrint';
 
-interface Props {
+type Props = {
   letter: LetterType;
   showVariants: boolean;
 }

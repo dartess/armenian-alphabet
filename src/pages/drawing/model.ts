@@ -1,11 +1,11 @@
-export interface Point {
+export type Point = {
   x: number;
   y: number;
 }
 
 export type Shape = Array<Point>;
 
-export interface Lines {
+export type Lines = {
   capLine: number;
   lowercaseLine: number;
   baseLine: number;

@@ -12,6 +12,7 @@ import { ThemeProvider } from './ThemeProvider';
 import { Layout } from './Layout/Layout';
 
 export function App() {
+  // eslint-disable-next-line react/hook-use-state -- TODO add useConstant
   const [stores] = useState(() => new Stores());
 
   return (

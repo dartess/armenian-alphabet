@@ -3,7 +3,7 @@ import { ArmenianText } from '@/components/ArmenianText/ArmenianText';
 
 import { useVariantsPrint } from './useVariantsPrint';
 
-interface Props {
+type Props = {
   letter: LetterType;
   showVariants: boolean;
 }

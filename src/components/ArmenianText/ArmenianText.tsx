@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import styles from './ArmenianText.module.css';
 
-interface Props {
+type Props = {
   children: string | ReactNode;
 }
 

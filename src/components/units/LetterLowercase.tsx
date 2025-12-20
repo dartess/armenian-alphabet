@@ -1,7 +1,7 @@
 import type { LetterType } from '@/types/model';
 import { ArmenianText } from '@/components/ArmenianText/ArmenianText';
 
-interface Props {
+type Props = {
   letter: LetterType;
 }
 

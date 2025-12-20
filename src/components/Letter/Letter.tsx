@@ -10,7 +10,7 @@ import { LetterAudio } from '@/components/LetterAudio/LetterAudio';
 
 import styles from './Letter.module.css';
 
-interface Props {
+type Props = {
   letter: LetterType;
   state?: LetterState;
   showVariants: boolean;
@@ -26,6 +26,7 @@ export function Letter({ letter, state, showVariants }: Props) {
       case 'progress':
         return 'primary.main';
       default:
+        // eslint-disable-next-line unicorn/no-useless-undefined -- TODO
         return undefined;
     }
   })();

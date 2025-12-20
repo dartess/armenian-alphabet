@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 
 import { toArray } from '@/utils/toArray';
 
-interface Props {
+type Props = {
   text: string;
   highlights: Array<string> | string;
   textCase?: 'uppercase' | 'lowercase';
@@ -40,25 +40,18 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
   );
 
   const parts = useMemo(
-    () => {
-      return highlights.reduce<Array<string | { highlight: string }>>((partsAcc, highlight) => {
-        return partsAcc.flatMap((part) => {
+    () => highlights.reduce<Array<string | { highlight: string }>>((partsAcc, highlight) => partsAcc.flatMap((part) => {
           if (typeof part === 'object') {
             return part;
           }
-          return part.split(highlight).flatMap((partNested, index, partsNested) => {
-            return index < partsNested.length - 1 ? [partNested, { highlight }] : partNested;
-          }).filter(Boolean);
-        });
-      }, [textCased]);
-    },
+          return part.split(highlight).flatMap((partNested, index, partsNested) => index < partsNested.length - 1 ? [partNested, { highlight }] : partNested).filter(Boolean);
+        }), [textCased]),
     [highlights, textCased],
   );
 
   return (
     <>
       {parts.map((part, index) => (
-        // eslint-disable-next-line react/no-array-index-key -- no variants
         <Fragment key={index}>
           {typeof part === 'string'
             ? part
