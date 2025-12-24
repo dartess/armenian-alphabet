@@ -9,10 +9,9 @@
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.9",
     "@sentry/react": "^7.19.0",
-    "@sentry/tracing": "^7.19.0",
     "classnames": "^2.3.2",
     "material-ui-confirm": "^3.0.7",
-    "mobx": "^6.6.2",
+    "mobx": "^6.15.0",
     "mobx-persist-store": "^1.1.2",
     "mobx-react-lite": "^4.0.5",
     "react": "^18.2.0",
@@ -37,7 +36,7 @@
     "node": "^22.18.0"
   },
   "devDependencies": {
-    "@dartess/eslint-plugin": "0.0.2",
+    "@dartess/eslint-plugin": "0.0.3",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@types/css-modules": "^1.0.2",
     "@types/dom-chromium-installation-events": "^101.0.0",

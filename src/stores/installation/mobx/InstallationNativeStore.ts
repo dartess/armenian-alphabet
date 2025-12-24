@@ -1,4 +1,4 @@
-import { action, computed, makeObservable, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 
 import type { InstallationStoreImplementation } from '../model';
 
@@ -10,8 +10,6 @@ let deferredInstallPromptEvent: BeforeInstallPromptEvent | null = null;
 
 export class InstallationNativeStore implements InstallationStoreImplementation {
   constructor() {
-    makeObservable(this);
-
     window.addEventListener('beforeinstallprompt', this.handleBeforeInstallPrompt);
     window.addEventListener('appinstalled', this.handleAppInstalled);
 
@@ -22,9 +20,11 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
     return this.canBeInstalledByEvent && this.canBeInstalledByRelatedApps;
   }
 
-  @observable private canBeInstalledByRelatedApps = true;
+  @observable
+  private accessor canBeInstalledByRelatedApps = true;
 
-  @observable private canBeInstalledByEvent = Boolean(deferredInstallPromptEvent);
+  @observable
+  private accessor canBeInstalledByEvent = Boolean(deferredInstallPromptEvent);
 
   @action private setIsCanBeInstalledByEvent = (value: boolean) => {
     this.canBeInstalledByEvent = value;

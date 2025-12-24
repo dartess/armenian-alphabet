@@ -1,4 +1,4 @@
-import { observable, makeObservable, action, computed } from 'mobx';
+import { observable, action, computed } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
 
 import type { DisplayMode, Theme, UserTheme } from '@/types/model';
@@ -7,8 +7,6 @@ const isTwaAtAppInit = document.referrer.startsWith('android-app://');
 
 export class SettingsStore {
   constructor() {
-    makeObservable(this);
-
     makePersistable(this, { name: 'SettingsStore', properties: ['userTheme'] });
 
     this.mediaPrefersColorSchemeDark.addEventListener('change', this.handleChangeSystemPrefersColorSchemeDark);
@@ -17,7 +15,7 @@ export class SettingsStore {
   }
 
   @observable
-  public userTheme: UserTheme = 'system';
+  public accessor userTheme: UserTheme = 'system';
 
   @action
   public setUserTheme = (userTheme: UserTheme) => {
@@ -27,7 +25,7 @@ export class SettingsStore {
   private mediaPrefersColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   @observable
-  private isSystemPrefersColorSchemeDark: boolean = this.mediaPrefersColorSchemeDark.matches;
+  private accessor isSystemPrefersColorSchemeDark: boolean = this.mediaPrefersColorSchemeDark.matches;
 
   @action
   private handleChangeSystemPrefersColorSchemeDark = () => {

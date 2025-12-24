@@ -6,14 +6,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Dialog from '@mui/material/Dialog';
-import { useCopyToClipboard, useToggle } from 'react-use';
+import { useToggle } from 'react-use';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Link from '@mui/material/Link';
 import Snackbar from '@mui/material/Snackbar';
 
@@ -21,7 +20,6 @@ import { reachGoal } from '@/utils/reachGoal';
 
 export function AboutDonate() {
   const [isOpen, toggleIsOpen] = useToggle(false);
-  const [, copyToClipboard] = useCopyToClipboard();
   const [snackbarItem, setSnackbarItem] = useState<null | string>(null);
 
   const handleClose = (_: unknown, reason?: string) => {
