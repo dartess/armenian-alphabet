@@ -48,7 +48,6 @@
 - полное кэширование данных
 - выбор шрифта
 - Setup browsers
-- installHook.js:1 [MobX] Since strict-mode is enabled, changing (observed) observable values without using an action is not allowed. Tried to modify: InstallationNativeStore@15.canBeInstalledByEvent
 
 ## С блокерами:
 
