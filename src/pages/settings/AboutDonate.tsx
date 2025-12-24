@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
+import { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
@@ -14,20 +13,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Link from '@mui/material/Link';
-import Snackbar from '@mui/material/Snackbar';
 
+import { Button } from '@/components/Button/Button';
 import { reachGoal } from '@/utils/reachGoal';
 
 export function AboutDonate() {
   const [isOpen, toggleIsOpen] = useToggle(false);
-  const [snackbarItem, setSnackbarItem] = useState<null | string>(null);
-
-  const handleClose = (_: unknown, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setSnackbarItem(null);
-  };
 
   useEffect(
     () => {
@@ -40,7 +31,7 @@ export function AboutDonate() {
 
   return (
     <Box sx={{ my: 1 }}>
-      <Button variant="outlined" onClick={toggleIsOpen}>
+      <Button variant="secondary" onClick={toggleIsOpen}>
         «Спасибо»
       </Button>
       <Dialog open={isOpen} onClose={toggleIsOpen}>
@@ -78,12 +69,6 @@ export function AboutDonate() {
           </Button>
         </DialogActions>
       </Dialog>
-      <Snackbar
-        open={!!snackbarItem}
-        autoHideDuration={4000}
-        onClose={handleClose}
-        message={snackbarItem && `Скопирован адрес ${snackbarItem}`}
-      />
     </Box>
   );
 }

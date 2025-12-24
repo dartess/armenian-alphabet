@@ -49,6 +49,12 @@ keygen {
   line-height: inherit;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
 img {
   max-width: 100%;
 }

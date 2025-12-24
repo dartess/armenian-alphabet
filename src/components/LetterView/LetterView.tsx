@@ -1,12 +1,11 @@
 import Dialog from '@mui/material/Dialog';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 
+import { Button } from '@/components/Button/Button';
 import type { LetterType, LetterState } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
 import { LetterUnit } from '@/components/units/LetterUnit';
@@ -89,40 +88,35 @@ export const LetterView = observer(function LetterView({
               />
             </div>
             <div className={styles.state}>
-              <ButtonGroup size="medium">
-                <Button
-                  variant={state === 'progress' ? 'contained' : 'outlined'}
-                  onClick={() => {
+              <Button
+                variant={state === 'progress' ? 'primary' : 'secondary'}
+                onClick={() => {
                     handleStateChange('progress')
                   }}
-                >
-                  <SchoolOutlinedIcon />
-                </Button>
-                <Button
-                  variant={state === 'done' ? 'contained' : 'outlined'}
-                  onClick={() => {
+              >
+                <SchoolOutlinedIcon />
+              </Button>
+              <Button
+                variant={state === 'done' ? 'primary' : 'secondary'}
+                onClick={() => {
                     handleStateChange('done')
                   }}
-                >
-                  <DoneOutlinedIcon />
-                </Button>
-              </ButtonGroup>
+              >
+                <DoneOutlinedIcon />
+              </Button>
             </div>
             <div className={styles.stateText}>
               {statusTexts[state]}
             </div>
           </div>
         </div>
-        <ButtonGroup
-          variant="text"
-          color="primary"
-          size="large"
+        <div
           className={styles.navigation}
-          fullWidth
         >
           <Button
             onClick={handleClickPrev}
             startIcon={<NavigateNextIcon className={styles.navigatePrev} />}
+            variant="secondary"
           >
             <LetterUnit
               unit="uppercase"
@@ -133,6 +127,7 @@ export const LetterView = observer(function LetterView({
           <Button
             onClick={handleClickNext}
             endIcon={<NavigateNextIcon />}
+            variant="secondary"
           >
             <LetterUnit
               unit="uppercase"
@@ -140,7 +135,7 @@ export const LetterView = observer(function LetterView({
               showVariants={false}
             />
           </Button>
-        </ButtonGroup>
+        </div>
       </div>
     </Dialog>
   );

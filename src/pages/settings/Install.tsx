@@ -1,8 +1,8 @@
-import Button from '@mui/material/Button';
 import InstallMobileIcon from '@mui/icons-material/InstallMobile';
 import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
 import { observer } from 'mobx-react-lite';
 
+import { Button } from '@/components/Button/Button';
 import { useStore } from '@/core/stores';
 import { IS_OS_MOBILE } from '@/utils/envPlatform';
 import { reachGoal } from '@/utils/reachGoal';
@@ -19,7 +19,7 @@ export const Install = observer(function Install() {
 
   return (
     <Button
-      variant="outlined"
+      variant="secondary"
       onClick={handleInstall}
       endIcon={<InstallIcon />}
     >

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -9,6 +8,7 @@ import Link from '@mui/material/Link';
 import DialogActions from '@mui/material/DialogActions';
 import { useToggle } from 'react-use';
 
+import { Button } from '@/components/Button/Button';
 import { reachGoal } from '@/utils/reachGoal';
 
 export function AboutContacts() {
@@ -25,7 +25,7 @@ export function AboutContacts() {
 
   return (
     <Box sx={{ my: 1 }}>
-      <Button variant="outlined" onClick={toggleIsOpen}>
+      <Button variant="secondary" onClick={toggleIsOpen}>
         Контакты
       </Button>
       <Dialog open={isOpen} onClose={toggleIsOpen}>
