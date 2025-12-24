@@ -1,0 +1,80 @@
+.root {
+    padding: 0;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    vertical-align: middle;
+    appearance: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    outline: 0px;
+    margin: 0px;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    gap: 8px;
+
+    &.onlyIcon {
+        padding: 5px;
+    }
+
+    &.variantPrimary {
+        color: var(--button-text-color);
+        border-color: var(--button-accent-color);
+        background-color: var(--button-accent-color);
+    }
+
+    &.variantSecondary {
+        color: var(--button-accent-color);
+        border-color: var(--button-accent-color-transparent);
+        background-color: transparent;
+    }
+
+    &.statusDefault {
+        --button-accent-color: rgb(255, 183, 77);
+        --button-accent-color-transparent: rgba(255, 183, 77, 0.5);
+        --button-text-color: #000;
+    }
+
+    &.statusError {
+        --button-accent-color: rgb(244, 67, 54);;
+        --button-accent-color-transparent: rgba(244, 67, 54, 0.5);
+        --button-text-color: #fff;
+    }
+
+    &.statusSuccess {
+        --button-accent-color: rgb(102, 187, 106);
+        --button-accent-color-transparent: rgba(102, 187, 106, 0.5);
+        --button-text-color: #000;
+    }
+}
+
+.text {
+    display: inline-flex;
+}
+
+.icon {
+    display: inline-flex;
+    flex-shrink: 0;
+
+    & > svg {
+        font-size: 20px;
+    }
+
+    &:first-child {
+        margin-left: -6px;
+    }
+
+    &:last-child {
+        margin-right: -6px;
+    }
+}

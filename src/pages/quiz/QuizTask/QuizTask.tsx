@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useMemo, useState } from 'react';
-import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Box from '@mui/material/Box';
 
+import { Button } from '@/components/Button/Button';
 import type { LetterState } from '@/types/model';
 import { Letter } from '@/components/Letter/Letter';
 import { useStore } from '@/core/stores';
@@ -100,10 +100,7 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
                 }
                 setUserAnswerId(answerLetterItem.id);
               }}
-              type="button"
-              variant="contained"
-              size="large"
-              color={color}
+              status={color}
               className={styles.answerUnit}
             >
               <LetterUnit letter={answerLetterItem} unit={unitTo} showVariants={false} />
@@ -122,8 +119,7 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
           <div className={styles.actions}>
             <Button
               onClick={handleNext}
-              type="button"
-              variant="outlined"
+              variant="secondary"
             >
               Дальше
             </Button>

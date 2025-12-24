@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import SignaturePad from 'react-signature-canvas';
 import cn from 'classnames';
-import Button from '@mui/material/Button';
 import ClearIcon from '@mui/icons-material/Clear';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import UndoIcon from '@mui/icons-material/Undo';
@@ -19,6 +18,7 @@ import { useStore } from '@/core/stores';
 import { LetterUnit } from '@/components/units/LetterUnit';
 import { reachGoal } from '@/utils/reachGoal';
 import { exhaustiveCheck } from '@/utils/exhaustiveCheck';
+import { Button } from '@/components/Button/Button';
 
 import { DrawingSample } from './DrawingSample';
 import styles from './DrawingTask.module.css';
@@ -203,33 +203,30 @@ export const DrawingTask = observer(function DrawingTask() {
           <Button
             className={cn(styles.button, { [styles.buttonUndo]: true })}
             onClick={handleUndo}
-            size="small"
             disabled={!canBeUndo}
-          >
-            <UndoIcon />
-          </Button>
+            variant="secondary"
+            icon={<UndoIcon />}
+          />
           <Button
             className={cn(styles.button, { [styles.buttonClear]: true })}
             onClick={clearSig}
-            size="small"
             disabled={!canBeCleared}
-          >
-            <ClearIcon />
-          </Button>
+            variant="secondary"
+            icon={<ClearIcon />}
+          />
           <Button
             className={cn(styles.button, { [styles.buttonNext]: true })}
             onClick={handleNextLetter}
-            size="small"
-          >
-            <SkipNextIcon />
-          </Button>
+            variant="secondary"
+            icon={<SkipNextIcon />}
+          />
           {isResultCalculated
             ? (
               <Button
                 className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
                 onClick={handleNextLetter}
                 endIcon={<NavigateNextIcon />}
-                size="small"
+                variant="secondary"
               >
                 Дальше
               </Button>
@@ -239,8 +236,8 @@ export const DrawingTask = observer(function DrawingTask() {
                 className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
                 onClick={handleCheckAccuracy}
                 endIcon={<SpellcheckIcon />}
-                size="small"
                 disabled={!canBeChecked}
+                variant="secondary"
               >
                 Проверить
               </Button>

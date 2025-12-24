@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -8,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { useToggle } from 'react-use';
 import Link from '@mui/material/Link';
 
+import { Button } from '@/components/Button/Button';
 import { LinkExternal } from '@/components/LinkExternal';
 
 export function AboutLicense() {

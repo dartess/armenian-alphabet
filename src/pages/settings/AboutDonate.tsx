@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
@@ -15,6 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Link from '@mui/material/Link';
 
+import { Button } from '@/components/Button/Button';
 import { reachGoal } from '@/utils/reachGoal';
 
 export function AboutDonate() {
@@ -31,7 +31,7 @@ export function AboutDonate() {
 
   return (
     <Box sx={{ my: 1 }}>
-      <Button variant="outlined" onClick={toggleIsOpen}>
+      <Button variant="secondary" onClick={toggleIsOpen}>
         «Спасибо»
       </Button>
       <Dialog open={isOpen} onClose={toggleIsOpen}>

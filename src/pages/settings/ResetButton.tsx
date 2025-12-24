@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
-import Button from '@mui/material/Button';
 import { useConfirm } from 'material-ui-confirm';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
+import { Button } from '@/components/Button/Button';
 import { useStore } from '@/core/stores';
 
 export const ResetButton = observer(function ResetButton() {
@@ -25,7 +25,7 @@ export const ResetButton = observer(function ResetButton() {
 
   return (
     <Button
-      variant="outlined"
+      variant="secondary"
       onClick={handleClick}
       endIcon={<DeleteForeverIcon />}
     >

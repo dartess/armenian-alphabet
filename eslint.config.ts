@@ -31,6 +31,14 @@ export default [
     rules: {
       '@typescript-eslint/no-non-null-assertion': 'off', // TODO fix it
       '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off', // TODO check it
+      'arrow-body-style': 'off', // TODO disable it in plugin
+      '@typescript-eslint/consistent-type-imports': [ // TODO move it into plugin
+        'error',
+        {
+          fixStyle: 'inline-type-imports',
+          disallowTypeAnnotations: false,
+        },
+      ],
     },
   },
 

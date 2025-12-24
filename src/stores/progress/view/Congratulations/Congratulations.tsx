@@ -6,7 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
-import Button from '@mui/material/Button';
+
+import { Button } from '@/components/Button/Button';
 
 export function Congratulations() {
   const { width, height } = useWindowSize();
