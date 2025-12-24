@@ -1,4 +1,4 @@
-import { observable, makeObservable, action, computed, autorun, runInAction } from 'mobx';
+import { observable, action, computed, autorun, runInAction } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
 
 import type { LetterState, LetterType, TotalProgress } from '@/types/model';
@@ -8,8 +8,6 @@ import { reachGoal } from '@/utils/reachGoal';
 
 export class ProgressStore {
   constructor() {
-    makeObservable(this);
-
     makePersistable(this, { name: 'ProgressStore', properties: ['totalProgress'] });
 
     autorun(
@@ -28,10 +26,10 @@ export class ProgressStore {
   }
 
   @observable
-  public totalProgress: TotalProgress = ProgressStore.getInitialProgress();
+  public accessor totalProgress: TotalProgress = ProgressStore.getInitialProgress();
 
   @observable
-  public isShowCongratulations = false;
+  public accessor isShowCongratulations = false;
 
   @action
   public setLetterProgress = (letter: LetterType, state: LetterState) => {

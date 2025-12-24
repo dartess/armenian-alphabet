@@ -1,4 +1,4 @@
-import { makeObservable, computed, observable, autorun, runInAction } from 'mobx';
+import { computed, observable, autorun, runInAction } from 'mobx';
 import type { WebAppManifest } from 'web-app-manifest';
 
 import { PLATFORM_ENV } from '@/utils/envPlatform';
@@ -11,8 +11,6 @@ import { InstallationNativeStore } from './InstallationNativeStore';
 
 export class InstallationStore {
   constructor(private readonly settings: SettingsStore) {
-    makeObservable(this);
-
     const stores = [
       {
         Store: InstallationNativeStore,
@@ -68,7 +66,7 @@ export class InstallationStore {
     return `/pwa/generated-manifests/manifest-${appTheme}-${PLATFORM_ENV}.json`;
   }
 
-  @observable public manifest: WebAppManifest | null = null;
+  @observable public accessor manifest: WebAppManifest | null = null;
 
   public showInstallPrompt = (): void => {
     this.implementation?.showInstallPrompt();

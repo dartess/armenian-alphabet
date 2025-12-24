@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from 'mobx';
+import { action, observable } from 'mobx';
 
 import type { SettingsStore } from '@/stores/settings/SettingsStore';
 import { IS_IOS } from '@/utils/envPlatform';
@@ -7,12 +7,13 @@ import type { InstallationStoreImplementation } from '../model';
 
 export class InstallationIosStore implements InstallationStoreImplementation {
   constructor(private readonly settings: SettingsStore) {
-    makeObservable(this);
   }
 
-  @observable public canBeInstalled = this.settings.displayMode === 'browser';
+  @observable
+  public accessor canBeInstalled = this.settings.displayMode === 'browser';
 
-  @observable public isShowCustomInstallPrompt = false;
+  @observable
+  public accessor isShowCustomInstallPrompt = false;
 
   @action private setIsShowCustomInstallPrompt = (value: boolean): void => {
     this.isShowCustomInstallPrompt = value;
