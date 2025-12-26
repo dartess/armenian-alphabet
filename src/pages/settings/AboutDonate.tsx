@@ -1,10 +1,5 @@
 import { useEffect } from 'react';
 import Box from '@mui/material/Box';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogActions from '@mui/material/DialogActions';
-import Dialog from '@mui/material/Dialog';
 import { useToggle } from 'react-use';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -15,6 +10,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Link from '@mui/material/Link';
 
 import { Button } from '@/components/Button/Button';
+import { Dialog } from "@/components/Dialog/Dialog";
 import { reachGoal } from '@/utils/reachGoal';
 
 export function AboutDonate() {
@@ -34,40 +30,39 @@ export function AboutDonate() {
       <Button variant="secondary" onClick={toggleIsOpen}>
         «Спасибо»
       </Button>
-      <Dialog open={isOpen} onClose={toggleIsOpen}>
-        <DialogTitle>
-          Сказать «Спасибо»
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText sx={{ my: 1 }}>
-            Если это приложение вам помогло, я очень этому рад!
-          </DialogContentText>
-          <DialogContentText sx={{ my: 1 }}>
-            При желании вы можете отблагодарить автора шоколадкой 🍫 или помочь оплатить домен 🌐.
-          </DialogContentText>
-          <Box sx={{ my: 1 }}>
-            <List>
-              <ListItem disablePadding>
-                <ListItemButton
-                  component="a"
-                  href="https://boosty.to/aybuben"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <ListItemIcon>
-                    <OpenInNewIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={<Link component="button">Boosty</Link>} />
-                </ListItemButton>
-              </ListItem>
-            </List>
-          </Box>
-        </DialogContent>
-        <DialogActions>
+      <Dialog
+        open={isOpen}
+        onOpenChange={toggleIsOpen}
+        title="Сказать «Спасибо»"
+        actions={(
           <Button onClick={toggleIsOpen}>
             Закрыть
           </Button>
-        </DialogActions>
+        )}
+      >
+        <Box sx={{ my: 1 }}>
+          Если это приложение вам помогло, я очень этому рад!
+        </Box>
+        <Box sx={{ my: 1 }}>
+          При желании вы можете отблагодарить автора шоколадкой 🍫 или помочь оплатить домен 🌐.
+        </Box>
+        <Box sx={{ my: 1 }}>
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton
+                component="a"
+                href="https://boosty.to/aybuben"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <ListItemIcon>
+                  <OpenInNewIcon />
+                </ListItemIcon>
+                <ListItemText primary={<Link component="button">Boosty</Link>} />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </Box>
       </Dialog>
     </Box>
   );
