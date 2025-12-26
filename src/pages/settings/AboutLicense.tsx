@@ -1,14 +1,10 @@
 import Box from '@mui/material/Box';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogActions from '@mui/material/DialogActions';
-import DialogTitle from '@mui/material/DialogTitle';
 import { useToggle } from 'react-use';
 import Link from '@mui/material/Link';
 
 import { Button } from '@/components/Button/Button';
 import { LinkExternal } from '@/components/LinkExternal';
+import {Dialog} from "@/components/Dialog/Dialog";
 
 export function AboutLicense() {
   const [isOpen, toggleIsOpen] = useToggle(false);
@@ -23,31 +19,30 @@ export function AboutLicense() {
       >
         Лицензии
       </Link>
-      <Dialog open={isOpen} onClose={toggleIsOpen}>
-        <DialogTitle>
-          Использованные материалы
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText sx={{ mb: 1 }}>
-            Озвучка использована по лицензии CC BY 3.0. Автор:
-            {' '}
-            <LinkExternal href="https://commons.wikimedia.org/wiki/User:Vahagn_Petrosyan">
-              Vahagn Petrosyan
-            </LinkExternal>
-          </DialogContentText>
-          <DialogContentText>
-            Изображения сгенерированы в
-            {' '}
-            <LinkExternal href="https://dream.ai/">
-              Dream by WOMBO
-            </LinkExternal>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
+      <Dialog
+        open={isOpen}
+        onOpenChange={toggleIsOpen}
+        title="Использованные материалы"
+        actions={(
           <Button onClick={toggleIsOpen}>
             Закрыть
           </Button>
-        </DialogActions>
+        )}
+      >
+        <Box sx={{ mb: 1 }}>
+          Озвучка использована по лицензии CC BY 3.0. Автор:
+          {' '}
+          <LinkExternal href="https://commons.wikimedia.org/wiki/User:Vahagn_Petrosyan">
+            Vahagn Petrosyan
+          </LinkExternal>
+        </Box>
+        <Box>
+          Изображения сгенерированы в
+          {' '}
+          <LinkExternal href="https://dream.ai/">
+            Dream by WOMBO
+          </LinkExternal>
+        </Box>
       </Dialog>
     </Box>
   );

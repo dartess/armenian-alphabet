@@ -1,4 +1,3 @@
-import Dialog from '@mui/material/Dialog';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
@@ -6,6 +5,7 @@ import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 
 import { Button } from '@/components/Button/Button';
+import { Dialog } from '@/components/Dialog/Dialog';
 import type { LetterType, LetterState } from '@/types/model';
 import { alphabet } from '@/constants/alphabet';
 import { LetterUnit } from '@/components/units/LetterUnit';
@@ -73,7 +73,7 @@ export const LetterView = observer(function LetterView({
   );
 
   return (
-    <Dialog open={isOpenLetterView} onClose={onClose} fullWidth>
+    <Dialog open={isOpenLetterView} onOpenChange={onClose}>
       <div className={styles.root}>
         <div className={styles.content}>
           <div className={styles.illustration}>
