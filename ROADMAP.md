@@ -26,7 +26,6 @@
 - обновить @mui и @emotion
 - https://github.com/evilmartians/lefthook
 - заменить classnames на clsx
-- prettier или аналог
 - букву из меню перевести в кривые
 - прекоммит, препуш
 - скейлер до 320
