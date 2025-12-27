@@ -8,7 +8,7 @@ import styles from './DrawingTask.module.css';
 type Props = {
   letterValue: string;
   onDraw: (canvas: HTMLCanvasElement) => void;
-}
+};
 export function DrawingSample({ letterValue, onDraw }: Props) {
   const refCanvas = useRef<HTMLCanvasElement>(null);
   const onDrawRef = useUpdatedRef(onDraw);

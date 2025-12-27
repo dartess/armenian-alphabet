@@ -19,10 +19,7 @@ export const Alphabet = observer(function Alphabet() {
     <>
       <ol className={styles.list}>
         {alphabet.map((letter) => (
-          <li
-            key={letter.lowercase}
-            className={styles.letter}
-          >
+          <li key={letter.lowercase} className={styles.letter}>
             <button
               type="button"
               onClick={() => {
@@ -45,10 +42,10 @@ export const Alphabet = observer(function Alphabet() {
           isOpenLetterView={isOpenLetterView}
           openedLetter={lastOpenedLetter}
           onClose={() => {
-            setIsOpenLetterView(false)
+            setIsOpenLetterView(false);
           }}
           onStateChange={(state) => {
-            setLetterProgress(lastOpenedLetter, state)
+            setLetterProgress(lastOpenedLetter, state);
           }}
           state={totalProgress[lastOpenedLetter.lowercase]}
           onChangeLetter={setLastOpenedLetter}

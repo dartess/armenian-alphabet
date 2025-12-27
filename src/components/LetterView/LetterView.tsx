@@ -23,7 +23,7 @@ type Props = {
   onStateChange: (state: LetterState) => void;
   onChangeLetter: (letter: LetterType) => void;
   state: LetterState;
-}
+};
 
 const statusTexts: Record<LetterState, string> = {
   new: 'новая буква',
@@ -54,10 +54,10 @@ export const LetterView = observer(function LetterView({
   const prevLetter = getPrevLetter(openedLetter);
   const nextLetter = getNextLetter(openedLetter);
   const handleClickPrev = () => {
-    onChangeLetter(prevLetter)
+    onChangeLetter(prevLetter);
   };
   const handleClickNext = () => {
-    onChangeLetter(nextLetter)
+    onChangeLetter(nextLetter);
   };
 
   const handleStateChange = (clickedState: LetterState) => {
@@ -65,12 +65,9 @@ export const LetterView = observer(function LetterView({
     onStateChange(newState);
   };
 
-  useEffect(
-    () => {
-      reachGoal('cardOpen', { letter: openedLetter.lowercase });
-    },
-    [openedLetter],
-  );
+  useEffect(() => {
+    reachGoal('cardOpen', { letter: openedLetter.lowercase });
+  }, [openedLetter]);
 
   return (
     <Dialog open={isOpenLetterView} onOpenChange={onClose}>
@@ -82,58 +79,39 @@ export const LetterView = observer(function LetterView({
           <div className={styles.description}>
             <h4 className={styles.name}>{openedLetter.name}</h4>
             <div className={styles.basicLetter}>
-              <Letter
-                letter={openedLetter}
-                showVariants
-              />
+              <Letter letter={openedLetter} showVariants />
             </div>
             <div className={styles.state}>
               <Button
                 variant={state === 'progress' ? 'primary' : 'secondary'}
                 onClick={() => {
-                    handleStateChange('progress')
-                  }}
+                  handleStateChange('progress');
+                }}
               >
                 <SchoolOutlinedIcon />
               </Button>
               <Button
                 variant={state === 'done' ? 'primary' : 'secondary'}
                 onClick={() => {
-                    handleStateChange('done')
-                  }}
+                  handleStateChange('done');
+                }}
               >
                 <DoneOutlinedIcon />
               </Button>
             </div>
-            <div className={styles.stateText}>
-              {statusTexts[state]}
-            </div>
+            <div className={styles.stateText}>{statusTexts[state]}</div>
           </div>
         </div>
-        <div
-          className={styles.navigation}
-        >
+        <div className={styles.navigation}>
           <Button
             onClick={handleClickPrev}
             startIcon={<NavigateNextIcon className={styles.navigatePrev} />}
             variant="secondary"
           >
-            <LetterUnit
-              unit="uppercase"
-              letter={prevLetter}
-              showVariants={false}
-            />
+            <LetterUnit unit="uppercase" letter={prevLetter} showVariants={false} />
           </Button>
-          <Button
-            onClick={handleClickNext}
-            endIcon={<NavigateNextIcon />}
-            variant="secondary"
-          >
-            <LetterUnit
-              unit="uppercase"
-              letter={nextLetter}
-              showVariants={false}
-            />
+          <Button onClick={handleClickNext} endIcon={<NavigateNextIcon />} variant="secondary">
+            <LetterUnit unit="uppercase" letter={nextLetter} showVariants={false} />
           </Button>
         </div>
       </div>

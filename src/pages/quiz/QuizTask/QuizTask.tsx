@@ -19,13 +19,19 @@ import styles from './QuizTask.module.css';
 type Props = {
   quizKey: QuizKey;
   onNextQuiz: () => void;
-}
+};
 
 type UncompletedLetterState = Exclude<LetterState, 'done'>;
 
-const updateStateLabels: Record<UncompletedLetterState, string> = { new: 'изучаю', progress: 'выучил' };
+const updateStateLabels: Record<UncompletedLetterState, string> = {
+  new: 'изучаю',
+  progress: 'выучил',
+};
 
-const updateStateNextValue: Record<UncompletedLetterState, LetterState> = { new: 'progress', progress: 'done' };
+const updateStateNextValue: Record<UncompletedLetterState, LetterState> = {
+  new: 'progress',
+  progress: 'done',
+};
 
 export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Props) {
   const [userAnswerId, setUserAnswerId] = useState<null | string>(null);
@@ -58,20 +64,17 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
     return questionLetter.id === userAnswerId ? 'correct' : 'wrong';
   })();
 
-  useEffect(
-    () => {
-      switch (answerStatus) {
-        case 'correct':
-          reachGoal('quizCorrect');
-          break;
-        case 'wrong':
-          reachGoal('quizWrong');
-          break;
-        // no default
-      }
-    },
-    [answerStatus],
-  );
+  useEffect(() => {
+    switch (answerStatus) {
+      case 'correct':
+        reachGoal('quizCorrect');
+        break;
+      case 'wrong':
+        reachGoal('quizWrong');
+        break;
+      // no default
+    }
+  }, [answerStatus]);
 
   return (
     <div className={styles.root}>
@@ -111,29 +114,23 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
       {userAnswerId && (
         <div className={styles.results}>
           <div className={styles.letter}>
-            <Letter
-              letter={questionLetter}
-              showVariants
-            />
+            <Letter letter={questionLetter} showVariants />
           </div>
           <div className={styles.actions}>
-            <Button
-              onClick={handleNext}
-              variant="secondary"
-            >
+            <Button onClick={handleNext} variant="secondary">
               Дальше
             </Button>
             {progress !== 'done' && (
               <Box>
                 <FormControlLabel
-                  control={(
+                  control={
                     <Switch
                       checked={isUpdateState}
                       onChange={(_, checked) => {
-                        setIsUpdateState(checked)
+                        setIsUpdateState(checked);
                       }}
                     />
-                  )}
+                  }
                   label={updateStateLabels[progress]}
                 />
               </Box>

@@ -1,15 +1,12 @@
 function vhFix(fixedTest: HTMLElement, vhTest: HTMLElement, timeout: number): void {
-  setTimeout(
-    () => {
-      document.documentElement.insertBefore(fixedTest, document.documentElement.firstChild);
-      document.documentElement.insertBefore(vhTest, document.documentElement.firstChild);
-      const offset = vhTest.offsetHeight - fixedTest.offsetHeight;
-      document.documentElement.removeChild(fixedTest);
-      document.documentElement.removeChild(vhTest);
-      document.documentElement.style.setProperty('--vh-gap', `${offset}px`);
-    },
-    timeout,
-  );
+  setTimeout(() => {
+    document.documentElement.insertBefore(fixedTest, document.documentElement.firstChild);
+    document.documentElement.insertBefore(vhTest, document.documentElement.firstChild);
+    const offset = vhTest.offsetHeight - fixedTest.offsetHeight;
+    document.documentElement.removeChild(fixedTest);
+    document.documentElement.removeChild(vhTest);
+    document.documentElement.style.setProperty('--vh-gap', `${offset}px`);
+  }, timeout);
 }
 
 /**

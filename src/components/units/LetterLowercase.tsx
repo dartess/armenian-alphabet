@@ -3,7 +3,7 @@ import { ArmenianText } from '@/components/ArmenianText/ArmenianText';
 
 type Props = {
   letter: LetterType;
-}
+};
 
 export function LetterLowercase({ letter: { lowercase } }: Props) {
   return <ArmenianText>{lowercase}</ArmenianText>;

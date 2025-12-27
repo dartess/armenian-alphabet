@@ -19,16 +19,15 @@ const routes: Record<PageValue, ComponentType<any>> = {
 
 export function Router() {
   const [location] = useLocation();
-  useUpdateEffect(
-    () => {
-      ym('hit', location);
-    },
-    [location],
-  );
+  useUpdateEffect(() => {
+    ym('hit', location);
+  }, [location]);
 
   return (
     <Switch>
-      {Object.entries(routes).map(([page, component]) => <Route key={page} path={`/${page}`} component={component} />)}
+      {Object.entries(routes).map(([page, component]) => (
+        <Route key={page} path={`/${page}`} component={component} />
+      ))}
       <Redirect to="/alphabet" replace />
     </Switch>
   );

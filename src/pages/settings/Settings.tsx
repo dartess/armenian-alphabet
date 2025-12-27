@@ -50,8 +50,7 @@ export const Settings = observer(function Settings() {
       <Box sx={{ mb: 3 }}>
         <FormControl>
           <FormLabel sx={{ mb: 1 }}>
-            Прогресс:
-            {' '}
+            Прогресс:{' '}
             {isProgressCompleted
               ? 'завершён'
               : `${progressCounts.newCount} / ${progressCounts.progressCount} / ${progressCounts.doneCount}`}

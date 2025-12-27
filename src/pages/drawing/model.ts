@@ -1,7 +1,7 @@
 export type Point = {
   x: number;
   y: number;
-}
+};
 
 export type Shape = Array<Point>;
 
@@ -10,4 +10,4 @@ export type Lines = {
   lowercaseLine: number;
   baseLine: number;
   descenderLine: number;
-}
+};

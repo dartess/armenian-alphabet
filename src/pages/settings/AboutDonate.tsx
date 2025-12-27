@@ -10,20 +10,17 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Link from '@mui/material/Link';
 
 import { Button } from '@/components/Button/Button';
-import { Dialog } from "@/components/Dialog/Dialog";
+import { Dialog } from '@/components/Dialog/Dialog';
 import { reachGoal } from '@/utils/reachGoal';
 
 export function AboutDonate() {
   const [isOpen, toggleIsOpen] = useToggle(false);
 
-  useEffect(
-    () => {
-      if (isOpen) {
-        reachGoal('openDonate');
-      }
-    },
-    [isOpen],
-  );
+  useEffect(() => {
+    if (isOpen) {
+      reachGoal('openDonate');
+    }
+  }, [isOpen]);
 
   return (
     <Box sx={{ my: 1 }}>
@@ -34,15 +31,9 @@ export function AboutDonate() {
         open={isOpen}
         onOpenChange={toggleIsOpen}
         title="Сказать «Спасибо»"
-        actions={(
-          <Button onClick={toggleIsOpen}>
-            Закрыть
-          </Button>
-        )}
+        actions={<Button onClick={toggleIsOpen}>Закрыть</Button>}
       >
-        <Box sx={{ my: 1 }}>
-          Если это приложение вам помогло, я очень этому рад!
-        </Box>
+        <Box sx={{ my: 1 }}>Если это приложение вам помогло, я очень этому рад!</Box>
         <Box sx={{ my: 1 }}>
           При желании вы можете отблагодарить автора шоколадкой 🍫 или помочь оплатить домен 🌐.
         </Box>

@@ -10,7 +10,7 @@ type Props = {
   unit: TaskUnit;
   letter: LetterType;
   showVariants: boolean;
-}
+};
 
 export function LetterUnit({ letter, showVariants, unit }: Props) {
   switch (unit) {
@@ -21,8 +21,7 @@ export function LetterUnit({ letter, showVariants, unit }: Props) {
     case 'meta':
       return (
         <>
-          <LetterTransliteration letter={letter} showVariants={showVariants} />
-          {' '}
+          <LetterTransliteration letter={letter} showVariants={showVariants} />{' '}
           <LetterIpa letter={letter} showVariants={showVariants} />
         </>
       );

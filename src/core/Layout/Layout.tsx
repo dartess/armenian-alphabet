@@ -27,7 +27,7 @@ export function Layout() {
             value={page}
             onChange={(_, newValue) => {
               // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- TODO
-              setLocation(`/${newValue}`)
+              setLocation(`/${newValue}`);
             }}
             showLabels
           >

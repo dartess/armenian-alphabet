@@ -9,7 +9,10 @@ export class SettingsStore {
   constructor() {
     makePersistable(this, { name: 'SettingsStore', properties: ['userTheme'] });
 
-    this.mediaPrefersColorSchemeDark.addEventListener('change', this.handleChangeSystemPrefersColorSchemeDark);
+    this.mediaPrefersColorSchemeDark.addEventListener(
+      'change',
+      this.handleChangeSystemPrefersColorSchemeDark,
+    );
 
     this.standaloneMatchMedia.addEventListener('change', this.handleStandaloneChange);
   }
@@ -19,18 +22,19 @@ export class SettingsStore {
 
   @action
   public setUserTheme = (userTheme: UserTheme) => {
-      this.userTheme = userTheme;
-    };
+    this.userTheme = userTheme;
+  };
 
   private mediaPrefersColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   @observable
-  private accessor isSystemPrefersColorSchemeDark: boolean = this.mediaPrefersColorSchemeDark.matches;
+  private accessor isSystemPrefersColorSchemeDark: boolean =
+    this.mediaPrefersColorSchemeDark.matches;
 
   @action
   private handleChangeSystemPrefersColorSchemeDark = () => {
-      this.isSystemPrefersColorSchemeDark = this.mediaPrefersColorSchemeDark.matches;
-    };
+    this.isSystemPrefersColorSchemeDark = this.mediaPrefersColorSchemeDark.matches;
+  };
 
   @computed
   public get appTheme(): Theme {

@@ -7,7 +7,7 @@ type Props = {
   text: string;
   highlights: Array<string> | string;
   textCase?: 'uppercase' | 'lowercase';
-}
+};
 
 export function HighlightedText({ text, highlights: highlightsRaw, textCase }: Props) {
   const textCased = useMemo(() => {
@@ -21,31 +21,38 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
     }
   }, [text, textCase]);
 
-  const highlights = useMemo(
-    () => {
-      const highlightsArray = toArray(highlightsRaw);
-      const highlightsCased = (() => {
-        switch (textCase) {
-          case 'uppercase':
-            return highlightsArray.map((item) => item.toUpperCase());
-          case 'lowercase':
-            return highlightsArray.map((item) => item.toLowerCase());
-          default:
-            return highlightsArray;
-        }
-      })();
-      return highlightsCased.sort((a, b) => (a.length < b.length ? 1 : -1));
-    },
-    [highlightsRaw, textCase],
-  );
+  const highlights = useMemo(() => {
+    const highlightsArray = toArray(highlightsRaw);
+    const highlightsCased = (() => {
+      switch (textCase) {
+        case 'uppercase':
+          return highlightsArray.map((item) => item.toUpperCase());
+        case 'lowercase':
+          return highlightsArray.map((item) => item.toLowerCase());
+        default:
+          return highlightsArray;
+      }
+    })();
+    return highlightsCased.sort((a, b) => (a.length < b.length ? 1 : -1));
+  }, [highlightsRaw, textCase]);
 
   const parts = useMemo(
-    () => highlights.reduce<Array<string | { highlight: string }>>((partsAcc, highlight) => partsAcc.flatMap((part) => {
-          if (typeof part === 'object') {
-            return part;
-          }
-          return part.split(highlight).flatMap((partNested, index, partsNested) => index < partsNested.length - 1 ? [partNested, { highlight }] : partNested).filter(Boolean);
-        }), [textCased]),
+    () =>
+      highlights.reduce<Array<string | { highlight: string }>>(
+        (partsAcc, highlight) =>
+          partsAcc.flatMap((part) => {
+            if (typeof part === 'object') {
+              return part;
+            }
+            return part
+              .split(highlight)
+              .flatMap((partNested, index, partsNested) =>
+                index < partsNested.length - 1 ? [partNested, { highlight }] : partNested,
+              )
+              .filter(Boolean);
+          }),
+        [textCased],
+      ),
     [highlights, textCased],
   );
 
@@ -53,18 +60,13 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
     <>
       {parts.map((part, index) => (
         <Fragment key={index}>
-          {typeof part === 'string'
-            ? part
-            : (
-              <Typography
-                color="primary"
-                component="span"
-                fontSize="inherit"
-                fontWeight="bold"
-              >
-                {part.highlight}
-              </Typography>
-            )}
+          {typeof part === 'string' ? (
+            part
+          ) : (
+            <Typography color="primary" component="span" fontSize="inherit" fontWeight="bold">
+              {part.highlight}
+            </Typography>
+          )}
         </Fragment>
       ))}
     </>

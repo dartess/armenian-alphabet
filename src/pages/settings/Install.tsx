@@ -18,11 +18,7 @@ export const Install = observer(function Install() {
   };
 
   return (
-    <Button
-      variant="secondary"
-      onClick={handleInstall}
-      endIcon={<InstallIcon />}
-    >
+    <Button variant="secondary" onClick={handleInstall} endIcon={<InstallIcon />}>
       Установить приложение
     </Button>
   );

@@ -36,7 +36,7 @@ function getAlphaMatrix(canvas: HTMLCanvasElement): Array<Array<number>> {
   const { width, height } = canvas;
   const ctx = canvas.getContext('2d');
   if (!ctx) {
-    throw new Error('ctx is empty')
+    throw new Error('ctx is empty');
   }
   const { data } = ctx.getImageData(0, 0, width, height);
   const rawAlpha = data.filter((_, index) => (index + 1) % 4 === 0);
@@ -58,7 +58,7 @@ function calculateSampleShape(originalCanvas: HTMLCanvasElement): Shape {
   resizedCanvas.height = RESIZED_HEIGHT;
   const resizedCtx = resizedCanvas.getContext('2d');
   if (!resizedCtx) {
-    throw new Error('resizedCtx is empty')
+    throw new Error('resizedCtx is empty');
   }
   resizedCtx.drawImage(
     originalCanvas,
@@ -97,7 +97,7 @@ function calculateSampleShape(originalCanvas: HTMLCanvasElement): Shape {
 function drawLetter(canvas: HTMLCanvasElement, letterValue: string) {
   const ctx = canvas.getContext('2d');
   if (!ctx) {
-    throw new Error('ctx is empty')
+    throw new Error('ctx is empty');
   }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -112,13 +112,13 @@ function drawLetter(canvas: HTMLCanvasElement, letterValue: string) {
   ctx.fillText(letterValue, centerX, centerY);
 }
 
-function calculateTopBottomLines(canvas: HTMLCanvasElement): { top: number, bottom: number } {
+function calculateTopBottomLines(canvas: HTMLCanvasElement): { top: number; bottom: number } {
   const alphaMatrix = getAlphaMatrix(canvas);
   const linesAlphas = alphaMatrix.map((line) => line.some(Boolean));
   const { length: linesCount } = linesAlphas;
   const top = linesAlphas.findIndex(Boolean) / linesCount;
   linesAlphas.reverse();
-  const bottom = 1 - (linesAlphas.findIndex(Boolean) / linesCount);
+  const bottom = 1 - linesAlphas.findIndex(Boolean) / linesCount;
   return { top, bottom };
 }
 
@@ -141,9 +141,4 @@ function calculateAllLines(): Lines {
   };
 }
 
-export {
-  calculateAccuracy,
-  calculateSampleShape,
-  calculateAllLines,
-  drawLetter,
-};
+export { calculateAccuracy, calculateSampleShape, calculateAllLines, drawLetter };

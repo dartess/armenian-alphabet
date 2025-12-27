@@ -6,7 +6,7 @@ export type LetterType = {
   transliteration: string | Array<string>;
   ipa: string | Array<string>;
   audio: string;
-}
+};
 
 export type LetterState = 'new' | 'progress' | 'done';
 
@@ -22,9 +22,4 @@ export type UserTheme = Theme | 'system';
 export type DisplayMode = 'twa' | 'standalone' | 'browser';
 
 // todo labeled eslint
-export type WordData = [
-  string,
-  string,
-  string,
-  string,
-];
+export type WordData = [string, string, string, string];
