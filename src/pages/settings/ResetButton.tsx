@@ -24,11 +24,7 @@ export const ResetButton = observer(function ResetButton() {
   };
 
   return (
-    <Button
-      variant="secondary"
-      onClick={handleClick}
-      endIcon={<DeleteForeverIcon />}
-    >
+    <Button variant="secondary" onClick={handleClick} endIcon={<DeleteForeverIcon />}>
       Стереть данные
     </Button>
   );

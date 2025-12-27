@@ -10,19 +10,17 @@ export class ProgressStore {
   constructor() {
     makePersistable(this, { name: 'ProgressStore', properties: ['totalProgress'] });
 
-    autorun(
-      () => {
-        if (!this.isProgressCompleted) {
-          return;
-        }
-        fireOnceEvent('progressCompleted', () => {
-          runInAction(() => {
-            this.isShowCongratulations = true;
-            reachGoal('progressTotalComplete');
-          });
+    autorun(() => {
+      if (!this.isProgressCompleted) {
+        return;
+      }
+      fireOnceEvent('progressCompleted', () => {
+        runInAction(() => {
+          this.isShowCongratulations = true;
+          reachGoal('progressTotalComplete');
         });
-      },
-    );
+      });
+    });
   }
 
   @observable
@@ -44,12 +42,12 @@ export class ProgressStore {
         break;
       // no default
     }
-  }
+  };
 
   @action
   public resetProgress = () => {
     this.totalProgress = ProgressStore.getInitialProgress();
-  }
+  };
 
   @computed
   public get progressCounts() {

@@ -9,7 +9,7 @@ export type QuizKey = `compare-${TaskUnit}-${TaskUnit}`;
 type TaskQuiz = {
   from: TaskUnit;
   to: TaskUnit;
-}
+};
 
 // todo rewrite on satisfies
 

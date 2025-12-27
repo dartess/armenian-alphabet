@@ -15,7 +15,11 @@ export function useVariantsPrint(
   mapFn: MapFn<string> = same,
 ) {
   return useMemo(
-    () => toArray(value).slice(0, showVariants ? undefined : 1).map(mapFn).join(separator),
+    () =>
+      toArray(value)
+        .slice(0, showVariants ? undefined : 1)
+        .map(mapFn)
+        .join(separator),
     [mapFn, separator, showVariants, value],
   );
 }

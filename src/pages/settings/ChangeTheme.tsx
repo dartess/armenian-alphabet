@@ -15,11 +15,7 @@ export const ChangeTheme = observer(function ChangeTheme() {
   };
 
   return (
-    <RadioGroup
-      aria-labelledby="theme"
-      value={userTheme}
-      onChange={handleChange}
-    >
+    <RadioGroup aria-labelledby="theme" value={userTheme} onChange={handleChange}>
       <FormControlLabel value="system" control={<Radio />} label="Системная" />
       <FormControlLabel value="light" control={<Radio />} label="Светлая" />
       <FormControlLabel value="dark" control={<Radio />} label="Тёмная" />

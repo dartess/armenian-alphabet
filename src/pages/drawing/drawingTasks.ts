@@ -8,7 +8,7 @@ export type DrawingKey = `drawing-${TaskUnit}-${TaskUnit}`;
 type TaskDrawing = {
   from: TaskUnit;
   to: Exclude<TaskUnit, 'meta'>;
-}
+};
 
 // todo rewrite on satisfies
 
@@ -67,6 +67,8 @@ export function getDrawingQuestion(taskKey: DrawingKey, totalProgress: TotalProg
 
 const drawingTypeKeys = Object.keys(drawingTypes) as Array<keyof typeof drawingTypes>;
 
-export function getRandomDrawingTypeKey(options: GetRandomItemOptions<DrawingKey> = {}): DrawingKey {
+export function getRandomDrawingTypeKey(
+  options: GetRandomItemOptions<DrawingKey> = {},
+): DrawingKey {
   return getRandomItem(drawingTypeKeys, options);
 }

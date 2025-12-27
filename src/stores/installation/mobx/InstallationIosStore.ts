@@ -6,8 +6,7 @@ import { IS_IOS } from '@/utils/envPlatform';
 import type { InstallationStoreImplementation } from '../model';
 
 export class InstallationIosStore implements InstallationStoreImplementation {
-  constructor(private readonly settings: SettingsStore) {
-  }
+  constructor(private readonly settings: SettingsStore) {}
 
   @observable
   public accessor canBeInstalled = this.settings.displayMode === 'browser';
@@ -20,11 +19,11 @@ export class InstallationIosStore implements InstallationStoreImplementation {
   };
 
   public showInstallPrompt = (): void => {
-    this.setIsShowCustomInstallPrompt(true)
+    this.setIsShowCustomInstallPrompt(true);
   };
 
   public hideInstallPrompt = (): void => {
-    this.setIsShowCustomInstallPrompt(false)
+    this.setIsShowCustomInstallPrompt(false);
   };
 
   public static isSupported() {

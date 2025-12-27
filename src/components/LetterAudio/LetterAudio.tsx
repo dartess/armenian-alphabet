@@ -7,7 +7,7 @@ import { reachGoal } from '@/utils/reachGoal';
 
 type Props = {
   letter: LetterType;
-}
+};
 
 export function LetterAudio({ letter: { lowercase, audio } }: Props) {
   const [audioElement, state, controls] = useAudio({ src: `/audio/letters/${audio}.mp3` });

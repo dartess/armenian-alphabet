@@ -74,31 +74,25 @@ export const DrawingTask = observer(function DrawingTask() {
     setLines(calculateAllLines());
   };
 
-  const handleDrawEnd = useCallback(
-    () => {
-      setUserDrawRaw([...sigCanvas.current!.toData()]);
-    },
-    [],
-  );
+  const handleDrawEnd = useCallback(() => {
+    setUserDrawRaw([...sigCanvas.current!.toData()]);
+  }, []);
 
   const wasDrawed = userDrawRaw.length > 0;
   const canBeCleared = wasDrawed;
   const canBeUndo = wasDrawed;
   const canBeChecked = wasDrawed;
-  const handleUndo = useCallback(
-    () => {
-      setUserDrawRaw((prevDraw) => {
-        if (prevDraw.length === 0) {
-          return prevDraw;
-        }
-        const trimmed = [...prevDraw];
-        trimmed.length -= 1;
-        sigCanvas.current!.fromData(trimmed);
-        return trimmed;
-      });
-    },
-    [],
-  );
+  const handleUndo = useCallback(() => {
+    setUserDrawRaw((prevDraw) => {
+      if (prevDraw.length === 0) {
+        return prevDraw;
+      }
+      const trimmed = [...prevDraw];
+      trimmed.length -= 1;
+      sigCanvas.current!.fromData(trimmed);
+      return trimmed;
+    });
+  }, []);
 
   const isResultCalculated = Boolean(accuracy);
 
@@ -106,17 +100,8 @@ export const DrawingTask = observer(function DrawingTask() {
   // const taskUnit = printTaskUnit(, );
   const taskText = (
     <>
-      Нарисуйте
-      {' '}
-      {taskTypeText}
-      {' '}
-      букву для
-      {' '}
-      <LetterUnit
-        letter={questionLetter}
-        unit={unitFrom}
-        showVariants
-      />
+      Нарисуйте {taskTypeText} букву для{' '}
+      <LetterUnit letter={questionLetter} unit={unitFrom} showVariants />
     </>
   );
 
@@ -139,20 +124,17 @@ export const DrawingTask = observer(function DrawingTask() {
     return accuracy >= 95 ? 'correct' : 'wrong';
   })();
 
-  useEffect(
-    () => {
-      switch (answerStatus) {
-        case 'correct':
-          reachGoal('drawCorrect');
-          break;
-        case 'wrong':
-          reachGoal('drawWrong');
-          break;
-        // no default
-      }
-    },
-    [answerStatus],
-  );
+  useEffect(() => {
+    switch (answerStatus) {
+      case 'correct':
+        reachGoal('drawCorrect');
+        break;
+      case 'wrong':
+        reachGoal('drawWrong');
+        break;
+      // no default
+    }
+  }, [answerStatus]);
 
   return (
     <div className={styles.root}>
@@ -174,17 +156,18 @@ export const DrawingTask = observer(function DrawingTask() {
           />
           <div
             className={styles.lines}
-            style={{
-              '--line-color': appTheme === 'light'
-                ? 'rgba(0, 0, 0, 0.2)'
-                : 'rgba(255, 255, 255, 0.1)',
-              ...(lines && {
-                '--cap-line': `${lines.capLine * 100}%`,
-                '--lowercase-line': `${lines.lowercaseLine * 100}%`,
-                '--base-line': `${lines.baseLine * 100}%`,
-                '--descender-line': `${lines.descenderLine * 100}%`,
-              }),
-            } as CSSProperties}
+            style={
+              {
+                '--line-color':
+                  appTheme === 'light' ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.1)',
+                ...(lines && {
+                  '--cap-line': `${lines.capLine * 100}%`,
+                  '--lowercase-line': `${lines.lowercaseLine * 100}%`,
+                  '--base-line': `${lines.baseLine * 100}%`,
+                  '--descender-line': `${lines.descenderLine * 100}%`,
+                }),
+              } as CSSProperties
+            }
           />
           <div className={styles.accuracy}>
             {(() => {
@@ -220,28 +203,26 @@ export const DrawingTask = observer(function DrawingTask() {
             variant="secondary"
             icon={<SkipNextIcon />}
           />
-          {isResultCalculated
-            ? (
-              <Button
-                className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
-                onClick={handleNextLetter}
-                endIcon={<NavigateNextIcon />}
-                variant="secondary"
-              >
-                Дальше
-              </Button>
-            )
-            : (
-              <Button
-                className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
-                onClick={handleCheckAccuracy}
-                endIcon={<SpellcheckIcon />}
-                disabled={!canBeChecked}
-                variant="secondary"
-              >
-                Проверить
-              </Button>
-            )}
+          {isResultCalculated ? (
+            <Button
+              className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
+              onClick={handleNextLetter}
+              endIcon={<NavigateNextIcon />}
+              variant="secondary"
+            >
+              Дальше
+            </Button>
+          ) : (
+            <Button
+              className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
+              onClick={handleCheckAccuracy}
+              endIcon={<SpellcheckIcon />}
+              disabled={!canBeChecked}
+              variant="secondary"
+            >
+              Проверить
+            </Button>
+          )}
         </div>
       </div>
     </div>

@@ -18,8 +18,8 @@ delete manifestContent.$schema;
 const themes = Object.keys(overrides.__theme);
 const platforms = Object.keys(overrides.__platform);
 
-themes.forEach(theme => {
-  platforms.forEach(platform => {
+themes.forEach((theme) => {
+  platforms.forEach((platform) => {
     const manifest = {
       '$ NOTES $': [
         'The file is generated automatically; to update run `npm run generate-manifests`',
@@ -31,7 +31,7 @@ themes.forEach(theme => {
     };
     fs.writeFileSync(
       path.join(MANIFESTS_FOLDER, `manifest-${theme}-${platform}.json`),
-      JSON.stringify(manifest, null, 2)
+      JSON.stringify(manifest, null, 2),
     );
   });
 });

@@ -14,7 +14,7 @@ type Props = {
   letter: LetterType;
   state?: LetterState;
   showVariants: boolean;
-}
+};
 
 export function Letter({ letter, state, showVariants }: Props) {
   const color = (() => {
@@ -35,8 +35,7 @@ export function Letter({ letter, state, showVariants }: Props) {
     <div className={styles.root}>
       <Box sx={{ color }}>
         <div>
-          <LetterUppercase letter={letter} showVariants={showVariants} />
-          {' '}
+          <LetterUppercase letter={letter} showVariants={showVariants} />{' '}
           <LetterLowercase letter={letter} />
         </div>
         <div className={styles.info}>
@@ -48,25 +47,14 @@ export function Letter({ letter, state, showVariants }: Props) {
             }}
           >
             <LetterTransliteration letter={letter} showVariants={showVariants} />
-            <Divider
-              orientation="vertical"
-              flexItem
-              sx={{ margin: '0 7px' }}
-            />
+            <Divider orientation="vertical" flexItem sx={{ margin: '0 7px' }} />
             <LetterIpa letter={letter} showVariants={showVariants} />
-            {
-              showVariants
-              && (
-                <>
-                  <Divider
-                    orientation="vertical"
-                    flexItem
-                    sx={{ marginLeft: '7px' }}
-                  />
-                  <LetterAudio letter={letter} />
-                </>
-              )
-            }
+            {showVariants && (
+              <>
+                <Divider orientation="vertical" flexItem sx={{ marginLeft: '7px' }} />
+                <LetterAudio letter={letter} />
+              </>
+            )}
           </Box>
         </div>
       </Box>

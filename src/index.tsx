@@ -20,7 +20,11 @@ configurePersistable({ storage: safeLocalStorage });
 InstallationStore.listenEvents();
 
 const root = createRoot(document.getElementById('root')!);
-root.render(<StrictMode><App /></StrictMode>);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistrations().then((registrations) => {

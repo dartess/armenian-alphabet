@@ -5,7 +5,7 @@ import { useVariantsPrint } from './useVariantsPrint';
 type Props = {
   letter: LetterType;
   showVariants: boolean;
-}
+};
 
 const mapIpa = (ipaItem: string) => `[${ipaItem}]`;
 

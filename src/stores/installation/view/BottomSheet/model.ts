@@ -5,4 +5,4 @@ export type Props = {
   onClose: () => void;
   children: ReactNode;
   closePosition?: 'center' | 'top';
-}
+};
