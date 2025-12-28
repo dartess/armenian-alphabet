@@ -16,7 +16,8 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
     // this.checkInstalledRelatedApps();
   }
 
-  @computed public get canBeInstalled() {
+  @computed
+  public get canBeInstalled() {
     return this.canBeInstalledByEvent && this.canBeInstalledByRelatedApps;
   }
 
@@ -26,7 +27,8 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
   @observable
   private accessor canBeInstalledByEvent = Boolean(deferredInstallPromptEvent);
 
-  @action private setIsCanBeInstalledByEvent = (value: boolean) => {
+  @action
+  private setIsCanBeInstalledByEvent = (value: boolean) => {
     this.canBeInstalledByEvent = value;
   };
 

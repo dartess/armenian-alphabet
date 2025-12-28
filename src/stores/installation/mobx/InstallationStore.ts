@@ -50,15 +50,18 @@ export class InstallationStore {
 
   public implementationKind?: InstallationImplementationKind;
 
-  @computed public get canBeInstalled(): boolean {
+  @computed
+  public get canBeInstalled(): boolean {
     return this.implementation?.canBeInstalled ?? false;
   }
 
-  @computed public get isShowCustomInstallPrompt(): boolean {
+  @computed
+  public get isShowCustomInstallPrompt(): boolean {
     return this.implementation?.isShowCustomInstallPrompt ?? false;
   }
 
-  @computed public get manifestUrl(): string | null {
+  @computed
+  public get manifestUrl(): string | null {
     if (!PLATFORM_ENV) {
       return null;
     }

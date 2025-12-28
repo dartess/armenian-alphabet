@@ -14,7 +14,8 @@ export class InstallationIosStore implements InstallationStoreImplementation {
   @observable
   public accessor isShowCustomInstallPrompt = false;
 
-  @action private setIsShowCustomInstallPrompt = (value: boolean): void => {
+  @action
+  private setIsShowCustomInstallPrompt = (value: boolean): void => {
     this.isShowCustomInstallPrompt = value;
   };
 
