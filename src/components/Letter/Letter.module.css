@@ -1,13 +1,29 @@
 .root {
     font-size: 20px;
     text-align: center;
+
+    &.new {
+        color: var(--text-primary);
+    }
+
+    &.progress {
+        color: var(--primary-main);
+    }
+
+    &.done {
+        color: var(--text-secondary);
+    }
 }
 
 .info {
     margin-top: 0.2rem;
     font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* TODO css custom media queries */
 @media (min-width: 768px) {
     .root {
         font-size: 25px;

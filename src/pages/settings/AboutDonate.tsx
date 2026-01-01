@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Box from '@mui/material/Box';
 import { useToggle } from 'react-use';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -23,7 +22,7 @@ export function AboutDonate() {
   }, [isOpen]);
 
   return (
-    <Box sx={{ my: 1 }}>
+    <div>
       <Button variant="secondary" onClick={toggleIsOpen}>
         «Спасибо»
       </Button>
@@ -33,28 +32,26 @@ export function AboutDonate() {
         title="Сказать «Спасибо»"
         actions={<Button onClick={toggleIsOpen}>Закрыть</Button>}
       >
-        <Box sx={{ my: 1 }}>Если это приложение вам помогло, я очень этому рад!</Box>
-        <Box sx={{ my: 1 }}>
+        <p>Если это приложение вам помогло, я очень этому рад!</p>
+        <p>
           При желании вы можете отблагодарить автора шоколадкой 🍫 или помочь оплатить домен 🌐.
-        </Box>
-        <Box sx={{ my: 1 }}>
-          <List>
-            <ListItem disablePadding>
-              <ListItemButton
-                component="a"
-                href="https://boosty.to/aybuben"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <ListItemIcon>
-                  <OpenInNewIcon />
-                </ListItemIcon>
-                <ListItemText primary={<Link component="button">Boosty</Link>} />
-              </ListItemButton>
-            </ListItem>
-          </List>
-        </Box>
+        </p>
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton
+              component="a"
+              href="https://boosty.to/aybuben"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <ListItemIcon>
+                <OpenInNewIcon />
+              </ListItemIcon>
+              <ListItemText primary={<Link component="button">Boosty</Link>} />
+            </ListItemButton>
+          </ListItem>
+        </List>
       </Dialog>
-    </Box>
+    </div>
   );
 }

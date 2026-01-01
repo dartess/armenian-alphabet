@@ -18,9 +18,7 @@ export const Dialog = ({ open, onOpenChange, title, children, actions }: Props) 
         <BaseUiDialog.Backdrop className={styles.backdrop} />
         <BaseUiDialog.Popup className={styles.popup}>
           {title && <BaseUiDialog.Title className={styles.title}>{title}</BaseUiDialog.Title>}
-          <BaseUiDialog.Description className={styles.description}>
-            {children}
-          </BaseUiDialog.Description>
+          <div className={styles.description}>{children}</div>
           {actions && <div className={styles.actions}>{actions}</div>}
         </BaseUiDialog.Popup>
       </BaseUiDialog.Portal>

@@ -70,6 +70,13 @@ export const ThemeProvider = observer(function ThemeProvider({ children }: Props
     [theme],
   );
 
+  useEffect(
+    function updateTheme() {
+      window.document.documentElement.style.colorScheme = appTheme;
+    },
+    [appTheme],
+  );
+
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />

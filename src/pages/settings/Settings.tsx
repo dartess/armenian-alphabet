@@ -1,5 +1,4 @@
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { observer } from 'mobx-react-lite';
@@ -17,57 +16,53 @@ export const Settings = observer(function Settings() {
   const { canBeInstalled } = useStore('installation');
   const { isProgressCompleted, progressCounts } = useStore('progress');
   return (
-    <Box
-      sx={{
+    <div
+      style={{
         width: '100%',
         minHeight: '100%',
-        bgcolor: 'background.paper',
         display: 'flex',
         flexDirection: 'column',
-        px: 2,
-        pt: 3,
+        position: 'relative',
+        alignItems: 'flex-start',
+        paddingLeft: '16px',
+        paddingRight: '16px',
+        paddingTop: '24px',
+        gap: '1rem',
       }}
-      position="relative"
     >
-      <Box sx={{ mb: 3 }}>
-        <Typography gutterBottom variant="h4" component="div">
-          Настройки
-        </Typography>
-      </Box>
-      <Box sx={{ mb: 3 }}>
-        <FormControl>
-          <FormLabel id="theme">Тема приложения</FormLabel>
-          <ChangeTheme />
-        </FormControl>
-      </Box>
+      <Typography gutterBottom variant="h4" component="div">
+        Настройки
+      </Typography>
+      <FormControl>
+        <FormLabel id="theme">Тема приложения</FormLabel>
+        <ChangeTheme />
+      </FormControl>
       {canBeInstalled && (
-        <Box sx={{ mb: 3 }}>
-          <FormControl>
-            <Install />
-          </FormControl>
-        </Box>
-      )}
-      <Box sx={{ mb: 3 }}>
         <FormControl>
-          <FormLabel sx={{ mb: 1 }}>
+          <Install />
+        </FormControl>
+      )}
+      <FormControl>
+        <div style={{ display: 'grid', gap: '1rem' }}>
+          <FormLabel>
             Прогресс:{' '}
             {isProgressCompleted
               ? 'завершён'
               : `${progressCounts.newCount} / ${progressCounts.progressCount} / ${progressCounts.doneCount}`}
           </FormLabel>
           <ResetButton />
-        </FormControl>
-      </Box>
-      <Box sx={{ mb: 3 }}>
-        <FormControl>
+        </div>
+      </FormControl>
+      <FormControl>
+        <div style={{ display: 'grid', gap: '1rem' }}>
           <FormLabel>О приложении</FormLabel>
           <AboutDonate />
           <AboutContacts />
-        </FormControl>
-      </Box>
-      <Box sx={{ mt: 'auto' }}>
+        </div>
+      </FormControl>
+      <div style={{ alignSelf: 'flex-end' }}>
         <AboutLicense />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 });
