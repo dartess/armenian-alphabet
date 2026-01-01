@@ -72,7 +72,7 @@ export const ThemeProvider = observer(function ThemeProvider({ children }: Props
 
   useEffect(
     function updateTheme() {
-      window.document.documentElement.style.colorScheme = appTheme;
+      window.document.documentElement.dataset.theme = appTheme;
     },
     [appTheme],
   );
