@@ -39,7 +39,7 @@ const weightsByProgress: Record<LetterState, number> = {
 
 function isValidDrawingQuestion(letter: LetterType, taskKey: DrawingKey): boolean {
   const { to: unitTo } = drawingTypes[taskKey]!;
-  return !(unitTo === 'uppercase' && letter.uppercase === 'Եվ');
+  return unitTo !== 'uppercase' || letter.uppercase !== 'Եվ';
 }
 
 export function getDrawingQuestion(taskKey: DrawingKey, totalProgress: TotalProgress) {
