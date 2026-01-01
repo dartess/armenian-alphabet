@@ -52,6 +52,5 @@
 
 ## С блокерами:
 
-- [preact] postcss-normalize
 - [ts] [webstorm] [preact] satisfy  для алфавита
 - [?] Пуши
