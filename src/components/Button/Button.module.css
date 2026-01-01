@@ -40,7 +40,7 @@
     }
 
     &.statusDefault {
-        --button-accent-color: rgb(255, 183, 77);
+        --button-accent-color: var(--primary-main);
         --button-accent-color-transparent: rgba(255, 183, 77, 0.5);
         --button-text-color: #000;
     }
