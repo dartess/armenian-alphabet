@@ -20,9 +20,13 @@ code {
     monospace;
 }
 
-html {
+:root {
   box-sizing: border-box;
   height: -webkit-fill-available;
+
+  --text-primary: light-dark(rgba(0, 0, 0, 0.87), #fff);
+  --text-secondary: light-dark(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.7));
+  --primary-main: light-dark(#ff8f00, #ffb74d);
 }
 
 *, *:before, *:after {

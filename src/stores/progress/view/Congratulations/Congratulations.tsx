@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 import useWindowSize from 'react-use/lib/useWindowSize';
 import ReactConfetti from 'react-confetti';
-import Box from '@mui/material/Box';
 
 import { Button } from '@/components/Button/Button';
 import { Dialog } from '@/components/Dialog/Dialog';
@@ -20,10 +19,8 @@ export function Congratulations() {
         title="Поздравляем!"
         actions={<Button onClick={handleCloseDialog}>Продолжить</Button>}
       >
-        <Box sx={{ mb: 1 }} textAlign="center">
-          Похоже, вы успешно изучили весь алфавит!
-        </Box>
-        <Box textAlign="center">Продолжайте практиковаться и изучать армянский язык!</Box>
+        <p>Похоже, вы успешно изучили весь алфавит!</p>
+        <p>Продолжайте практиковаться и изучать армянский язык!</p>
       </Dialog>
       <ReactConfetti
         width={width}

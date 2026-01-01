@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { useToggle } from 'react-use';
 
@@ -17,7 +16,7 @@ export function AboutContacts() {
   }, [isOpen]);
 
   return (
-    <Box sx={{ my: 1 }}>
+    <div>
       <Button variant="secondary" onClick={toggleIsOpen}>
         Контакты
       </Button>
@@ -27,15 +26,15 @@ export function AboutContacts() {
         title="Контакты"
         actions={<Button onClick={toggleIsOpen}>Закрыть</Button>}
       >
-        <Box sx={{ my: 1 }}>
+        <p>
           Если у вас есть обратная связь по приложению, вы можете написать мне на почту{' '}
           <Link href="mailto:aybuben.app@mail.ru?subject=Aybuben%20app">aybuben.app@mail.ru</Link>.
-        </Box>
-        <Box sx={{ my: 1 }}>
+        </p>
+        <p>
           Также вы можете мне написать, если вы являетесь дизайнером и хотите поучаствовать в
           развитии приложения.
-        </Box>
+        </p>
       </Dialog>
-    </Box>
+    </div>
   );
 }

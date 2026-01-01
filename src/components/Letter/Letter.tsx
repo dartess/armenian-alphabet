@@ -1,5 +1,5 @@
-import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import cn from 'classnames';
 
 import type { LetterState, LetterType } from '@/types/model';
 import { LetterUppercase } from '@/components/units/LetterUppercase';
@@ -16,48 +16,24 @@ type Props = {
   showVariants: boolean;
 };
 
-export function Letter({ letter, state, showVariants }: Props) {
-  const color = (() => {
-    switch (state) {
-      case 'new':
-        return 'text.primary';
-      case 'done':
-        return 'text.secondary';
-      case 'progress':
-        return 'primary.main';
-      default:
-        // eslint-disable-next-line unicorn/no-useless-undefined -- TODO
-        return undefined;
-    }
-  })();
-
+export function Letter({ letter, state = 'new', showVariants }: Props) {
   return (
-    <div className={styles.root}>
-      <Box sx={{ color }}>
-        <div>
-          <LetterUppercase letter={letter} showVariants={showVariants} />{' '}
-          <LetterLowercase letter={letter} />
-        </div>
-        <div className={styles.info}>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <LetterTransliteration letter={letter} showVariants={showVariants} />
-            <Divider orientation="vertical" flexItem sx={{ margin: '0 7px' }} />
-            <LetterIpa letter={letter} showVariants={showVariants} />
-            {showVariants && (
-              <>
-                <Divider orientation="vertical" flexItem sx={{ marginLeft: '7px' }} />
-                <LetterAudio letter={letter} />
-              </>
-            )}
-          </Box>
-        </div>
-      </Box>
+    <div className={cn(styles.root, styles[state])}>
+      <div>
+        <LetterUppercase letter={letter} showVariants={showVariants} />{' '}
+        <LetterLowercase letter={letter} />
+      </div>
+      <div className={styles.info}>
+        <LetterTransliteration letter={letter} showVariants={showVariants} />
+        <Divider orientation="vertical" flexItem sx={{ margin: '0 7px' }} />
+        <LetterIpa letter={letter} showVariants={showVariants} />
+        {showVariants && (
+          <>
+            <Divider orientation="vertical" flexItem sx={{ marginLeft: '7px' }} />
+            <LetterAudio letter={letter} />
+          </>
+        )}
+      </div>
     </div>
   );
 }

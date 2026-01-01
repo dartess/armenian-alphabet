@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import { useToggle } from 'react-use';
 import Link from '@mui/material/Link';
 
@@ -10,7 +9,7 @@ export function AboutLicense() {
   const [isOpen, toggleIsOpen] = useToggle(false);
 
   return (
-    <Box sx={{ my: 1, textAlign: 'right' }}>
+    <div>
       <Link component="button" variant="overline" onClick={toggleIsOpen} color="secondary">
         Лицензии
       </Link>
@@ -20,17 +19,17 @@ export function AboutLicense() {
         title="Использованные материалы"
         actions={<Button onClick={toggleIsOpen}>Закрыть</Button>}
       >
-        <Box sx={{ mb: 1 }}>
+        <p>
           Озвучка использована по лицензии CC BY 3.0. Автор:{' '}
           <LinkExternal href="https://commons.wikimedia.org/wiki/User:Vahagn_Petrosyan">
             Vahagn Petrosyan
           </LinkExternal>
-        </Box>
-        <Box>
+        </p>
+        <p>
           Изображения сгенерированы в{' '}
           <LinkExternal href="https://dream.ai/">Dream by WOMBO</LinkExternal>
-        </Box>
+        </p>
       </Dialog>
-    </Box>
+    </div>
   );
 }
