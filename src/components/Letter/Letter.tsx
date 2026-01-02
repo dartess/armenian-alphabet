@@ -1,4 +1,3 @@
-import Divider from '@mui/material/Divider';
 import cn from 'classnames';
 
 import type { LetterState, LetterType } from '@/types/model';
@@ -25,11 +24,11 @@ export function Letter({ letter, state = 'new', showVariants }: Props) {
       </div>
       <div className={styles.info}>
         <LetterTransliteration letter={letter} showVariants={showVariants} />
-        <Divider orientation="vertical" flexItem sx={{ margin: '0 7px' }} />
+        <hr className={styles.divider} />
         <LetterIpa letter={letter} showVariants={showVariants} />
         {showVariants && (
           <>
-            <Divider orientation="vertical" flexItem sx={{ marginLeft: '7px' }} />
+            <hr className={styles.divider} />
             <LetterAudio letter={letter} />
           </>
         )}

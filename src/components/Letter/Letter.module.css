@@ -23,6 +23,17 @@
     align-items: center;
 }
 
+.divider {
+    flex-shrink: 0;
+    border-width: 0;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.12);
+    height: auto;
+    border-right-width: thin;
+    align-self: stretch;
+    margin: 0 7px;
+}
+
 /* TODO css custom media queries */
 @media (min-width: 768px) {
     .root {
