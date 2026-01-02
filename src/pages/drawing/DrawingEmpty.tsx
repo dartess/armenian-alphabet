@@ -1,5 +1,3 @@
-import Typography from '@mui/material/Typography';
-
 export function DrawingEmpty() {
   return (
     <div
@@ -10,11 +8,12 @@ export function DrawingEmpty() {
         justifyContent: 'center',
         alignItems: 'center',
         padding: '15px',
+        fontWeight: 500,
+        fontSize: '1.25rem',
+        lineHeight: 1.6,
       }}
     >
-      <Typography variant="h6" align="center">
-        Вы ещё не начали изучать алфавит. Приходите позже.
-      </Typography>
+      Вы ещё не начали изучать алфавит. Приходите позже.
     </div>
   );
 }
