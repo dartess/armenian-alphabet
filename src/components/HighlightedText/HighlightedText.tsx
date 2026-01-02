@@ -2,7 +2,7 @@ import { Fragment, useMemo } from 'react';
 
 import { toArray } from '@/utils/toArray';
 
-import style from './HighlightedText.module.css';
+import styles from './HighlightedText.module.css';
 
 type Props = {
   text: string;
@@ -64,7 +64,7 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
           {typeof part === 'string' ? (
             part
           ) : (
-            <span className={style.highlight}>{part.highlight}</span>
+            <span className={styles.highlight}>{part.highlight}</span>
           )}
         </Fragment>
       ))}
