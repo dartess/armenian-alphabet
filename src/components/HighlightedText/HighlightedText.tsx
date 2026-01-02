@@ -1,7 +1,8 @@
 import { Fragment, useMemo } from 'react';
-import Typography from '@mui/material/Typography';
 
 import { toArray } from '@/utils/toArray';
+
+import style from './HighlightedText.module.css';
 
 type Props = {
   text: string;
@@ -63,9 +64,7 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
           {typeof part === 'string' ? (
             part
           ) : (
-            <Typography color="primary" component="span" fontSize="inherit" fontWeight="bold">
-              {part.highlight}
-            </Typography>
+            <span className={style.highlight}>{part.highlight}</span>
           )}
         </Fragment>
       ))}

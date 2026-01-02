@@ -10,7 +10,6 @@ import SpellcheckIcon from '@mui/icons-material/Spellcheck';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
-import Typography from '@mui/material/Typography';
 
 import { calculateAccuracy, calculateAllLines, calculateSampleShape } from '@/pages/drawing/utils';
 import { getDrawingQuestion, getRandomDrawingTypeKey } from '@/pages/drawing/drawingTasks';
@@ -138,11 +137,7 @@ export const DrawingTask = observer(function DrawingTask() {
 
   return (
     <div className={styles.root}>
-      <div className={styles.taskDescription}>
-        <Typography variant="h5" gutterBottom align="center">
-          {taskText}
-        </Typography>
-      </div>
+      <div className={styles.taskDescription}>{taskText}</div>
       <div className={styles.taskWorkZone}>
         <div className={styles.drawZone}>
           <div className={cn(styles.sample, { [styles.sampleShow]: isResultCalculated })}>

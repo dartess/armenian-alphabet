@@ -1,5 +1,4 @@
 import { ImageListItem, ImageListItemBar, Paper } from '@mui/material';
-import Typography from '@mui/material/Typography';
 
 import { wordExamples } from '@/constants/wordExamples';
 import type { LetterType } from '@/types/model';
@@ -26,27 +25,25 @@ export function Illustration({ letter }: Props) {
         <ImageListItemBar
           title={
             <>
-              <Typography display="block">
+              <div>
                 <ArmenianText>
                   <HighlightedText text={word} highlights={letter.lowercase} textCase="uppercase" />
                 </ArmenianText>
-              </Typography>
-              <Typography display="block">
+              </div>
+              <div>
                 <ArmenianText>
                   <HighlightedText text={word} highlights={letter.lowercase} textCase="lowercase" />
                 </ArmenianText>
-              </Typography>
+              </div>
             </>
           }
           subtitle={
-            <>
-              <Typography variant="caption" display="block">
+            <div style={{ marginTop: '0.5rem' }}>
+              <div style={{ marginBottom: '0.2rem' }}>
                 <HighlightedText text={wordTransliteration} highlights={letter.transliteration} />
-              </Typography>
-              <Typography variant="caption" display="block">
-                {wordTranslation}
-              </Typography>
-            </>
+              </div>
+              <div>{wordTranslation}</div>
+            </div>
           }
           position="below"
         />

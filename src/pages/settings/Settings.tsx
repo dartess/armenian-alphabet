@@ -1,4 +1,3 @@
-import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { observer } from 'mobx-react-lite';
@@ -30,9 +29,7 @@ export const Settings = observer(function Settings() {
         gap: '1rem',
       }}
     >
-      <Typography gutterBottom variant="h4" component="div">
-        Настройки
-      </Typography>
+      <h1>Настройки</h1>
       <FormControl>
         <FormLabel id="theme">Тема приложения</FormLabel>
         <ChangeTheme />
