@@ -44,11 +44,11 @@
 - зависимости
 - лайтхаус
 - todos
-- eslint: unused + посмотреть из sokolov, bitsgap
 - reatom
 - полное кэширование данных
 - выбор шрифта
 - Setup browsers
+- https://x.com/midfilecrisis/status/1360216595302391812?s=28 + test
 
 ## С блокерами:
 
