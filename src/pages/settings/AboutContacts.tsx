@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import Link from '@mui/material/Link';
 import { useToggle } from 'react-use';
 
 import { Button } from '@/components/Button/Button';
 import { Dialog } from '@/components/Dialog/Dialog';
 import { reachGoal } from '@/utils/reachGoal';
+import { Link } from '@/components/Link/Link';
 
 export function AboutContacts() {
   const [isOpen, toggleIsOpen] = useToggle(false);

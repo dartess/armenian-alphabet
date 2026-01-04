@@ -6,11 +6,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import Link from '@mui/material/Link';
 
 import { Button } from '@/components/Button/Button';
 import { Dialog } from '@/components/Dialog/Dialog';
 import { reachGoal } from '@/utils/reachGoal';
+import { Link } from '@/components/Link/Link';
 
 export function AboutDonate() {
   const [isOpen, toggleIsOpen] = useToggle(false);
@@ -47,7 +47,7 @@ export function AboutDonate() {
               <ListItemIcon>
                 <OpenInNewIcon />
               </ListItemIcon>
-              <ListItemText primary={<Link component="button">Boosty</Link>} />
+              <ListItemText primary={<Link>Boosty</Link>} />
             </ListItemButton>
           </ListItem>
         </List>
