@@ -1,0 +1,22 @@
+.root {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-color: var(--link-decoration-color);
+    cursor: pointer;
+
+    &:hover {
+        text-decoration-color: var(--link-decoration-color-hover);
+    }
+
+    &.color-primary {
+        --link-color: var(--primary-main);
+        --link-decoration-color: var(--primary-main-transparent);
+        --link-decoration-color-hover: var(--primary-main);
+    }
+
+    &.color-secondary {
+        --link-color: var(--secondary-main);
+        --link-decoration-color: var(--secondary-main-transparent);
+        --link-decoration-color-hover: var(--secondary-main);
+    }
+}

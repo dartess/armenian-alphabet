@@ -26,8 +26,8 @@ code {
   color-scheme: light dark;
 
   --color-blue: light-dark(
-          oklch(45% 50% 264deg),    /* светлая тема */
-          oklch(69% 50% 264deg)     /* темная тема */
+          oklch(45% 50% 264deg),
+          oklch(69% 50% 264deg)
   );
 
   --color-red: light-dark(
@@ -93,6 +93,9 @@ code {
   --text-primary: light-dark(rgba(0, 0, 0, 0.87), #fff);
   --text-secondary: light-dark(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.7));
   --primary-main: light-dark(#ff8f00, #ffb74d);
+  --primary-main-transparent: light-dark(rgb(255, 143, 0, 0.6), rgb(255, 183, 77, 0.6));
+  --secondary-main: light-dark(#c5cae9, #b0bec5);
+  --secondary-main-transparent: light-dark(rgb(197, 202, 233, 0.6), rgb(176, 190, 197, 0.6));
 
   &[data-theme=light] {
     color-scheme: light;
