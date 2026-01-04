@@ -1,16 +1,10 @@
 import { useEffect } from 'react';
 import { useToggle } from 'react-use';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import { Button } from '@/components/Button/Button';
 import { Dialog } from '@/components/Dialog/Dialog';
 import { reachGoal } from '@/utils/reachGoal';
-import { Link } from '@/components/Link/Link';
+import { LinkExternal } from '@/components/LinkExternal';
 
 export function AboutDonate() {
   const [isOpen, toggleIsOpen] = useToggle(false);
@@ -36,21 +30,7 @@ export function AboutDonate() {
         <p>
           При желании вы можете отблагодарить автора шоколадкой 🍫 или помочь оплатить домен 🌐.
         </p>
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton
-              component="a"
-              href="https://boosty.to/aybuben"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <ListItemIcon>
-                <OpenInNewIcon />
-              </ListItemIcon>
-              <ListItemText primary={<Link>Boosty</Link>} />
-            </ListItemButton>
-          </ListItem>
-        </List>
+        <LinkExternal href="https://boosty.to/aybuben">Boosty</LinkExternal>
       </Dialog>
     </div>
   );
