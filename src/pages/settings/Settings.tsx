@@ -1,5 +1,3 @@
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import { observer } from 'mobx-react-lite';
 
 import { useStore } from '@/core/stores';
@@ -10,53 +8,41 @@ import { Install } from './Install';
 import { AboutDonate } from './AboutDonate';
 import { AboutContacts } from './AboutContacts';
 import { AboutLicense } from './AboutLicense';
+import styles from './Settings.module.css'; // TODO linter - last section
 
 export const Settings = observer(function Settings() {
   const { canBeInstalled } = useStore('installation');
   const { isProgressCompleted, progressCounts } = useStore('progress');
   return (
-    <div
-      style={{
-        width: '100%',
-        minHeight: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        alignItems: 'flex-start',
-        paddingLeft: '16px',
-        paddingRight: '16px',
-        paddingTop: '24px',
-        gap: '1rem',
-      }}
-    >
+    <div className={styles.root}>
       <h1>Настройки</h1>
-      <FormControl>
-        <FormLabel id="theme">Тема приложения</FormLabel>
+      <div className={styles.section}>
+        <h2 className={styles.subtitle}>Тема приложения</h2>
         <ChangeTheme />
-      </FormControl>
+      </div>
       {canBeInstalled && (
-        <FormControl>
+        <div className={styles.section}>
           <Install />
-        </FormControl>
+        </div>
       )}
-      <FormControl>
+      <div className={styles.section}>
         <div style={{ display: 'grid', gap: '1rem' }}>
-          <FormLabel>
+          <h2 className={styles.subtitle}>
             Прогресс:{' '}
             {isProgressCompleted
               ? 'завершён'
               : `${progressCounts.newCount} / ${progressCounts.progressCount} / ${progressCounts.doneCount}`}
-          </FormLabel>
+          </h2>
           <ResetButton />
         </div>
-      </FormControl>
-      <FormControl>
+      </div>
+      <div className={styles.section}>
         <div style={{ display: 'grid', gap: '1rem' }}>
-          <FormLabel>О приложении</FormLabel>
+          <h2 className={styles.subtitle}>О приложении</h2>
           <AboutDonate />
           <AboutContacts />
         </div>
-      </FormControl>
+      </div>
       <div style={{ alignSelf: 'flex-end' }}>
         <AboutLicense />
       </div>
