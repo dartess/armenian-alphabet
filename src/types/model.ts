@@ -21,5 +21,9 @@ export type UserTheme = Theme | 'system';
 
 export type DisplayMode = 'twa' | 'standalone' | 'browser';
 
-// todo labeled eslint
-export type WordData = [string, string, string, string];
+export type WordData = [
+  word: string,
+  transliteration: string,
+  translations: string,
+  imageName: string,
+];
