@@ -1,6 +1,6 @@
 import { useAudio } from 'react-use';
 import IconButton from '@mui/material/IconButton';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import { MdOutlinePlayCircleOutline } from 'react-icons/md';
 
 import type { LetterType } from '@/types/model';
 import { reachGoal } from '@/utils/reachGoal';
@@ -25,7 +25,7 @@ export function LetterAudio({ letter: { lowercase, audio } }: Props) {
         onClick={handlePlay}
         disabled={state.playing}
       >
-        <PlayCircleOutlineIcon fontSize="inherit" />
+        <MdOutlinePlayCircleOutline />
       </IconButton>
       {audioElement}
     </>

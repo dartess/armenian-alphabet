@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { useConfirm } from 'material-ui-confirm';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { MdDeleteForever } from 'react-icons/md';
 
 import { Button } from '@/components/Button/Button';
 import { useStore } from '@/core/stores';
@@ -24,7 +24,7 @@ export const ResetButton = observer(function ResetButton() {
   };
 
   return (
-    <Button variant="secondary" onClick={handleClick} endIcon={<DeleteForeverIcon />}>
+    <Button variant="secondary" onClick={handleClick} endIcon={<MdDeleteForever />}>
       Стереть данные
     </Button>
   );

@@ -41,7 +41,7 @@ export const Button = (props: Props) => {
       disabled={disabled}
     >
       {'icon' in props ? (
-        props.icon
+        <span className={styles.iconOnly}>{props.icon}</span>
       ) : (
         <>
           {props.startIcon && <span className={styles.icon}>{props.startIcon}</span>}

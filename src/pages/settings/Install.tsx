@@ -1,5 +1,4 @@
-import InstallMobileIcon from '@mui/icons-material/InstallMobile';
-import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
+import { MdInstallMobile, MdInstallDesktop } from 'react-icons/md';
 import { observer } from 'mobx-react-lite';
 
 import { Button } from '@/components/Button/Button';
@@ -7,7 +6,7 @@ import { useStore } from '@/core/stores';
 import { IS_OS_MOBILE } from '@/utils/envPlatform';
 import { reachGoal } from '@/utils/reachGoal';
 
-const InstallIcon = IS_OS_MOBILE ? InstallMobileIcon : InstallDesktopIcon;
+const InstallIcon = IS_OS_MOBILE ? MdInstallMobile : MdInstallDesktop;
 
 export const Install = observer(function Install() {
   const { showInstallPrompt } = useStore('installation');

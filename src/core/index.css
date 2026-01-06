@@ -97,6 +97,9 @@ code {
   --secondary-main: light-dark(#c5cae9, #b0bec5);
   --secondary-main-transparent: light-dark(rgb(197, 202, 233, 0.6), rgb(176, 190, 197, 0.6));
 
+  --color-success: light-dark(rgb(46, 125, 50), rgb(102, 187, 106));
+  --color-warning: light-dark(rgb(237, 108, 2), rgb(255, 167, 38));
+
   &[data-theme=light] {
     color-scheme: light;
   }

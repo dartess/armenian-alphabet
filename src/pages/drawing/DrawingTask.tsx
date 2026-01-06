@@ -3,22 +3,16 @@ import { observer } from 'mobx-react-lite';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import SignaturePad from 'react-signature-canvas';
 import cn from 'classnames';
-import ClearIcon from '@mui/icons-material/Clear';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import UndoIcon from '@mui/icons-material/Undo';
-import SpellcheckIcon from '@mui/icons-material/Spellcheck';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
+import { MdClear, MdNavigateNext, MdUndo, MdSpellcheck, MdSkipNext } from 'react-icons/md';
 
 import { calculateAccuracy, calculateAllLines, calculateSampleShape } from '@/pages/drawing/utils';
 import { getDrawingQuestion, getRandomDrawingTypeKey } from '@/pages/drawing/drawingTasks';
 import { useStore } from '@/core/stores';
 import { LetterUnit } from '@/components/units/LetterUnit';
 import { reachGoal } from '@/utils/reachGoal';
-import { exhaustiveCheck } from '@/utils/exhaustiveCheck';
 import { Button } from '@/components/Button/Button';
 
+import { ResultIcon } from './ResultIcon/ResultIcon';
 import { DrawingSample } from './DrawingSample';
 import styles from './DrawingTask.module.css';
 import type { Shape, Lines } from './model';
@@ -165,44 +159,33 @@ export const DrawingTask = observer(function DrawingTask() {
             }
           />
           <div className={styles.accuracy}>
-            {(() => {
-              switch (answerStatus) {
-                case 'none':
-                  return null;
-                case 'correct':
-                  return <ThumbUpOffAltIcon color="success" />;
-                case 'wrong':
-                  return <ThumbDownOffAltIcon color="warning" />;
-                default:
-                  exhaustiveCheck(answerStatus);
-              }
-            })()}
+            {answerStatus !== 'none' && <ResultIcon result={answerStatus} />}
           </div>
           <Button
             className={cn(styles.button, { [styles.buttonUndo]: true })}
             onClick={handleUndo}
             disabled={!canBeUndo}
             variant="secondary"
-            icon={<UndoIcon />}
+            icon={<MdUndo />}
           />
           <Button
             className={cn(styles.button, { [styles.buttonClear]: true })}
             onClick={clearSig}
             disabled={!canBeCleared}
             variant="secondary"
-            icon={<ClearIcon />}
+            icon={<MdClear />}
           />
           <Button
             className={cn(styles.button, { [styles.buttonNext]: true })}
             onClick={handleNextLetter}
             variant="secondary"
-            icon={<SkipNextIcon />}
+            icon={<MdSkipNext />}
           />
           {isResultCalculated ? (
             <Button
               className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
               onClick={handleNextLetter}
-              endIcon={<NavigateNextIcon />}
+              endIcon={<MdNavigateNext />}
               variant="secondary"
             >
               Дальше
@@ -211,7 +194,7 @@ export const DrawingTask = observer(function DrawingTask() {
             <Button
               className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
               onClick={handleCheckAccuracy}
-              endIcon={<SpellcheckIcon />}
+              endIcon={<MdSpellcheck />}
               disabled={!canBeChecked}
               variant="secondary"
             >
