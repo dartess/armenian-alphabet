@@ -45,6 +45,11 @@
     justify-self: start;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
+.toggle {
+    display: flex;
+    gap: 0.5rem;
+}
 

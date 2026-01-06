@@ -1,8 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useMemo, useState } from 'react';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 
+import { Switch } from '@/components/Switch/Switch';
 import { Button } from '@/components/Button/Button';
 import type { LetterState } from '@/types/model';
 import { Letter } from '@/components/Letter/Letter';
@@ -120,17 +119,10 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
               Дальше
             </Button>
             {progress !== 'done' && (
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={isUpdateState}
-                    onChange={(_, checked) => {
-                      setIsUpdateState(checked);
-                    }}
-                  />
-                }
-                label={updateStateLabels[progress]}
-              />
+              <div className={styles.toggle}>
+                <Switch checked={isUpdateState} onCheckedChange={setIsUpdateState} />
+                {updateStateLabels[progress]}
+              </div>
             )}
           </div>
         </div>
