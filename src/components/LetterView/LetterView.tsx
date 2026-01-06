@@ -1,6 +1,4 @@
-import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
-import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { MdOutlineSchool, MdOutlineDone, MdNavigateNext } from 'react-icons/md';
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
 
@@ -87,17 +85,15 @@ export const LetterView = observer(function LetterView({
                 onClick={() => {
                   handleStateChange('progress');
                 }}
-              >
-                <SchoolOutlinedIcon />
-              </Button>
+                icon={<MdOutlineSchool />}
+              />
               <Button
                 variant={state === 'done' ? 'primary' : 'secondary'}
                 onClick={() => {
                   handleStateChange('done');
                 }}
-              >
-                <DoneOutlinedIcon />
-              </Button>
+                icon={<MdOutlineDone />}
+              />
             </div>
             <div className={styles.stateText}>{statusTexts[state]}</div>
           </div>
@@ -105,12 +101,12 @@ export const LetterView = observer(function LetterView({
         <div className={styles.navigation}>
           <Button
             onClick={handleClickPrev}
-            startIcon={<NavigateNextIcon className={styles.navigatePrev} />}
+            startIcon={<MdNavigateNext className={styles.navigatePrev} />}
             variant="secondary"
           >
             <LetterUnit unit="uppercase" letter={prevLetter} showVariants={false} />
           </Button>
-          <Button onClick={handleClickNext} endIcon={<NavigateNextIcon />} variant="secondary">
+          <Button onClick={handleClickNext} endIcon={<MdNavigateNext />} variant="secondary">
             <LetterUnit unit="uppercase" letter={nextLetter} showVariants={false} />
           </Button>
         </div>

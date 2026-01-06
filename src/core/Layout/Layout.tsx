@@ -1,8 +1,6 @@
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import QuizIcon from '@mui/icons-material/Quiz';
-import SettingsIcon from '@mui/icons-material/Settings';
-import GestureIcon from '@mui/icons-material/Gesture';
+import { MdQuiz, MdSettings, MdGesture } from 'react-icons/md';
 import { Paper } from '@mui/material';
 import { useLocation } from 'wouter';
 
@@ -32,9 +30,21 @@ export function Layout() {
             showLabels
           >
             <BottomNavigationAction label="Алфавит" icon={<IconAyb />} value="alphabet" />
-            <BottomNavigationAction label="Квиз" icon={<QuizIcon />} value="quiz" />
-            <BottomNavigationAction label="Рисовач" icon={<GestureIcon />} value="drawing" />
-            <BottomNavigationAction label="Настройки" icon={<SettingsIcon />} value="settings" />
+            <BottomNavigationAction
+              label="Квиз"
+              icon={<MdQuiz style={{ fontSize: '24px' }} />}
+              value="quiz"
+            />
+            <BottomNavigationAction
+              label="Рисовач"
+              icon={<MdGesture style={{ fontSize: '24px' }} />}
+              value="drawing"
+            />
+            <BottomNavigationAction
+              label="Настройки"
+              icon={<MdSettings style={{ fontSize: '24px' }} />}
+              value="settings"
+            />
           </BottomNavigation>
         </Paper>
       </div>
