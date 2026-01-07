@@ -1,9 +1,10 @@
 import { useAudio } from 'react-use';
-import IconButton from '@mui/material/IconButton';
 import { MdOutlinePlayCircleOutline } from 'react-icons/md';
 
 import type { LetterType } from '@/types/model';
 import { reachGoal } from '@/utils/reachGoal';
+
+import styles from './LetterAudio.module.css';
 
 type Props = {
   letter: LetterType;
@@ -19,14 +20,15 @@ export function LetterAudio({ letter: { lowercase, audio } }: Props) {
 
   return (
     <>
-      <IconButton
+      <button
         aria-label="прослушать"
-        size="small"
         onClick={handlePlay}
         disabled={state.playing}
+        type="button"
+        className={styles.root}
       >
-        <MdOutlinePlayCircleOutline />
-      </IconButton>
+        <MdOutlinePlayCircleOutline className={styles.icon} />
+      </button>
       {audioElement}
     </>
   );
