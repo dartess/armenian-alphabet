@@ -1,0 +1,11 @@
+.root {
+    border: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
