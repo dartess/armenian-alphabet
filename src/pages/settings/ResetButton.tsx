@@ -1,31 +1,29 @@
 import { observer } from 'mobx-react-lite';
-import { useConfirm } from 'material-ui-confirm';
+import { useToggle } from 'react-use';
 import { MdDeleteForever } from 'react-icons/md';
 
 import { Button } from '@/components/Button/Button';
 import { useStore } from '@/core/stores';
+import { AlertDialog } from '@/components/AlertDialog/AlertDialog';
 
 export const ResetButton = observer(function ResetButton() {
   const { resetProgress } = useStore('progress');
-
-  const confirm = useConfirm();
-
-  const handleClick = () => {
-    confirm({
-      title: 'Стереть все данные',
-      description: 'Вы действительно хотите сбросить прогресс и настройки?',
-      cancellationText: 'Отменить',
-      confirmationText: 'Стереть',
-    })
-      .then(resetProgress)
-      .catch(() => {
-        // no cation required
-      });
-  };
+  const [isOpen, toggleIsOpen] = useToggle(false);
 
   return (
-    <Button variant="secondary" onClick={handleClick} endIcon={<MdDeleteForever />}>
-      Стереть данные
-    </Button>
+    <>
+      <Button variant="secondary" onClick={toggleIsOpen} endIcon={<MdDeleteForever />}>
+        Стереть данные
+      </Button>
+      <AlertDialog
+        open={isOpen}
+        onOpenChange={toggleIsOpen}
+        title="Стереть все данные"
+        description="Вы действительно хотите сбросить прогресс и настройки?"
+        cancellationText="Отменить"
+        confirmationText="Стереть"
+        onConfirm={resetProgress}
+      />
+    </>
   );
 });
