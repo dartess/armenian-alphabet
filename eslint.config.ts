@@ -1,4 +1,5 @@
 import dartessEslintPluginRecommended from '@dartess/eslint-plugin/recommended';
+import dartessEslintPluginRecommendedPostFormat from '@dartess/eslint-plugin/recommended-post-format';
 import dartessEslintPluginReact from '@dartess/eslint-plugin/react';
 import dartessEslintPluginMobx from '@dartess/eslint-plugin/mobx';
 // @ts-ignore: https://github.com/antfu/eslint-plugin-format/issues/11
@@ -29,14 +30,6 @@ export default [
   ...dartessEslintPluginReact,
   ...dartessEslintPluginMobx,
 
-  {
-    name: 'own rules',
-    rules: {
-      '@typescript-eslint/no-non-null-assertion': 'off', // TODO fix it
-      '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off', // TODO check it
-    },
-  },
-
   eslintConfigPrettier,
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,jsx,tsx}'],
@@ -52,6 +45,16 @@ export default [
           printWidth: 100,
         },
       ],
+    },
+  },
+
+  ...dartessEslintPluginRecommendedPostFormat,
+
+  {
+    name: 'own rules',
+    rules: {
+      '@typescript-eslint/no-non-null-assertion': 'off', // TODO fix it
+      '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off', // TODO check it
     },
   },
 
