@@ -1,4 +1,4 @@
-import { ImageListItem, ImageListItemBar, Paper } from '@mui/material';
+import cn from 'classnames';
 
 import { wordExamples } from '@/constants/wordExamples';
 import type { LetterType } from '@/types/model';
@@ -18,36 +18,25 @@ export function Illustration({ letter }: Props) {
 
   return (
     <div>
-      <ImageListItem>
-        <Paper className={styles.imageWrapper} elevation={2}>
-          <img src={imagePath} alt={wordTransliteration} className={styles.image} />
-        </Paper>
-        <ImageListItemBar
-          title={
-            <>
-              <div>
-                <ArmenianText>
-                  <HighlightedText text={word} highlights={letter.lowercase} textCase="uppercase" />
-                </ArmenianText>
-              </div>
-              <div>
-                <ArmenianText>
-                  <HighlightedText text={word} highlights={letter.lowercase} textCase="lowercase" />
-                </ArmenianText>
-              </div>
-            </>
-          }
-          subtitle={
-            <div style={{ marginTop: '0.5rem' }}>
-              <div style={{ marginBottom: '0.2rem' }}>
-                <HighlightedText text={wordTransliteration} highlights={letter.transliteration} />
-              </div>
-              <div>{wordTranslation}</div>
-            </div>
-          }
-          position="below"
-        />
-      </ImageListItem>
+      <div className={styles.imageWrapper}>
+        <img src={imagePath} alt={wordTransliteration} className={styles.image} />
+      </div>
+      <div className={styles.description}>
+        <div className={cn(styles.side, styles.left)}>
+          <ArmenianText>
+            <HighlightedText text={word} highlights={letter.lowercase} textCase="uppercase" />
+          </ArmenianText>
+          <ArmenianText>
+            <HighlightedText text={word} highlights={letter.lowercase} textCase="lowercase" />
+          </ArmenianText>
+          <span className={styles.transliteration}>
+            <HighlightedText text={wordTransliteration} highlights={letter.transliteration} />
+          </span>
+        </div>
+        <div className={styles.side}>
+          <span className={styles.translation}>{wordTranslation}</span>
+        </div>
+      </div>
     </div>
   );
 }
