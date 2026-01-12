@@ -1,0 +1,29 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 56px;
+    background-color: light-dark(#fff, rgb(18, 18, 18));
+}
+
+.item {
+    border: none;
+    padding: 0;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+    font-size: 0.9rem;
+    flex-grow: 1;
+
+    &.active {
+        color: var(--primary-main);
+    }
+}
+
+.icon {
+    font-size: 24px;
+    display: flex;
+}
