@@ -21,7 +21,7 @@ export default [
   {
     settings: {
       mobx: {
-        storeHooks: ['useStore'],
+        storeHooks: ['useStore', 'useTheme'],
       },
     },
   },

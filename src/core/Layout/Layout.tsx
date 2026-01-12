@@ -1,17 +1,21 @@
+import { observer } from 'mobx-react-lite';
 import { MdQuiz, MdSettings, MdGesture } from 'react-icons/md';
 import { useLocation } from 'wouter';
 
 import { BottomNavigation } from '@/components/BottomNavigation/BottomNavigation';
 
+import { useTheme } from '../useTheme';
 import { Router } from '../Router';
 
 import { IconAyb } from './view/IconAyb';
 import styles from './Layout.module.css';
 
-export function Layout() {
+export const Layout = observer(function Layout() {
   const [location, setLocation] = useLocation();
 
   const page = location.slice(1);
+
+  useTheme();
 
   return (
     <div className={styles.root}>
@@ -50,4 +54,4 @@ export function Layout() {
       </div>
     </div>
   );
-}
+});

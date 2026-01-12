@@ -28,7 +28,6 @@
 ## Техническое
 
 - eslint-plugin-react-refresh
-- обновить @mui и @emotion
 - https://github.com/evilmartians/lefthook
 - заменить classnames на clsx
 - букву из меню перевести в кривые
