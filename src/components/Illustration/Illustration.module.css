@@ -7,3 +7,30 @@
     width: 100%;
     aspect-ratio: 960 / 1568;
 }
+
+.description {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.side {
+    display: grid;
+
+    &.left {
+        text-align: left;
+    }
+}
+
+.armenian {
+    display: grid;
+    text-align: left;
+}
+
+.transliteration {
+    font-size: 0.8rem;
+}
+
+.translation {
+    font-size: 0.8rem;
+}
