@@ -1,8 +1,7 @@
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { MdQuiz, MdSettings, MdGesture } from 'react-icons/md';
-import { Paper } from '@mui/material';
 import { useLocation } from 'wouter';
+
+import { BottomNavigation } from '@/components/BottomNavigation/BottomNavigation';
 
 import { Router } from '../Router';
 
@@ -20,33 +19,34 @@ export function Layout() {
         <Router />
       </main>
       <div className={styles.footer}>
-        <Paper className={styles.footerPaper} elevation={3}>
-          <BottomNavigation
-            value={page}
-            onChange={(_, newValue) => {
-              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- TODO
-              setLocation(`/${newValue}`);
-            }}
-            showLabels
-          >
-            <BottomNavigationAction label="Алфавит" icon={<IconAyb />} value="alphabet" />
-            <BottomNavigationAction
-              label="Квиз"
-              icon={<MdQuiz style={{ fontSize: '24px' }} />}
-              value="quiz"
-            />
-            <BottomNavigationAction
-              label="Рисовач"
-              icon={<MdGesture style={{ fontSize: '24px' }} />}
-              value="drawing"
-            />
-            <BottomNavigationAction
-              label="Настройки"
-              icon={<MdSettings style={{ fontSize: '24px' }} />}
-              value="settings"
-            />
-          </BottomNavigation>
-        </Paper>
+        <BottomNavigation
+          value={page}
+          onChange={(newValue) => {
+            setLocation(`/${newValue}`);
+          }}
+          items={[
+            {
+              value: 'alphabet',
+              label: 'Алфавит',
+              icon: <IconAyb />,
+            },
+            {
+              value: 'quiz',
+              label: 'Квиз',
+              icon: <MdQuiz />,
+            },
+            {
+              value: 'drawing',
+              label: 'Рисовач',
+              icon: <MdGesture />,
+            },
+            {
+              value: 'settings',
+              label: 'Настройки',
+              icon: <MdSettings />,
+            },
+          ]}
+        />
       </div>
     </div>
   );
