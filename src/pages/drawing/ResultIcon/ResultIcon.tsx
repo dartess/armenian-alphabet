@@ -1,18 +1,18 @@
 import { MdThumbUpOffAlt, MdThumbDownOffAlt } from 'react-icons/md';
+import cn from 'classnames';
 
-import { exhaustiveCheck } from '@/utils/exhaustiveCheck';
+import styles from './ResultIcon.module.css';
 
 type Props = {
   result: 'correct' | 'wrong';
 };
 
+const iconsByResult = {
+  correct: MdThumbUpOffAlt,
+  wrong: MdThumbDownOffAlt,
+};
+
 export const ResultIcon = ({ result }: Props) => {
-  switch (result) {
-    case 'correct':
-      return <MdThumbUpOffAlt style={{ color: 'var(--color-success)', fontSize: '24px' }} />;
-    case 'wrong':
-      return <MdThumbDownOffAlt style={{ color: 'var(--color-warning)', fontSize: '24px' }} />;
-    default:
-      exhaustiveCheck(result);
-  }
+  const Icon = iconsByResult[result];
+  return <Icon className={cn(styles.root, styles[result])} />;
 };
