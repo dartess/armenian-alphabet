@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react-lite';
+import cn from 'classnames'; // TODO linter - last section
 
 import { useStore } from '@/core/stores';
 
@@ -8,7 +9,7 @@ import { Install } from './Install';
 import { AboutDonate } from './AboutDonate';
 import { AboutContacts } from './AboutContacts';
 import { AboutLicense } from './AboutLicense';
-import styles from './Settings.module.css'; // TODO linter - last section
+import styles from './Settings.module.css';
 
 export const Settings = observer(function Settings() {
   const { canBeInstalled } = useStore('installation');
@@ -26,24 +27,20 @@ export const Settings = observer(function Settings() {
         </div>
       )}
       <div className={styles.section}>
-        <div style={{ display: 'grid', gap: '1rem' }}>
-          <h2 className={styles.subtitle}>
-            Прогресс:{' '}
-            {isProgressCompleted
-              ? 'завершён'
-              : `${progressCounts.newCount} / ${progressCounts.progressCount} / ${progressCounts.doneCount}`}
-          </h2>
-          <ResetButton />
-        </div>
+        <h2 className={styles.subtitle}>
+          Прогресс:{' '}
+          {isProgressCompleted
+            ? 'завершён'
+            : `${progressCounts.newCount} / ${progressCounts.progressCount} / ${progressCounts.doneCount}`}
+        </h2>
+        <ResetButton />
       </div>
       <div className={styles.section}>
-        <div style={{ display: 'grid', gap: '1rem' }}>
-          <h2 className={styles.subtitle}>О приложении</h2>
-          <AboutDonate />
-          <AboutContacts />
-        </div>
+        <h2 className={styles.subtitle}>О приложении</h2>
+        <AboutDonate />
+        <AboutContacts />
       </div>
-      <div style={{ alignSelf: 'flex-end' }}>
+      <div className={cn(styles.section, styles.end)}>
         <AboutLicense />
       </div>
     </div>
