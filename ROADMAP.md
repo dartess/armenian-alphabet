@@ -27,7 +27,6 @@
 
 ## Техническое
 
-- eslint-plugin-react-refresh
 - https://github.com/evilmartians/lefthook
 - заменить classnames на clsx
 - букву из меню перевести в кривые
