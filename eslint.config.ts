@@ -6,6 +6,7 @@ import dartessEslintPluginMobx from '@dartess/eslint-plugin/mobx';
 import format from 'eslint-plugin-format';
 import { parseGitIgnore } from '@dartess/eslint-plugin/utils';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
   parseGitIgnore(), // the easiest way to ignore all `.gitignore` files
@@ -49,6 +50,8 @@ export default [
   },
 
   ...dartessEslintPluginRecommendedPostFormat,
+
+  reactRefresh.configs.vite,
 
   {
     name: 'own rules',

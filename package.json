@@ -53,6 +53,7 @@
     "eslint-plugin-mobx": "^0.0.13",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.26",
     "eslint-plugin-unicorn": "^62.0.0",
     "jiti": "^2.6.1",
     "lightningcss": "^1.30.2",
