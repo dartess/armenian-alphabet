@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any -- can be used in extends */
+/* eslint-disable @typescript-eslint/no-explicit-any,@eslint-react/naming-convention/filename -- can be used in extends & no componen */
 import type { ComponentType, ReactNode, LazyExoticComponent } from 'react';
 import { Suspense, lazy } from 'react';
 

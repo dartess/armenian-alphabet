@@ -44,9 +44,9 @@ export const Button = (props: Props) => {
         <span className={styles.iconOnly}>{props.icon}</span>
       ) : (
         <>
-          {props.startIcon && <span className={styles.icon}>{props.startIcon}</span>}
+          {Boolean(props.startIcon) && <span className={styles.icon}>{props.startIcon}</span>}
           <span className={styles.text}>{props.children}</span>
-          {props.endIcon && <span className={styles.icon}>{props.endIcon}</span>}
+          {Boolean(props.endIcon) && <span className={styles.icon}>{props.endIcon}</span>}
         </>
       )}
     </button>

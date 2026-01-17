@@ -19,7 +19,7 @@ export const Dialog = ({ open, onOpenChange, title, children, actions }: Props) 
         <BaseUiDialog.Popup className={styles.popup}>
           {title && <BaseUiDialog.Title className={styles.title}>{title}</BaseUiDialog.Title>}
           <div className={styles.description}>{children}</div>
-          {actions && <div className={styles.actions}>{actions}</div>}
+          {Boolean(actions) && <div className={styles.actions}>{actions}</div>}
         </BaseUiDialog.Popup>
       </BaseUiDialog.Portal>
     </BaseUiDialog.Root>

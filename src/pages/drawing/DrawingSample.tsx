@@ -10,11 +10,11 @@ type Props = {
   onDraw: (canvas: HTMLCanvasElement) => void;
 };
 export function DrawingSample({ letterValue, onDraw }: Props) {
-  const refCanvas = useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const onDrawRef = useUpdatedRef(onDraw);
 
   useEffect(() => {
-    const { current: canvas } = refCanvas;
+    const { current: canvas } = canvasRef;
     if (!canvas) {
       return;
     }
@@ -22,5 +22,5 @@ export function DrawingSample({ letterValue, onDraw }: Props) {
     onDrawRef.current(canvas);
   }, [letterValue, onDrawRef]);
 
-  return <canvas ref={refCanvas} className={styles.sampleCanvas} width={300} height={300} />;
+  return <canvas ref={canvasRef} className={styles.sampleCanvas} width={300} height={300} />;
 }

@@ -60,6 +60,7 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
   return (
     <>
       {parts.map((part, index) => (
+        // eslint-disable-next-line @eslint-react/no-array-index-key -- no options
         <Fragment key={index}>
           {typeof part === 'string' ? (
             part

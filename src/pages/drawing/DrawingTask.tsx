@@ -22,12 +22,12 @@ type UserDraw = Array<Array<SignaturePad.Point>>;
 export const DrawingTask = observer(function DrawingTask() {
   const [accuracy, setAccuracy] = useState<number | null>(null);
 
-  const sigCanvas = useRef<SignaturePad>(null);
+  const sigCanvasRef = useRef<SignaturePad>(null);
 
   const [userDrawRaw, setUserDrawRaw] = useState<UserDraw>([]);
 
   const clearSig = () => {
-    sigCanvas.current?.clear();
+    sigCanvasRef.current?.clear();
     setUserDrawRaw([]);
   };
 
@@ -68,7 +68,7 @@ export const DrawingTask = observer(function DrawingTask() {
   };
 
   const handleDrawEnd = useCallback(() => {
-    setUserDrawRaw([...sigCanvas.current!.toData()]);
+    setUserDrawRaw([...sigCanvasRef.current!.toData()]);
   }, []);
 
   const wasDrawed = userDrawRaw.length > 0;
@@ -82,7 +82,7 @@ export const DrawingTask = observer(function DrawingTask() {
       }
       const trimmed = [...prevDraw];
       trimmed.length -= 1;
-      sigCanvas.current!.fromData(trimmed);
+      sigCanvasRef.current!.fromData(trimmed);
       return trimmed;
     });
   }, []);
@@ -101,11 +101,12 @@ export const DrawingTask = observer(function DrawingTask() {
   const { appTheme } = useStore('settings');
   const penColor = appTheme === 'light' ? '#000000' : '#dddddd';
   useEffect(() => {
+    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect -- TODO refactor it
     setUserDrawRaw((prevDraw) => {
       const invertedDraw = prevDraw
         // eslint-disable-next-line @typescript-eslint/no-misused-spread -- TODO
         .map((shape) => shape.map((point) => ({ ...point, color: penColor }))) as UserDraw;
-      sigCanvas.current!.fromData(invertedDraw);
+      sigCanvasRef.current!.fromData(invertedDraw);
       return invertedDraw;
     });
   }, [penColor]);
@@ -140,7 +141,7 @@ export const DrawingTask = observer(function DrawingTask() {
           <SignaturePad
             canvasProps={{ className: styles.sigPad }}
             onEnd={handleDrawEnd}
-            ref={sigCanvas}
+            ref={sigCanvasRef}
             penColor={penColor}
           />
           <div

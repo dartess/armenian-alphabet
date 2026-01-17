@@ -81,6 +81,7 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
           <LetterUnit letter={questionLetter} unit={unitFrom} showVariants />
         </div>
         {answerLetters.map((answerLetterItem) => {
+          // eslint-disable-next-line @eslint-react/jsx-no-iife -- TODO refactor
           const color = (() => {
             if (!userAnswerId) {
               return;
