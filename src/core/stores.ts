@@ -1,4 +1,4 @@
-import { useContext, createContext } from 'react';
+import { use, createContext } from 'react';
 
 import { ProgressStore } from '@/stores/progress/ProgressStore';
 import { SettingsStore } from '@/stores/settings/SettingsStore';
@@ -18,15 +18,14 @@ export class Stores {
   public readonly installation: InstallationStore;
 }
 
-const storesContext = createContext<Stores | null>(null);
-const StoresProvider = storesContext.Provider;
+const StoresContext = createContext<Stores | null>(null);
 
 function useStore<T extends keyof Stores>(storeName: T) {
-  const context = useContext(storesContext);
+  const context = use(StoresContext);
   if (context) {
     return context[storeName];
   }
   throw Error('unknown store name');
 }
 
-export { useStore, StoresProvider };
+export { useStore, StoresContext };

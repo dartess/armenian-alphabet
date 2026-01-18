@@ -5,7 +5,7 @@ import { InstallationProvider } from '@/stores/installation/view/InstallationPro
 import { ManifestDynamic } from '@/stores/installation/view/ManifestDynamic';
 import { CongratulationsProvider } from '@/stores/progress/view/Congratulations/CongratulationsProvider';
 
-import { Stores, StoresProvider } from './stores';
+import { Stores, StoresContext } from './stores';
 import { Layout } from './Layout/Layout';
 
 export function App() {
@@ -13,7 +13,7 @@ export function App() {
   const [stores] = useState(() => new Stores());
 
   return (
-    <StoresProvider value={stores}>
+    <StoresContext value={stores}>
       <Layout />
       <ManifestDynamic />
       <InstallationProvider />
@@ -28,6 +28,6 @@ export function App() {
         }}
         version="2"
       />
-    </StoresProvider>
+    </StoresContext>
   );
 }
