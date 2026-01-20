@@ -1,11 +1,3 @@
-- запретить цвета
-- проработать цветовую палитру
-
-## Баги
-
-- Белый экран при старте аппа
-- "изучаю" в квизе не работает
-
 ## Таски
 
 При реализации новых тасок думать о влиянии на модалку комплита и цели метрики
@@ -35,13 +27,10 @@
 - рефакторинг - увести всё в сторы
 - SEO
 - @typescript-eslint/explicit-module-boundary-types
-- подсказку для ios в пакет
-- промоутинг в пакет
 - стайллинт
 - попробовать preact
 - <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/pwa/favicon.svg">
 - https://docs.sentry.io/platforms/javascript/sourcemaps/
-- запаковать в апп
 - детальное тестирование на ios
 - тесты
 - зависимости
@@ -50,10 +39,14 @@
 - reatom
 - полное кэширование данных
 - выбор шрифта
+- satisfy  для алфавита
 - Setup browsers
 - https://x.com/midfilecrisis/status/1360216595302391812?s=28 + test
+- TODOs
 
-## С блокерами:
+## Альтернативные бренчи
 
-- [ts] [webstorm] [preact] satisfy  для алфавита
-- [?] Пуши
+- preact
+- reatom
+- zustand
+- tailwind
