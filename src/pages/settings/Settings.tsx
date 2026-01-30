@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import cn from 'classnames'; // TODO linter - last section
+import cn from 'classnames';
 
 import { useStore } from '@/core/stores';
 

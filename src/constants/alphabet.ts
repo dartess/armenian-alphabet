@@ -1,4 +1,5 @@
 import type { LetterType } from '@/types/model';
+import { ensureArray } from '@/utils/ensureArray';
 
 export const alphabet: Array<LetterType> = [
   {
@@ -315,6 +316,5 @@ export const alphabet: Array<LetterType> = [
   },
 ].map((letter) => ({
   ...letter,
-  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions -- TODO
-  id: `${letter.transliteration}_${letter.ipa}`,
+  id: `${ensureArray(letter.transliteration).join()}_${ensureArray(letter.ipa).join()}`,
 }));
