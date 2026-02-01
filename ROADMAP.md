@@ -23,7 +23,6 @@
 - скейлер до 320
 - рефакторинг - увести всё в сторы
 - SEO
-- @typescript-eslint/explicit-module-boundary-types
 - стайллинт
 - <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/pwa/favicon.svg">
 - https://docs.sentry.io/platforms/javascript/sourcemaps/
