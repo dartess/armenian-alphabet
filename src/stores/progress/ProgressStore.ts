@@ -30,7 +30,7 @@ export class ProgressStore {
   public accessor isShowCongratulations = false;
 
   @action
-  public setLetterProgress = (letter: LetterType, state: LetterState) => {
+  public setLetterProgress = (letter: LetterType, state: LetterState): void => {
     this.totalProgress[letter.lowercase] = state;
 
     switch (state) {
@@ -45,12 +45,16 @@ export class ProgressStore {
   };
 
   @action
-  public resetProgress = () => {
+  public resetProgress = (): void => {
     this.totalProgress = ProgressStore.getInitialProgress();
   };
 
   @computed
-  public get progressCounts() {
+  public get progressCounts(): {
+    newCount: number;
+    progressCount: number;
+    doneCount: number;
+  } {
     const items = Object.values(this.totalProgress);
     const newCount = items.filter((item) => item === 'new').length;
     const progressCount = items.filter((item) => item === 'progress').length;
@@ -63,12 +67,12 @@ export class ProgressStore {
   }
 
   @computed
-  public get hasProgress() {
+  public get hasProgress(): boolean {
     return this.progressCounts.progressCount > 0 || this.progressCounts.doneCount > 0;
   }
 
   @computed
-  public get isProgressCompleted() {
+  public get isProgressCompleted(): boolean {
     return this.progressCounts.newCount === 0 && this.progressCounts.progressCount === 0;
   }
 

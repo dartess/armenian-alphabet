@@ -17,7 +17,7 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
   }
 
   @computed
-  public get canBeInstalled() {
+  public get canBeInstalled(): boolean {
     return this.canBeInstalledByEvent && this.canBeInstalledByRelatedApps;
   }
 
@@ -43,7 +43,7 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
     this.setIsCanBeInstalledByEvent(false);
   };
 
-  public showInstallPrompt = () => {
+  public showInstallPrompt = (): void => {
     if (!deferredInstallPromptEvent) {
       this.setIsCanBeInstalledByEvent(false);
       return;
@@ -66,7 +66,7 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
   // });
   // }
 
-  public static listenEvents() {
+  public static listenEvents(): void {
     window.addEventListener('beforeinstallprompt', (event) => {
       event.preventDefault();
       deferredInstallPromptEvent = event;
@@ -76,7 +76,7 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
     });
   }
 
-  public static isSupported() {
+  public static isSupported(): boolean {
     return IS_SUPPORT_BEFORE_INSTALL_PROMPT;
   }
 }

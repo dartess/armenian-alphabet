@@ -21,7 +21,7 @@ export class SettingsStore {
   public accessor userTheme: UserTheme = 'system';
 
   @action
-  public setUserTheme = (userTheme: UserTheme) => {
+  public setUserTheme = (userTheme: UserTheme): void => {
     this.userTheme = userTheme;
   };
 

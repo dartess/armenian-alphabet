@@ -13,7 +13,7 @@ function getThemeColorMeta(): HTMLMetaElement {
   return document.querySelector('meta[name="theme-color"]') ?? makeThemeColorMeta();
 }
 
-export function useTheme() {
+export function useTheme(): void {
   const { appTheme } = useStore('settings');
 
   useEffect(

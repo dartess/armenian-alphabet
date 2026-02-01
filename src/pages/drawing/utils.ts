@@ -94,7 +94,7 @@ function calculateSampleShape(originalCanvas: HTMLCanvasElement): Shape {
   return result;
 }
 
-function drawLetter(canvas: HTMLCanvasElement, letterValue: string) {
+function drawLetter(canvas: HTMLCanvasElement, letterValue: string): void {
   const ctx = canvas.getContext('2d');
   if (!ctx) {
     throw new Error('ctx is empty');

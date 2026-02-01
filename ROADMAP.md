@@ -25,7 +25,6 @@
 - SEO
 - @typescript-eslint/explicit-module-boundary-types
 - стайллинт
-- попробовать preact
 - <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/pwa/favicon.svg">
 - https://docs.sentry.io/platforms/javascript/sourcemaps/
 - детальное тестирование на ios

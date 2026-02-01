@@ -13,7 +13,7 @@ export function useVariantsPrint(
   showVariants: boolean,
   separator: string,
   mapFn: MapFn<string> = same,
-) {
+): string {
   return useMemo(
     () =>
       toArray(value)

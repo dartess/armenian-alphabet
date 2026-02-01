@@ -58,6 +58,14 @@ export default [
     rules: {
       '@typescript-eslint/no-non-null-assertion': 'off', // TODO fix it
       '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off', // TODO check it
+      '@typescript-eslint/explicit-module-boundary-types': 'error', // TODO move to plugin?
+    },
+  },
+  {
+    name: 'jsx',
+    files: ['**/*.{jsx,tsx}'],
+    rules: {
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
     },
   },
 

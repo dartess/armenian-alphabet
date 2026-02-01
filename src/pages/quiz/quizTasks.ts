@@ -11,8 +11,6 @@ type TaskQuiz = {
   to: TaskUnit;
 };
 
-// todo rewrite on satisfies
-
 export const quizTypes: Partial<Record<QuizKey, TaskQuiz>> = {
   'compare-meta-lowercase': {
     from: 'meta',
@@ -40,6 +38,10 @@ export const quizTypes: Partial<Record<QuizKey, TaskQuiz>> = {
   },
 };
 
+type QuizType = NonNullable<(typeof quizTypes)[keyof typeof quizTypes]>;
+type UnitFrom = QuizType['from'];
+type UnitTo = QuizType['to'];
+
 const ANSWERS_COUNT = 4;
 
 const weightsByProgress: Record<LetterState, number> = {
@@ -48,7 +50,15 @@ const weightsByProgress: Record<LetterState, number> = {
   progress: 4,
 };
 
-export function getQuizQuestion(taskKey: QuizKey, totalProgress: TotalProgress) {
+export function getQuizQuestion(
+  taskKey: QuizKey,
+  totalProgress: TotalProgress,
+): {
+  questionLetter: LetterType;
+  answerLetters: Array<LetterType>;
+  unitFrom: UnitFrom;
+  unitTo: UnitTo;
+} {
   const getWeight = (letter: LetterType) => {
     const progress = totalProgress[letter.lowercase];
     return weightsByProgress[progress];

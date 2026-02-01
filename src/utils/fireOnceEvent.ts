@@ -4,7 +4,7 @@ type EventName = string;
 
 type EventCallback = () => void;
 
-export function fireOnceEvent(eventName: EventName, eventCallback: EventCallback) {
+export function fireOnceEvent(eventName: EventName, eventCallback: EventCallback): void {
   const storageId = `OES#${eventName}`;
   const wasFired = safeLocalStorage.getItem(storageId);
   if (wasFired) {

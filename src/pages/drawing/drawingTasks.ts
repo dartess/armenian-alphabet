@@ -10,8 +10,6 @@ type TaskDrawing = {
   to: Exclude<TaskUnit, 'meta'>;
 };
 
-// todo rewrite on satisfies
-
 export const drawingTypes: Partial<Record<DrawingKey, TaskDrawing>> = {
   'drawing-meta-lowercase': {
     from: 'meta',
@@ -31,6 +29,10 @@ export const drawingTypes: Partial<Record<DrawingKey, TaskDrawing>> = {
   },
 };
 
+type DrawingType = NonNullable<(typeof drawingTypes)[keyof typeof drawingTypes]>;
+type UnitFrom = DrawingType['from'];
+type UnitTo = DrawingType['to'];
+
 const weightsByProgress: Record<LetterState, number> = {
   done: 1,
   new: 0,
@@ -42,7 +44,14 @@ function isValidDrawingQuestion(letter: LetterType, taskKey: DrawingKey): boolea
   return unitTo !== 'uppercase' || letter.uppercase !== 'Եվ';
 }
 
-export function getDrawingQuestion(taskKey: DrawingKey, totalProgress: TotalProgress) {
+export function getDrawingQuestion(
+  taskKey: DrawingKey,
+  totalProgress: TotalProgress,
+): {
+  questionLetter: LetterType;
+  unitFrom: UnitFrom;
+  unitTo: UnitTo;
+} {
   const getWeight = (letter: LetterType) => {
     const progress = totalProgress[letter.lowercase];
     return weightsByProgress[progress];

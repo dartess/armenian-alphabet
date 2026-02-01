@@ -20,7 +20,7 @@ export class Stores {
 
 const StoresContext = createContext<Stores | null>(null);
 
-function useStore<T extends keyof Stores>(storeName: T) {
+function useStore<T extends keyof Stores>(storeName: T): Stores[T] {
   const context = use(StoresContext);
   if (context) {
     return context[storeName];
