@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import { YMInitializer } from 'react-yandex-metrika';
 
 import { InstallationProvider } from '@/stores/installation/view/InstallationProvider';
 import { ManifestDynamic } from '@/stores/installation/view/ManifestDynamic';
 import { CongratulationsProvider } from '@/stores/progress/view/Congratulations/CongratulationsProvider';
+import { useConstant } from '@/utils/useConstant';
 
 import { Stores, StoresContext } from './stores';
 import { Layout } from './Layout/Layout';
 
 export function App() {
-  // TODO add useConstant
-  const [stores] = useState(() => new Stores());
+  const stores = useConstant(() => new Stores());
 
   return (
     <StoresContext value={stores}>
