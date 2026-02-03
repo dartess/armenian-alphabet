@@ -22,8 +22,8 @@ function calculateAccuracy(sample: Shape, input: Shape): number {
     return 0;
   }
   const lengthsForDots: Array<Array<number>> = [];
-  for (let i = 0; i < sample.length; i += 1) {
-    for (let j = 0; j < input.length; j += 1) {
+  for (let i = 0; i < sample.length; i++) {
+    for (let j = 0; j < input.length; j++) {
       lengthsForDots[i] ??= [];
       lengthsForDots[i][j] = length(sample[i], input[j]);
     }
@@ -41,9 +41,9 @@ function getAlphaMatrix(canvas: HTMLCanvasElement): Array<Array<number>> {
   const { data } = ctx.getImageData(0, 0, width, height);
   const rawAlpha = data.filter((_, index) => (index + 1) % 4 === 0);
   const result: Array<Array<number>> = [];
-  for (let y = 0; y < height; y += 1) {
+  for (let y = 0; y < height; y++) {
     result[y] = [];
-    for (let x = 0; x < width; x += 1) {
+    for (let x = 0; x < width; x++) {
       result[y][x] = rawAlpha[y * width + x];
     }
   }

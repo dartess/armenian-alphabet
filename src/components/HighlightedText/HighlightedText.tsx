@@ -15,8 +15,10 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
     switch (textCase) {
       case 'uppercase':
         return text.toUpperCase();
+
       case 'lowercase':
         return text.toLowerCase();
+
       default:
         return text;
     }
@@ -28,8 +30,10 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
       switch (textCase) {
         case 'uppercase':
           return highlightsArray.map((item) => item.toUpperCase());
+
         case 'lowercase':
           return highlightsArray.map((item) => item.toLowerCase());
+
         default:
           return highlightsArray;
       }

@@ -16,8 +16,10 @@ export function LetterUnit({ letter, showVariants, unit }: Props) {
   switch (unit) {
     case 'uppercase':
       return <LetterUppercase letter={letter} showVariants={showVariants} />;
+
     case 'lowercase':
       return <LetterLowercase letter={letter} />;
+
     case 'meta':
       return (
         <>
@@ -25,6 +27,7 @@ export function LetterUnit({ letter, showVariants, unit }: Props) {
           <LetterIpa letter={letter} showVariants={showVariants} />
         </>
       );
+
     default:
       exhaustiveCheck(unit);
   }

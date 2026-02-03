@@ -37,6 +37,7 @@ export class ProgressStore {
       case 'progress':
         reachGoal('progressLetterStart', { letter: letter.lowercase });
         break;
+
       case 'done':
         reachGoal('progressLetterEnd', { letter: letter.lowercase });
         break;

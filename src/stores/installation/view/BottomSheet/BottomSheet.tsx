@@ -12,8 +12,10 @@ export const BottomSheet = observer(function BottomSheet(props: Props) {
   switch (implementationKind) {
     case 'iOS':
       return <BottomSheetIos {...props} />;
+
     case 'native':
       return <BottomSheetChrome {...props} />;
+
     default:
       return null;
   }

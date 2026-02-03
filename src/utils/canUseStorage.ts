@@ -1,6 +1,5 @@
 /**
- * isCanUseStorage() доступность для использования
- * хранилищ sessionStorage и localStorage
+ * Позволяет проверить доступность для использования хранилищ sessionStorage и localStorage.
  *
  * @example
  * if (canUseStorage) {
@@ -11,12 +10,12 @@
 let canUseStorageRaw = false;
 try {
   const randomHash = 'skjs3El3TzFX4gCS';
-  // исключение для использования localStorage и sessionStorage напрямую
+  // Исключение для использования localStorage и sessionStorage напрямую.
   localStorage.setItem(randomHash, randomHash);
   canUseStorageRaw = localStorage.getItem(randomHash) === randomHash;
   localStorage.removeItem(randomHash);
 } catch {
-  // Storage недоступен, ну да и ладно
+  // Storage недоступен, ну да и ладно.
 }
 
 export const canUseStorage = canUseStorageRaw;

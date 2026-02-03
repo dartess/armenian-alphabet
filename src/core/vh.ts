@@ -1,4 +1,4 @@
-function vhFix(fixedTest: HTMLElement, vhTest: HTMLElement, timeout: number): void {
+function vhFix(fixedTest: HTMLElement, vhTest: HTMLElement, timeout: number) {
   setTimeout(() => {
     document.documentElement.insertBefore(fixedTest, document.documentElement.firstChild);
     document.documentElement.insertBefore(vhTest, document.documentElement.firstChild);
@@ -9,9 +9,11 @@ function vhFix(fixedTest: HTMLElement, vhTest: HTMLElement, timeout: number): vo
   }, timeout);
 }
 
+// TODO remove it
 /**
- * Добавляет в html пользовательское свойство --vh-gap, которое помогает использовать на
- * iOS высоту в 100vh через конструкцию
+ * Добавляет в html пользовательское свойство --vh-gap, которое помогает использовать на iOS высоту
+ * в 100vh через конструкцию:
+ *
  * @supports (--var: 0) { height: calc(100vh - var(--vh-gap)); }
  */
 export function fixIOsVh(): void {
@@ -26,6 +28,7 @@ export function fixIOsVh(): void {
   const vhFixTimeoutFast = vhFix.bind(null, fixedTest, vhTest, 100);
   const vhFixTimeoutLong = vhFix.bind(null, fixedTest, vhTest, 500);
 
+  // eslint-disable-next-line complete/require-variadic-function-argument -- TODO check it
   vhFixTimeout();
   window.addEventListener('load', vhFixTimeoutFast);
   window.addEventListener('scroll', vhFixTimeoutFast);

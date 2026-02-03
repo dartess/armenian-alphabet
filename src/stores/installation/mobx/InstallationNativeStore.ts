@@ -51,21 +51,6 @@ export class InstallationNativeStore implements InstallationStoreImplementation 
     deferredInstallPromptEvent.prompt();
   };
 
-  // private checkInstalledRelatedApps() {
-  // navigator
-  //   .getInstalledRelatedApps?.()
-  //   .then((apps) => {
-  //     if (apps.length > 0) {
-  //       runInAction(() => {
-  //         this.canBeInstalledByRelatedApps = false;
-  //       });
-  //     }
-  //   })
-  //   .catch(() => {
-  // no action required
-  // });
-  // }
-
   public static listenEvents(): void {
     window.addEventListener('beforeinstallprompt', (event) => {
       event.preventDefault();

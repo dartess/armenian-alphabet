@@ -5,8 +5,7 @@ export type GetRandomItemOptions<T> = {
   getWeight?: (item: T) => number;
 };
 
-// TODO check exist
-// TODO validate weight
+// TODO check exist. TODO validate weight.
 export function getRandomItem<T>(items: Array<T>, options: GetRandomItemOptions<T> = {}): T {
   const { exclude, getWeight } = options;
   const availableItems = exclude ? items.filter((type) => !exclude.includes(type)) : items;

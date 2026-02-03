@@ -67,7 +67,7 @@ export function getQuizQuestion(
   const questionLetter = getRandomItem(alphabet, { getWeight });
 
   const answerLetters = [questionLetter];
-  for (let i = 1; i <= ANSWERS_COUNT - 1; i += 1) {
+  for (let i = 1; i <= ANSWERS_COUNT - 1; i++) {
     answerLetters.push(getRandomItem(alphabet, { exclude: answerLetters }));
   }
   shuffleOnPlaceArray(answerLetters);

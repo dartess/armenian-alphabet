@@ -67,6 +67,7 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
       case 'correct':
         reachGoal('quizCorrect');
         break;
+
       case 'wrong':
         reachGoal('quizWrong');
         break;

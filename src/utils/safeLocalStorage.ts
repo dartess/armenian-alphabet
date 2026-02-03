@@ -1,16 +1,15 @@
 import { canUseStorage } from './canUseStorage';
 
 /**
- * Объект-замена localStorage с некоторыми его методами.
- * Позволяет задавать дефолтное значение в getItem
- * Исторически использовался для обхода падения в iOS10- в приватном режиме
+ * Объект-замена localStorage с некоторыми его методами. Позволяет задавать дефолтное значение в
+ * getItem.
  */
 export const safeLocalStorage = {
   getItem(key: string, fallbackValue: string | null = null): string | null {
     if (!canUseStorage) {
       return fallbackValue;
     }
-    // исключение для использования localStorage и sessionStorage напрямую
+    // Исключение для использования localStorage и sessionStorage напрямую.
     return localStorage.getItem(key);
   },
 

@@ -81,7 +81,7 @@ export const DrawingTask = observer(function DrawingTask() {
         return prevDraw;
       }
       const trimmed = [...prevDraw];
-      trimmed.length -= 1;
+      trimmed.length--;
       sigCanvasRef.current!.fromData(trimmed);
       return trimmed;
     });
@@ -123,6 +123,7 @@ export const DrawingTask = observer(function DrawingTask() {
       case 'correct':
         reachGoal('drawCorrect');
         break;
+
       case 'wrong':
         reachGoal('drawWrong');
         break;
