@@ -1,3 +1,4 @@
+import type { TSESLint } from '@typescript-eslint/utils';
 import dartessEslintPluginRecommended from '@dartess/eslint-plugin/recommended';
 import dartessEslintPluginRecommendedPostFormat from '@dartess/eslint-plugin/recommended-post-format';
 import dartessEslintPluginReact from '@dartess/eslint-plugin/react';
@@ -81,4 +82,4 @@ export default [
       'import-x/no-extraneous-dependencies': ['error', { devDependencies: true }],
     },
   },
-];
+] satisfies TSESLint.FlatConfig.ConfigArray;
