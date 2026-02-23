@@ -1,69 +1,45 @@
 .root {
-    position: relative;
-    display: flex;
-    appearance: none;
-    border: 0;
-    margin: 0;
-    padding: 1px;
-    width: 2.5rem;
-    height: 1.5rem;
-    border-radius: 1.5rem;
-    outline: 1px solid;
-    outline-offset: -1px;
-    background-color: transparent;
-    background-size: 6.5rem 100%;
-    background-position-x: 100%;
-    background-repeat: no-repeat;
-    transition-property: background-position, box-shadow;
-    transition-timing-function: cubic-bezier(0.26, 0.75, 0.38, 0.45);
-    transition-duration: 125ms;
+  position: relative;
+  display: flex;
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 1px;
+  width: 2.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  outline: 1px solid var(--border-strong);
+  outline-offset: -1px;
+  background-color: var(--surface-raised);
+  transition: outline-color 120ms ease, background-color 120ms ease;
 
-    &:active {
-        background-color: var(--color-gray-100);
-    }
+  &[data-checked] {
+    outline-color: color-mix(in oklab, var(--primary-main) 45%, transparent);
+    background-color: var(--primary-main-transparent);
+  }
 
-    &[data-checked] {
-        background-position-x: 0%;
+  &:focus-visible {
+    &::before {
+      content: '';
+      inset: 0;
+      position: absolute;
+      border-radius: inherit;
+      outline: 2px solid var(--primary-main-strong);
+      outline-offset: 2px;
     }
-
-    &[data-checked]:active {
-        background-color: var(--color-gray-500);
-    }
-
-    &:focus-visible {
-        &::before {
-            content: '';
-            inset: 0;
-            position: absolute;
-            border-radius: inherit;
-            outline: 2px solid var(--color-blue);
-            outline-offset: 2px;
-        }
-    }
+  }
 }
 
 .thumb {
-    aspect-ratio: 1 / 1;
-    height: 100%;
-    border-radius: 100%;
-    background-color: white;
-    transition: translate 150ms ease;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  border-radius: 999px;
+  background-color: var(--surface-elevated);
+  transition: translate 140ms ease, background-color 120ms ease;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 18%);
 
-    &[data-checked] {
-        translate: 1rem 0;
-    }
-
-    @media (prefers-color-scheme: light) {
-        box-shadow:
-                0 0 1px 1px var(--color-gray-100),
-                0 1px 1px var(--color-gray-100),
-                1px 2px 4px -1px var(--color-gray-100);
-    }
-
-    @media (prefers-color-scheme: dark) {
-        box-shadow:
-                0 0 1px 1px rgb(0 0 0 / 25%),
-                0 1px 1px rgb(0 0 0 / 25%),
-                1px 2px 4px -1px rgb(0 0 0 / 25%);
-    }
+  &[data-checked] {
+    translate: 1rem 0;
+    background-color: var(--primary-main);
+  }
 }

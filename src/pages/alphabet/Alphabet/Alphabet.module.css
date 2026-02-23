@@ -1,18 +1,39 @@
 .list {
-    margin: 0;
-    list-style: none;
-    padding: 10px 12px;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(4, 1fr);
-    height: 100%;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  align-content: start;
+}
+
+.letter {
+  min-width: 0;
 }
 
 .letterButton {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: none;
-    border: none;
+  padding: 0.65rem;
+  margin: 0;
+  width: 100%;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 140ms ease, background-color 140ms ease, transform 140ms ease;
+
+  &:hover {
+    border-color: var(--primary-main-transparent);
+    background: var(--surface-accent);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-main-strong);
+    outline-offset: 1px;
+  }
 }

@@ -1,44 +1,78 @@
 .root {
-    text-align: center;
-    padding: 20px;
-    display: grid;
-    gap: 10px;
+  text-align: center;
+  padding: 0.1rem;
+  display: grid;
+  gap: 0.8rem;
 }
 
-.navigation {
-    width: 100%;
-    display: flex;
-
-    & > * {
-        flex-grow: 1;
-    }
-}
-
-
-.content {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
-}
-
-.description {
-    display: grid;
-    gap: 10px;
-    align-self: end;
-    padding-bottom: 0.9rem;
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.2rem 0.2rem 0;
 }
 
 .name {
-    margin: 0;
-    font-size: 1.4rem;
-    font-weight: bold;
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
-.stateText {
-    font-size: 0.8rem;
-    font-style: italic;
+.content {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.illustration {
+  min-width: 0;
+}
+
+.sidePanel {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.basicLetter {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.6rem 0.55rem;
+}
+
+.stateTitle {
+  text-align: left;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+
+.state {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.navigation {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
 }
 
 .navigatePrev {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+@media (max-width: 760px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
 }

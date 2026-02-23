@@ -1,48 +1,31 @@
 .root {
-    font-size: 20px;
-    text-align: center;
+  font-size: clamp(1.15rem, 1.1vw + 0.9rem, 1.55rem);
+  text-align: center;
+  color: var(--text-primary);
 
-    &.new {
-        color: var(--text-primary);
-    }
+  &.progress {
+    color: var(--primary-main);
+  }
 
-    &.progress {
-        color: var(--primary-main);
-    }
-
-    &.done {
-        color: var(--text-secondary);
-    }
+  &.done {
+    color: var(--text-secondary);
+  }
 }
 
 .info {
-    margin-top: 0.2rem;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-top: 0.35rem;
+  font-size: 0.83rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-secondary);
 }
 
 .divider {
-    flex-shrink: 0;
-    border-width: 0;
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.12);
-    height: auto;
-    border-right-width: thin;
-    align-self: stretch;
-    margin: 0 7px;
-}
-
-/* TODO css custom media queries */
-@media (min-width: 768px) {
-    .root {
-        font-size: 25px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .root {
-        font-size: 35px;
-    }
+  flex-shrink: 0;
+  border: 0;
+  width: 1px;
+  align-self: stretch;
+  margin: 0 0.45rem;
+  background: var(--border-subtle);
 }

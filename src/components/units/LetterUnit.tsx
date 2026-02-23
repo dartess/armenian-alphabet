@@ -22,10 +22,10 @@ export function LetterUnit({ letter, showVariants, unit }: Props) {
 
     case 'meta':
       return (
-        <>
+        <span>
           <LetterTransliteration letter={letter} showVariants={showVariants} />{' '}
           <LetterIpa letter={letter} showVariants={showVariants} />
-        </>
+        </span>
       );
 
     default:

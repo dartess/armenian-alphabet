@@ -1,14 +1,22 @@
 .root {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    height: calc(100vh - var(--vh-gap));
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .main {
-    overflow: auto;
+  overflow: auto;
+  max-height: 100%;
+  padding: clamp(0.8rem, 2vw, 1.4rem) clamp(0.8rem, 2vw, 1.4rem) clamp(0.8rem, 2vw, 1.4rem);
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  min-height: 0;
 }
 
 .footer {
-    position: relative; /* fix styles order */
-    padding-bottom: env(safe-area-inset-bottom);
+  position: relative;
+  padding: 0.35rem clamp(.8rem, 2vw, 1.4rem) calc(0.45rem + env(safe-area-inset-bottom));
 }

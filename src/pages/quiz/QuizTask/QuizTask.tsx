@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useMemo, useState } from 'react';
+import cn from 'classnames';
 
 import { Switch } from '@/components/Switch/Switch';
 import { Button } from '@/components/Button/Button';
@@ -111,24 +112,22 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
           );
         })}
       </div>
-      {userAnswerId && (
-        <div className={styles.results}>
-          <div className={styles.letter}>
-            <Letter letter={questionLetter} showVariants />
-          </div>
-          <div className={styles.actions}>
-            <Button onClick={handleNext} variant="secondary">
-              Дальше
-            </Button>
-            {progress !== 'done' && (
-              <div className={styles.toggle}>
-                <Switch checked={isUpdateState} onCheckedChange={setIsUpdateState} />
-                {updateStateLabels[progress]}
-              </div>
-            )}
-          </div>
+      <div className={cn(styles.results, userAnswerId && styles.visible)}>
+        <div className={styles.letter}>
+          <Letter letter={questionLetter} showVariants />
         </div>
-      )}
+        <div className={styles.actions}>
+          <Button onClick={handleNext} variant="secondary">
+            Дальше
+          </Button>
+          {progress !== 'done' && (
+            <div className={styles.toggle}>
+              <Switch checked={isUpdateState} onCheckedChange={setIsUpdateState} />
+              {updateStateLabels[progress]}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 });

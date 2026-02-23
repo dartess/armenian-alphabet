@@ -1,110 +1,117 @@
 .root {
-    display: grid;
-    grid-template-rows: auto auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.85rem;
+
+  @media (min-width: 1024px) {
     height: 100%;
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
 }
 
 .taskDescription {
-    grid-row: 1/2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 15px;
-    font-size: 1.5rem;
-    margin-bottom: 0.35em;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  background: var(--surface-elevated);
+  box-shadow: var(--shadow-soft);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.4;
+  text-align: center;
 }
 
 .taskWorkZone {
-    grid-row: 2/3;
-    display: flex;
-    justify-content: center;
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  gap: 0.75rem;
 }
 
 .drawZone {
-    width: 300px;
-    height: 300px;
-    display: grid;
+  width: min(100%, 360px);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  border-radius: 18px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
 }
 
 .lines {
-    --length: 10px;
-    --t: transparent;
-    --color: var(--line-color);
-    border: 1px solid var(--color);
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    pointer-events: none;
-    background:
-            linear-gradient(to bottom, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) center top / 1px var(--length) repeat-y,
-            linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--cap-line) / var(--length) 1px repeat-x,
-            linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--lowercase-line) / var(--length) 1px repeat-x,
-            linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--base-line) / var(--length) 1px repeat-x,
-            linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--descender-line) / var(--length) 1px repeat-x
-;
+  --length: 10px;
+  --t: transparent;
+  --color: var(--line-color);
+  border: 1px solid var(--color);
+  border-radius: 18px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) center top / 1px var(--length) repeat-y,
+    linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--cap-line) / var(--length) 1px repeat-x,
+    linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--lowercase-line) / var(--length) 1px repeat-x,
+    linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--base-line) / var(--length) 1px repeat-x,
+    linear-gradient(to right, var(--t) 0%, var(--t) 50%, var(--color) 50%, var(--color) 100%) left var(--descender-line) / var(--length) 1px repeat-x;
 }
 
 .sample {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    background: center / cover no-repeat;
-    opacity: 0;
-    pointer-events: none;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  border-radius: 18px;
+  background: center / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .sampleShow {
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+  opacity: 0.5;
+  transition: opacity 0.22s ease;
 }
 
 .sigPad {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    width: 100%;
-    height: 100%;
-}
-
-.button {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    min-width: auto;
-}
-
-.buttonUndo {
-    align-self: end;
-    justify-self: start;
-    transform: translateY(100%);
-}
-
-.buttonClear {
-    align-self: end;
-    justify-self: start;
-    transform: translate(100%, 100%);
-}
-
-.buttonNext {
-    align-self: end;
-    justify-self: start;
-    transform: translate(200%, 100%);
-}
-
-.buttonPrimaryAction {
-    align-self: end;
-    justify-self: end;
-    transform: translateY(100%);
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
 }
 
 .accuracy {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    align-self: start;
-    justify-self: end;
-    pointer-events: none;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-self: start;
+  justify-self: end;
+  pointer-events: none;
+  margin: 0.5rem;
+}
+
+.controls {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.secondaryControls {
+  display: flex;
+  gap: 0.5rem;
+
+  & > * {
+    flex: 1;
+  }
+}
+
+.primaryControl {
+  display: flex;
+
+  & > * {
+    width: 100%;
+  }
 }
 
 .sampleCanvas {
-    width: 300px;
-    height: 300px;
-    display: block;
+  width: 100%;
+  height: 100%;
+  display: block;
 }

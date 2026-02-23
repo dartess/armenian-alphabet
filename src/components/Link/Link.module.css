@@ -1,22 +1,25 @@
 .root {
-    color: var(--link-color);
-    text-decoration: underline;
-    text-decoration-color: var(--link-decoration-color);
-    cursor: pointer;
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  text-decoration-color: var(--link-decoration-color);
+  cursor: pointer;
+  transition: color 120ms ease, text-decoration-color 120ms ease;
 
-    &:hover {
-        text-decoration-color: var(--link-decoration-color-hover);
-    }
+  &:hover {
+    text-decoration-color: var(--link-decoration-color-hover);
+  }
 
-    &.color-primary {
-        --link-color: var(--primary-main);
-        --link-decoration-color: var(--primary-main-transparent);
-        --link-decoration-color-hover: var(--primary-main);
-    }
+  &.color-primary {
+    --link-color: var(--primary-main);
+    --link-decoration-color: var(--primary-main-transparent);
+    --link-decoration-color-hover: var(--primary-main);
+  }
 
-    &.color-secondary {
-        --link-color: var(--secondary-main);
-        --link-decoration-color: var(--secondary-main-transparent);
-        --link-decoration-color-hover: var(--secondary-main);
-    }
+  &.color-secondary {
+    --link-color: var(--text-secondary);
+    --link-decoration-color: var(--border-strong);
+    --link-decoration-color-hover: var(--text-primary);
+  }
 }

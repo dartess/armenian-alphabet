@@ -75,6 +75,7 @@ export const DrawingTask = observer(function DrawingTask() {
   const canBeCleared = wasDrawed;
   const canBeUndo = wasDrawed;
   const canBeChecked = wasDrawed;
+
   const handleUndo = useCallback(() => {
     setUserDrawRaw((prevDraw) => {
       if (prevDraw.length === 0) {
@@ -90,7 +91,6 @@ export const DrawingTask = observer(function DrawingTask() {
   const isResultCalculated = Boolean(accuracy);
 
   const taskTypeText = unitTo === 'uppercase' ? 'ЗАГЛАВНУЮ' : 'строчную';
-  // const taskUnit = printTaskUnit(, );
   const taskText = (
     <>
       Нарисуйте {taskTypeText} букву для{' '}
@@ -100,6 +100,7 @@ export const DrawingTask = observer(function DrawingTask() {
 
   const { appTheme } = useStore('settings');
   const penColor = appTheme === 'light' ? '#000000' : '#dddddd';
+
   useEffect(() => {
     // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect -- TODO refactor it
     setUserDrawRaw((prevDraw) => {
@@ -163,46 +164,41 @@ export const DrawingTask = observer(function DrawingTask() {
           <div className={styles.accuracy}>
             {answerStatus !== 'none' && <ResultIcon result={answerStatus} />}
           </div>
-          <Button
-            className={cn(styles.button, { [styles.buttonUndo]: true })}
-            onClick={handleUndo}
-            disabled={!canBeUndo}
-            variant="secondary"
-            icon={<MdUndo />}
-          />
-          <Button
-            className={cn(styles.button, { [styles.buttonClear]: true })}
-            onClick={clearSig}
-            disabled={!canBeCleared}
-            variant="secondary"
-            icon={<MdClear />}
-          />
-          <Button
-            className={cn(styles.button, { [styles.buttonNext]: true })}
-            onClick={handleNextLetter}
-            variant="secondary"
-            icon={<MdSkipNext />}
-          />
-          {isResultCalculated ? (
+        </div>
+
+        <div className={styles.controls}>
+          <div className={styles.secondaryControls}>
             <Button
-              className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
-              onClick={handleNextLetter}
-              endIcon={<MdNavigateNext />}
+              onClick={handleUndo}
+              disabled={!canBeUndo}
               variant="secondary"
-            >
-              Дальше
-            </Button>
-          ) : (
+              icon={<MdUndo />}
+            />
             <Button
-              className={cn(styles.button, { [styles.buttonPrimaryAction]: true })}
-              onClick={handleCheckAccuracy}
-              endIcon={<MdSpellcheck />}
-              disabled={!canBeChecked}
+              onClick={clearSig}
+              disabled={!canBeCleared}
               variant="secondary"
-            >
-              Проверить
-            </Button>
-          )}
+              icon={<MdClear />}
+            />
+            <Button onClick={handleNextLetter} variant="secondary" icon={<MdSkipNext />} />
+          </div>
+
+          <div className={styles.primaryControl}>
+            {isResultCalculated ? (
+              <Button onClick={handleNextLetter} endIcon={<MdNavigateNext />} variant="secondary">
+                Дальше
+              </Button>
+            ) : (
+              <Button
+                onClick={handleCheckAccuracy}
+                endIcon={<MdSpellcheck />}
+                disabled={!canBeChecked}
+                variant="secondary"
+              >
+                Проверить
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </div>

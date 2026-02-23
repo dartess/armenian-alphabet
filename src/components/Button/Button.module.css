@@ -1,88 +1,101 @@
 .root {
+  --button-accent-color: var(--primary-main);
+  --button-accent-border: var(--primary-main-transparent);
+  --button-accent-soft: color-mix(in oklab, var(--button-accent-color) 18%, transparent);
+  --button-text-color: #111111;
+
+  padding: 0.6rem 0.9rem;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  vertical-align: middle;
+  appearance: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  outline: 0;
+  margin: 0;
+  text-decoration: none;
+  border-radius: 12px;
+  gap: 0.45rem;
+  min-height: 2.45rem;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+
+  &.onlyIcon {
+    min-width: 2.45rem;
+    width: 2.45rem;
     padding: 0;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    vertical-align: middle;
-    appearance: none;
-    font-weight: 500;
-    font-size: 0.875rem;
-    line-height: 1.75;
-    letter-spacing: 0.02857em;
-    text-transform: uppercase;
-    outline: 0px;
-    margin: 0px;
-    text-decoration: none;
-    padding: 5px 15px;
-    border-radius: 4px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    border-width: 1px;
-    border-style: solid;
-    border-image: initial;
-    gap: 8px;
+  }
 
-    &.onlyIcon {
-        padding: 5px;
-    }
+  &.variantPrimary {
+    color: var(--button-text-color);
+    border-color: var(--button-accent-border);
+    background-color: var(--button-accent-color);
+    box-shadow: 0 2px 10px color-mix(in oklab, var(--button-accent-color) 24%, transparent);
+  }
 
+  &.variantSecondary {
+    color: var(--text-primary);
+    border-color: var(--border-subtle);
+    background-color: var(--surface-elevated);
+  }
+
+  &:hover:not(:disabled) {
     &.variantPrimary {
-        color: var(--button-text-color);
-        border-color: var(--button-accent-color);
-        background-color: var(--button-accent-color);
+      background-color: color-mix(in oklab, var(--button-accent-color) 92%, black 8%);
+      box-shadow: 0 4px 14px color-mix(in oklab, var(--button-accent-color) 30%, transparent);
     }
 
     &.variantSecondary {
-        color: var(--button-accent-color);
-        border-color: var(--button-accent-color-transparent);
-        background-color: transparent;
+      border-color: var(--button-accent-border);
+      background-color: var(--button-accent-soft);
     }
+  }
 
-    &.statusDefault {
-        --button-accent-color: var(--primary-main);
-        --button-accent-color-transparent: rgba(255, 183, 77, 0.5);
-        --button-text-color: #000;
-    }
+  &:focus-visible {
+    outline: 2px solid var(--button-accent-border);
+    outline-offset: 1px;
+  }
 
-    &.statusError {
-        --button-accent-color: rgb(244, 67, 54);;
-        --button-accent-color-transparent: rgba(244, 67, 54, 0.5);
-        --button-text-color: #fff;
-    }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
-    &.statusSuccess {
-        --button-accent-color: rgb(102, 187, 106);
-        --button-accent-color-transparent: rgba(102, 187, 106, 0.5);
-        --button-text-color: #000;
-    }
+  &.statusError {
+    --button-accent-color: var(--color-danger);
+    --button-accent-border: color-mix(in oklab, var(--color-danger) 34%, transparent);
+    --button-text-color: #ffffff;
+  }
+
+  &.statusSuccess {
+    --button-accent-color: var(--color-success);
+    --button-accent-border: color-mix(in oklab, var(--color-success) 34%, transparent);
+    --button-text-color: #ffffff;
+  }
 }
 
 .text {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .icon {
-    display: inline-flex;
-    flex-shrink: 0;
+  display: inline-flex;
+  flex-shrink: 0;
 
-    & > svg {
-        font-size: 20px;
-    }
-
-    &:first-child {
-        margin-left: -6px;
-    }
-
-    &:last-child {
-        margin-right: -6px;
-    }
+  & > svg {
+    font-size: 1.15rem;
+  }
 }
 
 .iconOnly {
-    display: inline-flex;
+  display: inline-flex;
 
-    & > svg {
-        font-size: 24px;
-    }
+  & > svg {
+    font-size: 1.35rem;
+  }
 }
