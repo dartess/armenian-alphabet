@@ -104,9 +104,13 @@ export const DrawingTask = observer(function DrawingTask() {
   useEffect(() => {
     // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect -- TODO refactor it
     setUserDrawRaw((prevDraw) => {
-      const invertedDraw = prevDraw
-        // eslint-disable-next-line @typescript-eslint/no-misused-spread -- TODO
-        .map((shape) => shape.map((point) => ({ ...point, color: penColor }))) as UserDraw;
+      const invertedDraw = [...prevDraw];
+      invertedDraw.forEach((shape) => {
+        shape.forEach((point) => {
+          // eslint-disable-next-line no-param-reassign -- no methods for create new Point instance
+          point.color = penColor;
+        });
+      });
       sigCanvasRef.current!.fromData(invertedDraw);
       return invertedDraw;
     });
