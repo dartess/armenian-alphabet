@@ -69,7 +69,7 @@ export class InstallationStore {
     return `/pwa/generated-manifests/manifest-${appTheme}-${PLATFORM_ENV}.json`;
   }
 
-  @observable public accessor manifest: WebAppManifest | null = null;
+  @observable public accessor manifest: WebAppManifest | null = null; // TODO check eslint
 
   public showInstallPrompt = (): void => {
     this.implementation?.showInstallPrompt();
