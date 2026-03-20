@@ -1,5 +1,5 @@
-import { useAudio } from 'react-use';
 import { MdOutlinePlayCircleOutline } from 'react-icons/md';
+import { useState } from 'react';
 
 import type { LetterType } from '@/types/model';
 import { reachGoal } from '@/utils/reachGoal';
@@ -11,25 +11,30 @@ type Props = {
 };
 
 export function LetterAudio({ letter: { lowercase, audio } }: Props) {
-  const [audioElement, state, controls] = useAudio({ src: `/audio/letters/${audio}.mp3` });
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = () => {
-    controls.play();
+    const src = `/audio/letters/${audio}.mp3`;
+    const audioInstance = new Audio(src);
+    audioInstance.currentTime = 0; // с начала
+    audioInstance.play();
+    setIsPlaying(true);
+    audioInstance.addEventListener('ended', () => {
+      setIsPlaying(false);
+    });
+
     reachGoal('cardPlaySound', { letter: lowercase });
   };
 
   return (
-    <>
-      <button
-        aria-label="прослушать"
-        onClick={handlePlay}
-        disabled={state.playing}
-        type="button"
-        className={styles.root}
-      >
-        <MdOutlinePlayCircleOutline className={styles.icon} />
-      </button>
-      {audioElement}
-    </>
+    <button
+      aria-label="прослушать"
+      onClick={handlePlay}
+      disabled={isPlaying}
+      type="button"
+      className={styles.root}
+    >
+      <MdOutlinePlayCircleOutline className={styles.icon} />
+    </button>
   );
 }
