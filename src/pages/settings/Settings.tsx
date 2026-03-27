@@ -9,6 +9,7 @@ import { Install } from './Install';
 import { AboutDonate } from './AboutDonate';
 import { AboutContacts } from './AboutContacts';
 import { AboutLicense } from './AboutLicense';
+
 import styles from './Settings.module.css';
 
 export const Settings = observer(function Settings() {

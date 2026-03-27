@@ -18,7 +18,7 @@ export function App() {
       <InstallationProvider />
       <CongratulationsProvider />
       <YMInitializer
-        accounts={[91393608]}
+        accounts={[91_393_608]}
         options={{
           clickmap: true,
           trackLinks: true,

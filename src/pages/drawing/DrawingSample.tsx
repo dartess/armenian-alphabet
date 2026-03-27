@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useUpdatedRef } from '@/utils/useUpdatedRef';
 
 import { drawLetter } from './utils';
+
 import styles from './DrawingTask.module.css';
 
 type Props = {

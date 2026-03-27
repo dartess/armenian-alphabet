@@ -3,6 +3,7 @@ import cn from 'classnames';
 import type { Props } from '../model';
 
 import CrossIcon from './Cross.svg?react';
+
 import styles from './BottomSheetIos.module.css';
 
 export function BottomSheetIos({ isOpen, onClose, children, closePosition }: Props) {

@@ -14,8 +14,9 @@ import { Button } from '@/components/Button/Button';
 
 import { ResultIcon } from './ResultIcon/ResultIcon';
 import { DrawingSample } from './DrawingSample';
-import styles from './DrawingTask.module.css';
 import type { Shape, Lines } from './model';
+
+import styles from './DrawingTask.module.css';
 
 type UserDraw = Array<Array<SignaturePad.Point>>;
 

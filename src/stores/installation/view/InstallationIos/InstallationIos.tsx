@@ -9,6 +9,7 @@ import { BottomSheetIos } from '../BottomSheet/BottomSheetIos/BottomSheetIos';
 import SafariIcon from './Safari.svg?react';
 import ShareIcon from './Share.svg?react';
 import AddIcon from './Add.svg?react';
+
 import styles from './InstallationIos.module.css';
 
 // original source: https://github.com/khmyznikov/pwa-install

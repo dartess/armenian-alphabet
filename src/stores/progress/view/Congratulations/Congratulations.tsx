@@ -27,7 +27,7 @@ export function Congratulations() {
         height={height}
         recycle={false}
         numberOfPieces={500}
-        tweenDuration={10000}
+        tweenDuration={10_000}
         style={{ zIndex: 2000 }}
       />
     </>
