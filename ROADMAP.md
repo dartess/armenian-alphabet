@@ -1,6 +1,6 @@
 ## Таски
 
-- remove react-use
+- update wouter - remove react-yandex-metrika - remove react-use
 - скрыть выученныеЙ
 - человеческая обработка ошибок
 - нормальный дизайн

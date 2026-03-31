@@ -1,12 +1,14 @@
-import { useToggle } from 'react-use';
-
 import { Button } from '@/components/Button/Button';
 import { LinkExternal } from '@/components/LinkExternal';
 import { Dialog } from '@/components/Dialog/Dialog';
 import { Link } from '@/components/Link/Link';
+import { useToggle } from '@/utils/useToggle';
 
 export function AboutLicense() {
-  const [isOpen, toggleIsOpen] = useToggle(false);
+  const [isOpen, toggleIsOpenRaw] = useToggle(false);
+  const toggleIsOpen = () => {
+    toggleIsOpenRaw();
+  };
 
   return (
     <div>

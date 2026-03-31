@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
-import { useToggle } from 'react-use';
 
 import { Button } from '@/components/Button/Button';
 import { Dialog } from '@/components/Dialog/Dialog';
 import { reachGoal } from '@/utils/reachGoal';
 import { Link } from '@/components/Link/Link';
+import { useToggle } from '@/utils/useToggle';
 
 export function AboutContacts() {
-  const [isOpen, toggleIsOpen] = useToggle(false);
+  const [isOpen, toggleIsOpenRaw] = useToggle(false);
+  const toggleIsOpen = () => {
+    toggleIsOpenRaw();
+  };
 
   useEffect(() => {
     if (isOpen) {

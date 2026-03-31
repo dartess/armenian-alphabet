@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
-import { useToggle } from 'react-use';
 
 import { Button } from '@/components/Button/Button';
 import { Dialog } from '@/components/Dialog/Dialog';
 import { reachGoal } from '@/utils/reachGoal';
 import { LinkExternal } from '@/components/LinkExternal';
+import { useToggle } from '@/utils/useToggle';
 
 export function AboutDonate() {
-  const [isOpen, toggleIsOpen] = useToggle(false);
+  const [isOpen, toggleIsOpenRaw] = useToggle(false);
+  const toggleIsOpen = () => {
+    toggleIsOpenRaw();
+  };
 
   useEffect(() => {
     if (isOpen) {
