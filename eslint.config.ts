@@ -10,7 +10,7 @@ import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
-  parseGitIgnore(), // the easiest way to ignore all `.gitignore` files
+  ...parseGitIgnore(),
 
   {
     languageOptions: {
