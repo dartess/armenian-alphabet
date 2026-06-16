@@ -28,8 +28,7 @@ export function AboutLicense() {
           </LinkExternal>
         </p>
         <p>
-          Изображения сгенерированы в{' '}
-          <LinkExternal href="https://dream.ai/">Dream by WOMBO</LinkExternal>
+          Изображения сгенерированы в <LinkExternal href="https://dream.ai/">Dream by WOMBO</LinkExternal>
         </p>
       </Dialog>
     </div>

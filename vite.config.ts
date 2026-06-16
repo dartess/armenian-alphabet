@@ -27,8 +27,7 @@ export default defineConfig(({ mode }) => ({
   css: {
     transformer: mode !== 'development' ? ('lightningcss' as const) : undefined,
     modules: {
-      generateScopedName:
-        mode === 'development' ? '[name]__[local]_[hash:base64:4]' : '[hash:base64:8]',
+      generateScopedName: mode === 'development' ? '[name]__[local]_[hash:base64:4]' : '[hash:base64:8]',
     },
   },
 }));

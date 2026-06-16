@@ -94,8 +94,7 @@ export const DrawingTask = observer(function DrawingTask() {
   const taskTypeText = unitTo === 'uppercase' ? 'ЗАГЛАВНУЮ' : 'строчную';
   const taskText = (
     <>
-      Нарисуйте {taskTypeText} букву для{' '}
-      <LetterUnit letter={questionLetter} unit={unitFrom} showVariants />
+      Нарисуйте {taskTypeText} букву для <LetterUnit letter={questionLetter} unit={unitFrom} showVariants />
     </>
   );
 
@@ -133,7 +132,7 @@ export const DrawingTask = observer(function DrawingTask() {
       case 'wrong':
         reachGoal('drawWrong');
         break;
-      // no default
+        // no default
     }
   }, [answerStatus]);
 
@@ -153,18 +152,15 @@ export const DrawingTask = observer(function DrawingTask() {
           />
           <div
             className={styles.lines}
-            style={
-              {
-                '--line-color':
-                  appTheme === 'light' ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.1)',
-                ...(lines && {
-                  '--cap-line': `${lines.capLine * 100}%`,
-                  '--lowercase-line': `${lines.lowercaseLine * 100}%`,
-                  '--base-line': `${lines.baseLine * 100}%`,
-                  '--descender-line': `${lines.descenderLine * 100}%`,
-                }),
-              } as CSSProperties
-            }
+            style={{
+              '--line-color': appTheme === 'light' ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.1)',
+              ...(lines && {
+                '--cap-line': `${lines.capLine * 100}%`,
+                '--lowercase-line': `${lines.lowercaseLine * 100}%`,
+                '--base-line': `${lines.baseLine * 100}%`,
+                '--descender-line': `${lines.descenderLine * 100}%`,
+              }),
+            } as CSSProperties}
           />
           <div className={styles.accuracy}>
             {answerStatus !== 'none' && <ResultIcon result={answerStatus} />}
@@ -189,20 +185,22 @@ export const DrawingTask = observer(function DrawingTask() {
           </div>
 
           <div className={styles.primaryControl}>
-            {isResultCalculated ? (
-              <Button onClick={handleNextLetter} endIcon={<MdNavigateNext />} variant="secondary">
-                Дальше
-              </Button>
-            ) : (
-              <Button
-                onClick={handleCheckAccuracy}
-                endIcon={<MdSpellcheck />}
-                disabled={!canBeChecked}
-                variant="secondary"
-              >
-                Проверить
-              </Button>
-            )}
+            {isResultCalculated
+              ? (
+                <Button onClick={handleNextLetter} endIcon={<MdNavigateNext />} variant="secondary">
+                  Дальше
+                </Button>
+              )
+              : (
+                <Button
+                  onClick={handleCheckAccuracy}
+                  endIcon={<MdSpellcheck />}
+                  disabled={!canBeChecked}
+                  variant="secondary"
+                >
+                  Проверить
+                </Button>
+              )}
           </div>
         </div>
       </div>

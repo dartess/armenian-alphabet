@@ -29,8 +29,7 @@ export const Settings = observer(function Settings() {
       )}
       <div className={styles.section}>
         <h2 className={styles.subtitle}>
-          Прогресс:{' '}
-          {isProgressCompleted
+          Прогресс: {isProgressCompleted
             ? 'завершён'
             : `${progressCounts.newCount} / ${progressCounts.progressCount} / ${progressCounts.doneCount}`}
         </h2>

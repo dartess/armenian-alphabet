@@ -28,8 +28,7 @@ export class SettingsStore {
   private mediaPrefersColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   @observable
-  private accessor isSystemPrefersColorSchemeDark: boolean =
-    this.mediaPrefersColorSchemeDark.matches;
+  private accessor isSystemPrefersColorSchemeDark: boolean = this.mediaPrefersColorSchemeDark.matches;
 
   @action
   private handleChangeSystemPrefersColorSchemeDark = () => {

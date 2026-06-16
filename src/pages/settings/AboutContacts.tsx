@@ -34,8 +34,7 @@ export function AboutContacts() {
           <Link href="mailto:aybuben.app@mail.ru?subject=Aybuben%20app">aybuben.app@mail.ru</Link>.
         </p>
         <p>
-          Также вы можете мне написать, если вы являетесь дизайнером и хотите поучаствовать в
-          развитии приложения.
+          Также вы можете мне написать, если вы являетесь дизайнером и хотите поучаствовать в развитии приложения.
         </p>
       </Dialog>
     </div>

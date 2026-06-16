@@ -52,7 +52,7 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
             return part
               .split(highlight)
               .flatMap((partNested, index, partsNested) =>
-                index < partsNested.length - 1 ? [partNested, { highlight }] : partNested,
+                index < partsNested.length - 1 ? [partNested, { highlight }] : partNested
               )
               .filter(Boolean);
           }),
@@ -66,11 +66,7 @@ export function HighlightedText({ text, highlights: highlightsRaw, textCase }: P
       {parts.map((part, index) => (
         // eslint-disable-next-line @eslint-react/no-array-index-key -- no options
         <Fragment key={index}>
-          {typeof part === 'string' ? (
-            part
-          ) : (
-            <span className={styles.highlight}>{part.highlight}</span>
-          )}
+          {typeof part === 'string' ? part : <span className={styles.highlight}>{part.highlight}</span>}
         </Fragment>
       ))}
     </>

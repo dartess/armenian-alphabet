@@ -1,12 +1,11 @@
-import type { TSESLint } from '@typescript-eslint/utils';
+import dartessEslintPluginMobx from '@dartess/eslint-plugin/mobx';
+import dartessEslintPluginReact from '@dartess/eslint-plugin/react';
 import dartessEslintPluginRecommended from '@dartess/eslint-plugin/recommended';
 import dartessEslintPluginRecommendedPostFormat from '@dartess/eslint-plugin/recommended-post-format';
-import dartessEslintPluginReact from '@dartess/eslint-plugin/react';
-import dartessEslintPluginMobx from '@dartess/eslint-plugin/mobx';
-// @ts-ignore: https://github.com/antfu/eslint-plugin-format/issues/11
-import format from 'eslint-plugin-format';
 import { parseGitIgnore } from '@dartess/eslint-plugin/utils';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import type { TSESLint } from '@typescript-eslint/utils';
+import format from 'eslint-plugin-format';
+// import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
@@ -32,19 +31,39 @@ export default [
   ...dartessEslintPluginReact,
   ...dartessEslintPluginMobx,
 
-  eslintConfigPrettier,
+  // eslintConfigPrettier,
+  // {
+  //   files: ['**/*.{js,mjs,cjs,ts,mts,jsx,tsx}'],
+  //   plugins: {
+  //     format,
+  //   },
+  //   rules: {
+  //     'format/prettier': [
+  //       'error',
+  //       {
+  //         parser: 'typescript',
+  //         singleQuote: true,
+  //         printWidth: 100,
+  //       },
+  //     ],
+  //   },
+  // },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,jsx,tsx}'],
-    plugins: {
-      format,
-    },
+    plugins: { format },
     rules: {
-      'format/prettier': [
+      'format/dprint': [
         'error',
         {
-          parser: 'typescript',
-          singleQuote: true,
-          printWidth: 100,
+          language: 'typescript',
+          languageOptions: {
+            quoteStyle: 'preferSingle',
+            'jsx.quoteStyle': 'preferDouble',
+            'module.sortImportDeclarations': 'maintain',
+            'module.sortExportDeclarations': 'maintain',
+            'exportDeclaration.sortNamedExports': 'maintain',
+            'importDeclaration.sortNamedImports': 'maintain',
+          },
         },
       ],
     },
@@ -80,6 +99,8 @@ export default [
       'import-x/no-nodejs-modules': 'off',
       'import-x/no-default-export': 'off',
       'import-x/no-extraneous-dependencies': ['error', { devDependencies: true }],
+      'complete/complete-sentences-line-comments': 'off', // todo remove after update
+      'complete/format-line-comments': 'off', // todo remove after update
     },
   },
 ] satisfies TSESLint.FlatConfig.ConfigArray;
