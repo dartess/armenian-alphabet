@@ -41,7 +41,7 @@ export class ProgressStore {
       case 'done':
         reachGoal('progressLetterEnd', { letter: letter.lowercase });
         break;
-        // no default
+      // no default
     }
   };
 

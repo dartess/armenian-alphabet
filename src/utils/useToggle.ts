@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 
-const toggleReducer = (state: boolean, action: boolean | undefined) => typeof action === 'boolean' ? action : !state;
+const toggleReducer = (state: boolean, action: boolean | undefined) =>
+  typeof action === 'boolean' ? action : !state;
 
 export const useToggle = (
   initialValue: boolean,

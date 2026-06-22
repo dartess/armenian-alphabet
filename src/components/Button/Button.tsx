@@ -5,13 +5,13 @@ import styles from './Button.module.css';
 
 type PropsContent =
   | {
-    children: ReactNode;
-    startIcon?: ReactNode;
-    endIcon?: ReactNode;
-  }
+      children: ReactNode;
+      startIcon?: ReactNode;
+      endIcon?: ReactNode;
+    }
   | {
-    icon: ReactNode;
-  };
+      icon: ReactNode;
+    };
 
 type Props = PropsContent & {
   className?: string;
@@ -40,7 +40,9 @@ export const Button = (props: Props) => {
       onClick={onClick}
       disabled={disabled}
     >
-      {'icon' in props ? <span className={styles.iconOnly}>{props.icon}</span> : (
+      {'icon' in props ? (
+        <span className={styles.iconOnly}>{props.icon}</span>
+      ) : (
         <>
           {Boolean(props.startIcon) && <span className={styles.icon}>{props.startIcon}</span>}
           <span className={styles.text}>{props.children}</span>

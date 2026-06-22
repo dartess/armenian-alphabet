@@ -72,7 +72,7 @@ export const QuizTask = observer(function QuizTask({ quizKey, onNextQuiz }: Prop
       case 'wrong':
         reachGoal('quizWrong');
         break;
-        // no default
+      // no default
     }
   }, [answerStatus]);
 

@@ -19,7 +19,8 @@ export function Letter({ letter, state = 'new', showVariants }: Props) {
   return (
     <div className={cn(styles.root, styles[state])}>
       <div>
-        <LetterUppercase letter={letter} showVariants={showVariants} /> <LetterLowercase letter={letter} />
+        <LetterUppercase letter={letter} showVariants={showVariants} />{' '}
+        <LetterLowercase letter={letter} />
       </div>
       <div className={styles.info}>
         <LetterTransliteration letter={letter} showVariants={showVariants} />

@@ -48,24 +48,31 @@ export default [
   //     ],
   //   },
   // },
+  // {
+  //   files: ['**/*.{js,mjs,cjs,ts,mts,jsx,tsx}'],
+  //   plugins: { format },
+  //   rules: {
+  //     'format/dprint': [
+  //       'error',
+  //       {
+  //         language: 'typescript',
+  //         languageOptions: {
+  //           quoteStyle: 'preferSingle',
+  //           'jsx.quoteStyle': 'preferDouble',
+  //           'module.sortImportDeclarations': 'maintain',
+  //           'module.sortExportDeclarations': 'maintain',
+  //           'exportDeclaration.sortNamedExports': 'maintain',
+  //           'importDeclaration.sortNamedImports': 'maintain',
+  //         },
+  //       },
+  //     ],
+  //   },
+  // },
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,jsx,tsx}'],
+    files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
     plugins: { format },
     rules: {
-      'format/dprint': [
-        'error',
-        {
-          language: 'typescript',
-          languageOptions: {
-            quoteStyle: 'preferSingle',
-            'jsx.quoteStyle': 'preferDouble',
-            'module.sortImportDeclarations': 'maintain',
-            'module.sortExportDeclarations': 'maintain',
-            'exportDeclaration.sortNamedExports': 'maintain',
-            'importDeclaration.sortNamedImports': 'maintain',
-          },
-        },
-      ],
+      'format/oxfmt': ['error', { singleQuote: true }],
     },
   },
 
