@@ -75,6 +75,20 @@ export default [
       'format/oxfmt': ['error', { singleQuote: true }],
     },
   },
+  // {
+  //   files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
+  //   plugins: { format },
+  //   rules: {
+  //     'format/prettier': [
+  //       'error',
+  //       {
+  //         parser: 'typescript',
+  //         singleQuote: true,
+  //         printWidth: 100,
+  //       },
+  //     ],
+  //   },
+  // },
 
   ...dartessEslintPluginRecommendedPostFormat,
 
